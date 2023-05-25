@@ -34,7 +34,7 @@ const loginSlice = createSlice({
                 email: action.payload
             };
         },
-        setLoginPassword(stat, action) {
+        setLoginPassword(state, action) {
             return {
                 ...state,
                 password: action.payload
@@ -53,17 +53,16 @@ const loginSlice = createSlice({
 export const loginThunk = () => async (dispatch, getState) => {
     const state = selectLogin(getState());
     try {
-      const response = await dispatch(loginAsync(state));
-      if (response.type.endsWith("fulfilled")) {
-        debugger;
-        dispatch(setAuthorization(true));
-      }
+        const response = await dispatch(loginAsync(state));
+        if (response.type.endsWith("fulfilled")) {
+            debugger;
+            dispatch(setAuthorization(true));
+        }
     } catch (error) {
-      throw error;
+        throw error;
     }
-  };
+};
 
 export const { setLoginUsername, setLoginPassword } = loginSlice.actions
 export const selectLogin = (state) => state.login;
-
 export default loginSlice.reducer

@@ -1,57 +1,58 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
+import Layout, { Content, Footer, Header } from "antd/lib/layout/layout";
+import { BrowserRouter as Router, Outlet, Route, Routes } from "react-router-dom";
 import './App.css';
+import Registration from "./features/authorization/Registration";
+import Login from "./features/authorization/Login";
+import HomeContainer from "./features/home/HomeContainer";
+import FooterContainer from "./features/common/footer/FooterContainer";
+import HeaderContainer from "./features/common/header/HeaderContainer";
+import CustomMenu from "./features/menu/CustomMenu";
+/* import Account from "./features/Account"; */
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
-    </div>
+    <>
+      <Router>
+        <Layout className="layout">
+          <Header style={{
+            backgroundColor: "black",
+
+          }}>
+            <CustomMenu />
+          </Header>
+          {/* <HeaderContainer/> */}
+          <Layout style={{ minHeight: "500px" }}>
+            {/* <CustomSidebar /> */}
+
+            <Content style={{
+              padding: "20px 50px",
+              backgroundColor: "#7669eb"
+            }}
+            >
+              <Routes>
+                <Route path="/" element={<HomeContainer />} />
+                <Route path="Auth/Login" element={<Login />} />
+                <Route path="Auth/Registration" element={<Registration />} />
+                {/* <Route
+                  path="*"
+                  element={<NotFound />}
+                /> */}
+
+                {/* <Route path="/updateAccount" element={<Account />}></Route> */}
+
+              </Routes>
+            </Content>
+          </Layout>
+
+          <Footer style={{
+            textAlign: "center",
+            backgroundColor: "black"
+          }}>
+            <FooterContainer />
+          </Footer>
+        </Layout>
+      </Router>
+    </>
   );
 }
 

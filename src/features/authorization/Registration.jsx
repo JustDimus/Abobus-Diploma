@@ -13,12 +13,12 @@ import {
     registrateThunk,
 } from "../../app/slice/authorization/registrationSlice";
 import Password from "antd/lib/input/Password";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const Registration = () => {
     const dispatch = useDispatch();
-    const state = useState(selectRegistration);
-    const authorize = useState(selectAuthorization).isAuthorize;
+    const state = useSelector(selectRegistration);
+    const authorize = useSelector(selectAuthorization).isAuthorize;
 
     const formItemLayout = {
         labelCol: {

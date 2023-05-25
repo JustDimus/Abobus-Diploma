@@ -2,7 +2,6 @@ import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { setAuthorization } from "../authorizationSlice";
 import { registration } from "../../api/functionsAPI/authorizationAPI";
 
-
 const initialState = {
     name: "",
     surname: "",

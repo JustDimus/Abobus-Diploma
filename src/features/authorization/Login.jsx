@@ -1,10 +1,10 @@
 import React from 'react';
 import { useEffect, useState } from "react";
 import { Form, Input, Button, Checkbox } from "antd";
-import { GoogleLogin, GoogleLoginResponse } from "react-google-login";
+import { GoogleLogin } from "react-google-login";
+import { selectAuthorization } from "../../app/slice/authorizationSlice";
 import {
     loginAsync,
-    LoginState,
     loginThunk,
     loginViaGoogleAsync,
     selectLogin,
@@ -17,9 +17,9 @@ import { gapi } from "gapi-script";
 import { useDispatch, useSelector } from 'react-redux';
 
 const Login = () => {
-    const clientId = "1098295275668-msaisicftbh0is9pusd5bgchpb4tq57g.apps.googleusercontent.com";
+    const clientId = "878304166832-pjiqjljvokfdvrsev0835p01i6e9m6nm.apps.googleusercontent.com";
     const dispatch = useDispatch();
-    const state = useState(selectLogin);
+    const state = useSelector(selectLogin);
     const authorization = useSelector(selectAuthorization);
     const navigate = useNavigate();
 
