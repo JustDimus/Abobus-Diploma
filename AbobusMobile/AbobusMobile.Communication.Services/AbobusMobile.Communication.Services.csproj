@@ -2,6 +2,12 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <UserSecretsId>c3ebd42d-5ae4-4781-ab2c-05d520787bf3</UserSecretsId>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AbobusMobile.Communication.Services.Abstractions\AbobusMobile.Communication.Services.Abstractions.csproj" />
+    <ProjectReference Include="..\AbobusMobile.Utilities\AbobusMobile.Utilities.csproj" />
+  </ItemGroup>
 
 </Project>
