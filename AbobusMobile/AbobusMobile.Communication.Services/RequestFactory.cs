@@ -36,6 +36,12 @@ namespace AbobusMobile.Communication.Services
             _requestConsumerService = requestConsumerService ?? throw new ArgumentNullException(nameof(requestConsumerService));
 
             _handlers = requestHandlers?.ToList() ?? throw new ArgumentNullException(nameof(requestHandlers));
+
+            foreach (var handler in _handlers)
+            {
+                handler.SetupRequestFactory(this);
+            }
+
             _registeredRequestTypes = factoryConfiguration?.AvailableRequests?.ToList() ?? throw new ArgumentNullException(nameof(_registeredRequestTypes));
         }
 
@@ -62,6 +68,8 @@ namespace AbobusMobile.Communication.Services
             {
                 handler.HandleRequest(request);
             }
+
+            request.ConfigureRequest();
 
             var response = await _requestConsumerService.SendRequestAsync(request);
 

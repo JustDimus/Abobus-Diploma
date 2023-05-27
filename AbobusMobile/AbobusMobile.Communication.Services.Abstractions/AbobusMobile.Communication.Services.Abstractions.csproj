@@ -4,4 +4,13 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\AbobusCore\AbobusCore.Models\AbobusCore.Models.csproj" />
+    <ProjectReference Include="..\AbobusMobile.Utilities\AbobusMobile.Utilities.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -2,20 +2,23 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace AbobusMobile.Communication.Services.Abstractions
 {
     public interface IRequestHandler
     {
-        BaseRequest HandleRequest(BaseRequest request);
+        Task<BaseRequest> HandleRequest(BaseRequest request);
 
-        BaseRequest HandleResponse(BaseRequest request);
+        Task<BaseRequest> HandleResponse(BaseRequest request);
+
+        void SetupRequestFactory(IRequestFactory requestFactory);
     }
 
     public interface IRequestHandler<TRequest> : IRequestHandler where TRequest : BaseRequest
     {
-        TRequest HandleRequest(TRequest request);
+        Task<TRequest> HandleRequest(TRequest request);
 
-        TRequest HandleResponse(TRequest request);
+        Task<TRequest> HandleResponse(TRequest request);
     }
 }

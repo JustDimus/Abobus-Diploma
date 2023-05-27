@@ -3,33 +3,41 @@ using AbobusMobile.Communication.Services.Abstractions.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace AbobusMobile.Communication.Services.Handlers
 {
-    public abstract class BaseRequestHandler<TRequest> : IRequestHandler<TRequest> where TRequest : BaseRequest, new()
+    public abstract class BaseRequestHandler<TRequest> : IRequestHandler<TRequest> where TRequest : BaseRequest
     {
-        public abstract TRequest HandleRequest(TRequest request);
+        protected IRequestFactory RequestFactory { get; private set; }
 
-        public BaseRequest HandleRequest(BaseRequest request)
+        public abstract Task<TRequest> HandleRequest(TRequest request);
+
+        public async Task<BaseRequest> HandleRequest(BaseRequest request)
         {
             if (request is TRequest exactRequest)
             { 
-                return HandleRequest(exactRequest);
+                return await HandleRequest(exactRequest);
             }
 
             return request;
         }
 
-        public abstract TRequest HandleResponse(TRequest request);
+        public abstract Task<TRequest> HandleResponse(TRequest request);
 
-        public BaseRequest HandleResponse(BaseRequest request)
+        public async Task<BaseRequest> HandleResponse(BaseRequest request)
         {
             if (request is TRequest exactResponse)
             {
-                return HandleResponse(exactResponse);
+                return await HandleResponse(exactResponse);
             }
 
             return request;
+        }
+
+        public void SetupRequestFactory(IRequestFactory requestFactory)
+        {
+            RequestFactory = requestFactory ?? throw new ArgumentNullException(nameof(requestFactory));
         }
     }
 }
