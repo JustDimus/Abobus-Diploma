@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace AbobusMobile.Communication.Services
@@ -66,7 +67,7 @@ namespace AbobusMobile.Communication.Services
         {
             foreach (var handler in _handlers)
             {
-                handler.HandleRequest(request);
+                await handler.HandleRequest(request);
             }
 
             request.ConfigureRequest();
@@ -82,7 +83,7 @@ namespace AbobusMobile.Communication.Services
 
             foreach (var handler in _handlers)
             {
-                handler.HandleResponse(request);
+                await handler.HandleResponse(request);
             }
 
             return request.Response;

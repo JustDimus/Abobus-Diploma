@@ -21,7 +21,7 @@ namespace AbobusMobile.Database.Services.Abstractions
 
         Task<List<TEntity>> Select();
 
-        Task<int> UpdateAsync(TEntity entity);
+        Task<int> UpdateAsync(TEntity entity, bool insertIfExist = true);
 
         Task<int> InsertAsync(TEntity entity);
 

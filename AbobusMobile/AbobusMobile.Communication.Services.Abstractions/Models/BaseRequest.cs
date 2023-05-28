@@ -88,7 +88,7 @@ namespace AbobusMobile.Communication.Services.Abstractions.Models
 
         public BaseResponse Response => response;
 
-        public virtual Task<BaseResponse> SendRequest()
+        public virtual Task<BaseResponse> SendRequestAsync()
         {
             return requestSender.SendRequest(this);
         }

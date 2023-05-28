@@ -12,5 +12,8 @@ namespace AbobusCore.Models.Session
 
         [JsonProperty("refresh_token")]
         public string RefreshToken { get; set; }
+
+        [JsonProperty("expiration_time")]
+        public DateTime ExpirationTime { get; set; }
     }
 }

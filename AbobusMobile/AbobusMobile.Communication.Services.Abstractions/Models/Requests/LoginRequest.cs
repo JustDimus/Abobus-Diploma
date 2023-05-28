@@ -15,11 +15,11 @@ namespace AbobusMobile.Communication.Services.Abstractions.Models.Requests
 
         protected override HttpMethod HttpMethod => HttpMethod.Post;
 
-        public override Task<BaseResponse> SendRequest()
+        public override Task<BaseResponse> SendRequestAsync()
         {
             Content.ValidateIsNotNull();
 
-            return base.SendRequest();
+            return base.SendRequestAsync();
         }
 
         public void Initialize(string login, string password)

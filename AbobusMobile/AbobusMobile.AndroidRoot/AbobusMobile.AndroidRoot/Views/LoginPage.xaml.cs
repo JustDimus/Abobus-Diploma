@@ -10,7 +10,7 @@ using Xamarin.Forms.Xaml;
 namespace AbobusMobile.AndroidRoot.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class LoginPage : ContentPage
+    public partial class LoginPage : BasePage
     {
         public LoginPage()
         {

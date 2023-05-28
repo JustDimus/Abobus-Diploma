@@ -7,13 +7,13 @@ namespace AbobusCore.Models.Session
 {
     public class LoginCredentialsModel
     {
-        [JsonProperty("login")]
-        public string Login { get; set; }
+        [JsonProperty("email")]
+        public string Email { get; set; }
 
         [JsonProperty("password")]
         public string Password { get; set; }
 
-        public static LoginCredentialsModel Create(string login, string password)
-            => new LoginCredentialsModel { Login = login, Password = password };
+        public static LoginCredentialsModel Create(string email, string password)
+            => new LoginCredentialsModel { Email = email, Password = password };
     }
 }

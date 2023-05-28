@@ -26,7 +26,7 @@ namespace AbobusMobile.Database.Services.SQLite
 
             container.Register(typeof(IRepository<>), typeof(Repository<>));
 
-            container.Register<DbOptions>(configuration).AsSingleton();
+            container.Register<DbOptions>(configuration);
 
             return container;
         }

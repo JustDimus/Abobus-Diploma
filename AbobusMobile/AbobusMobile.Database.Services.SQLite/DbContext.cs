@@ -3,6 +3,7 @@ using SQLite;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace AbobusMobile.Database.Services.SQLite
 {
@@ -27,16 +28,18 @@ namespace AbobusMobile.Database.Services.SQLite
             {
                 if (!initialized)
                 {
-                    InitializeDatabase();
+                    InitializeDatabase().Wait();
                 }
 
                 return _database;
             }
         }
 
-        private void InitializeDatabase()
+        private Task InitializeDatabase()
         {
-            Database.CreateTablesAsync(_options.CreateFlags, _options.Tables);
+            initialized = true;
+
+            return Task.Run(async () => await Database.CreateTablesAsync(_options.CreateFlags, _options.Tables));
         }
     }
 }

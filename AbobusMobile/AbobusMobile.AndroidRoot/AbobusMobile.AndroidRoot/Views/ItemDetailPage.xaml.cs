@@ -9,7 +9,6 @@ namespace AbobusMobile.AndroidRoot.Views
         public ItemDetailPage()
         {
             InitializeComponent();
-            BindingContext = new ItemDetailViewModel();
         }
     }
 }

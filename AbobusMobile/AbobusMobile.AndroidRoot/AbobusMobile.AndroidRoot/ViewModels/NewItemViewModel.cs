@@ -1,4 +1,6 @@
 ﻿using AbobusMobile.AndroidRoot.Models;
+using AbobusMobile.Database.Models;
+using AbobusMobile.Database.Services.Abstractions;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,59 +9,76 @@ using Xamarin.Forms;
 
 namespace AbobusMobile.AndroidRoot.ViewModels
 {
-    public class NewItemViewModel : BaseViewModel
-    {
-        private string text;
-        private string description;
+    //public class NewItemViewModel : BaseViewModel
+    //{
+    //    private readonly IRepository<ConfigurationModel> _configurations;
 
-        public NewItemViewModel()
-        {
-            SaveCommand = new Command(OnSave, ValidateSave);
-            CancelCommand = new Command(OnCancel);
-            this.PropertyChanged +=
-                (_, __) => SaveCommand.ChangeCanExecute();
-        }
+    //    private string text;
+    //    private string description;
 
-        private bool ValidateSave()
-        {
-            return !String.IsNullOrWhiteSpace(text)
-                && !String.IsNullOrWhiteSpace(description);
-        }
+    //    public NewItemViewModel(
+    //        IRepository<ConfigurationModel> configurationsRepository)
+    //    {
+    //        _configurations = configurationsRepository;
 
-        public string Text
-        {
-            get => text;
-            set => SetProperty(ref text, value);
-        }
+    //        SaveCommand = new Command(OnSave, ValidateSave);
+    //        CancelCommand = new Command(OnCancel);
+    //        this.PropertyChanged +=
+    //            (_, __) => SaveCommand.ChangeCanExecute();
+    //    }
 
-        public string Description
-        {
-            get => description;
-            set => SetProperty(ref description, value);
-        }
+    //    private bool ValidateSave()
+    //    {
+    //        return !String.IsNullOrWhiteSpace(text)
+    //            && !String.IsNullOrWhiteSpace(description);
+    //    }
 
-        public Command SaveCommand { get; }
-        public Command CancelCommand { get; }
+    //    public string Text
+    //    {
+    //        get => text;
+    //        set => SetProperty(ref text, value);
+    //    }
 
-        private async void OnCancel()
-        {
-            // This will pop the current page off the navigation stack
-            await Shell.Current.GoToAsync("..");
-        }
+    //    public string Description
+    //    {
+    //        get => description;
+    //        set => SetProperty(ref description, value);
+    //    }
 
-        private async void OnSave()
-        {
-            Item newItem = new Item()
-            {
-                Id = Guid.NewGuid().ToString(),
-                Text = Text,
-                Description = Description
-            };
+    //    public Command SaveCommand { get; }
+    //    public Command CancelCommand { get; }
 
-            await DataStore.AddItemAsync(newItem);
+    //    private async void OnCancel()
+    //    {
+    //        // This will pop the current page off the navigation stack
+    //        await Shell.Current.GoToAsync("..");
+    //    }
 
-            // This will pop the current page off the navigation stack
-            await Shell.Current.GoToAsync("..");
-        }
-    }
+    //    private async void OnSave()
+    //    {
+    //        ConfigurationModel newModel = new ConfigurationModel()
+    //        {
+    //            Name = text,
+    //            Value = Description
+    //        };
+
+    //        var entity = await _configurations.FirstOrDefaultAsync();
+
+            
+    //        try
+    //        {
+    //            var result = await _configurations.InsertAsync(newModel);
+    //            result.ToString();
+    //        }
+    //        catch(Exception ex)
+    //        {
+    //            ex.ToString();
+    //        }
+
+    //        newModel.ToString();
+
+    //        // This will pop the current page off the navigation stack
+    //        await Shell.Current.GoToAsync("..");
+    //    }
+    //}
 }

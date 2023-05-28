@@ -6,6 +6,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="appsettings.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="7.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="7.0.0" />
     <PackageReference Include="Nancy" Version="2.0.0" />
     <PackageReference Include="TinyIoC" Version="1.3.0">
       <PrivateAssets>all</PrivateAssets>
@@ -19,11 +25,39 @@
     <ProjectReference Include="..\..\AbobusMobile.Communication.Services.Abstractions\AbobusMobile.Communication.Services.Abstractions.csproj" />
     <ProjectReference Include="..\..\AbobusMobile.Communication.Services\AbobusMobile.Communication.Services.csproj" />
     <ProjectReference Include="..\..\AbobusMobile.Database.Models\AbobusMobile.Database.Models.csproj" />
-    <ProjectReference Include="..\..\AbobusMobile.Database.Services.Abstractions\AbobusMobile.Database.Services.Abstractions.csproj" />
     <ProjectReference Include="..\..\AbobusMobile.Database.Services.SQLite\AbobusMobile.Database.Services.SQLite.csproj" />
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="NewFolder\" />
     <Folder Include="Requests\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="appsettings.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Resources\ApplicationTexts.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ApplicationTexts.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Resources\ApplicationTexts.en-US.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\ApplicationTexts.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ApplicationTexts.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\ApplicationTexts.ua.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\StartPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

@@ -53,8 +53,13 @@ namespace AbobusMobile.Database.Services.SQLite
             return Entities.ToListAsync();
         }
 
-        public Task<int> UpdateAsync(TEntity entity)
+        public Task<int> UpdateAsync(TEntity entity, bool insertIfExist = true)
         {
+            if (insertIfExist)
+            {
+                return Database.InsertOrReplaceAsync(entity);
+            }
+
             return Database.UpdateAsync(entity);
         }
 
