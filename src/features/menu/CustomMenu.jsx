@@ -1,18 +1,19 @@
 import { jwtService } from "../../app/jwtService";
 import { selectAuthorization, setAuthorization } from "../../app/slice/authorizationSlice";
 import { notification } from "antd";
-import { MailOutlined, SettingOutlined } from '@ant-design/icons';
-import { Navigate, Outlet, Route, Routes, useNavigate } from "react-router-dom";
+import { MailOutlined, SettingOutlined, LoginOutlined, LogoutOutlined, UsergroupAddOutlined } from '@ant-design/icons';
+import { Link, Navigate, Outlet, Route, Routes, useNavigate } from "react-router-dom";
 import {
     selectNotification,
     setErrorMessage,
     setMessage,
 } from "../../app/slice/notificationSlice";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Menu } from "antd"
 import Login from "../authorization/Login";
 import Registration from "../authorization/Registration";
 import { useDispatch, useSelector } from "react-redux";
+import { HomeContainer } from "../home/index"
 
 const CustomMenu = () => {
     const [handle, setHandle] = useState('');
@@ -22,24 +23,23 @@ const CustomMenu = () => {
     const notifications = useSelector(selectNotification);
     const navigate = useNavigate();
 
-    const itemsAuth = [
+    const itemsNotAuth = [
         {
             label: 'Log In',
-            icon: <MailOutlined />,
+            icon: <LoginOutlined />,
             key: '/Auth/Login',
-
         },
         {
             label: 'Sign In',
-            icon: <SettingOutlined />,
+            icon: <UsergroupAddOutlined />,
             key: '/Auth/Registration',
         },
     ];
 
-    const itemLogout = [
+    const itemsAuth = [
         {
             label: 'Log out',
-            icon: <MailOutlined />,
+            icon: <LogoutOutlined />,
             key: '/Logout',
 
         },
@@ -85,41 +85,25 @@ const CustomMenu = () => {
             {notifications ? (notifications.errorMessage ? openErrorNotification() : null) : null}
             {notifications ? (notifications.message ? openNotification() : null) : null}
 
-            {state.isAuthorize || jwtService.get() ? (
-                <>
-                    <Menu onClick={({ key }) => navigationClick(key)} mode="horizontal"
-                        theme="dark" direction="rtl" items={itemLogout}
-                        style={{
-                            borderRight: 0,
-                            backgroundColor: "black",
-                        }}
-                    >
-                    </Menu>
-                </>
-            ) : (
-                <>
-                    <Menu onClick={navigationClick} mode="horizontal"
-                        theme="dark" direction="rtl" items={itemsAuth}
-                        style={{
-                            borderRight: 0,
-                            backgroundColor: "black",
-                        }}
-                    >
-                    </Menu>
-                </>
-            )}
+            <div className="header_menu">
+                <Link to={"/"} className="logo_main">Abobus</Link>
 
-        </>
-    );
-}
-
-function Content() {
-    return (
-        <>
-            <Routes>
-                <Route path="/Login" element={<Login />} />
-                <Route path="/Register" element={<Registration />} />
-            </Routes>
+                {state.isAuthorize || jwtService.get() ? (
+                    <>
+                        <Menu onClick={({ key }) => navigationClick(key)} mode="horizontal" className="header_menu"
+                            theme="dark" items={itemsAuth} style={{ backgroundColor: "black", flex: "auto", placeContent: "flex-end" }}
+                        >
+                        </Menu>
+                    </>
+                ) : (
+                    <>
+                        <Menu onClick={navigationClick} mode="horizontal"
+                            items={itemsNotAuth} theme="dark" style={{ backgroundColor: "black", flex: "auto", placeContent: "flex-end" }}
+                        >
+                        </Menu>
+                    </>
+                )}
+            </div>
         </>
     );
 }

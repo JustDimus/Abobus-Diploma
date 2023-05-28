@@ -7,6 +7,7 @@ import HomeContainer from "./features/home/HomeContainer";
 import FooterContainer from "./features/common/footer/FooterContainer";
 import HeaderContainer from "./features/common/header/HeaderContainer";
 import CustomMenu from "./features/menu/CustomMenu";
+import BackgroundImage from "./features/common/background/BackgroundImage";
 /* import Account from "./features/Account"; */
 
 function App() {
@@ -14,36 +15,20 @@ function App() {
     <>
       <Router>
         <Layout className="layout">
-          <Header style={{
-            backgroundColor: "black",
-
-          }}>
+          <Header className="header">
             <CustomMenu />
           </Header>
-          {/* <HeaderContainer/> */}
-          <Layout style={{ minHeight: "500px" }}>
-            {/* <CustomSidebar /> */}
 
-            <Content style={{
-              padding: "20px 50px",
-              backgroundColor: "#7669eb"
-            }}
-            >
+          <Layout style={{ minHeight: "500px" }}>
+            <Content className="main_styling">
               <Routes>
                 <Route path="/" element={<HomeContainer />} />
                 <Route path="Auth/Login" element={<Login />} />
                 <Route path="Auth/Registration" element={<Registration />} />
-                {/* <Route
-                  path="*"
-                  element={<NotFound />}
-                /> */}
-
-                {/* <Route path="/updateAccount" element={<Account />}></Route> */}
 
               </Routes>
             </Content>
           </Layout>
-
           <Footer style={{
             textAlign: "center",
             backgroundColor: "black"

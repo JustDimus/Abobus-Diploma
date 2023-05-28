@@ -7,7 +7,6 @@ const initialState = {
     surname: "",
     nickname: "",
     email: "",
-    gender: "",
     password: "",
     confirmPassword: "",
 };
@@ -42,12 +41,6 @@ export const registrationSlice = createSlice({
                 nickname: action.payload
             };
         },
-        setRegistrationGender: (state, action) => {
-            return {
-                ...state,
-                gender: action.payload
-            };
-        },
         setRegistrationEmail: (state, action) => {
             return {
                 ...state,
@@ -73,7 +66,6 @@ export const {
     setRegistrationName,
     setRegistrationSurname,
     setRegistrationNickname,
-    setRegistrationGender,
     setRegistrationEmail,
     setRegistrationPassword,
     setRegistrationConfirmPassword

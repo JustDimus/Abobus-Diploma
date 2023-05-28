@@ -1,6 +1,6 @@
 import React from 'react';
 import { useEffect, useState } from "react";
-import { Form, Input, Button, Checkbox } from "antd";
+import { Form, Input, Button, Checkbox, Typography, Row, Divider } from "antd";
 import { GoogleLogin } from "react-google-login";
 import { selectAuthorization } from "../../app/slice/authorizationSlice";
 import {
@@ -15,6 +15,8 @@ import {
 import { useNavigate } from "react-router-dom";
 import { gapi } from "gapi-script";
 import { useDispatch, useSelector } from 'react-redux';
+import { UserOutlined, LockOutlined, GoogleOutlined, ContactsOutlined } from "@ant-design/icons"
+/* import Typography from 'antd/es/typography/Typography'; */
 
 const Login = () => {
     const clientId = "878304166832-pjiqjljvokfdvrsev0835p01i6e9m6nm.apps.googleusercontent.com";
@@ -59,76 +61,100 @@ const Login = () => {
 
     return (
         <>
-            <h3 style={{ textAlign: "center" }}>Login</h3>
-            <Form
-                style={{ paddingTop: "1em" }}
-                name="login"
-                labelCol={{ span: 8 }}
-                wrapperCol={{ span: 8 }}
-                initialValues={{ remember: true }}
-                onFinish={logInSystem}
-                onFinishFailed={(error) => {
-                    console.log({ error });
-                }}
-            >
-                <Form.Item
-                    label="Login "
+            <Row type="flex" justify="center" align="middle" style={{ paddingTop: "20px", paddingBottom: "20px" }}>
+                <Form
+                    className="authorization_form"
                     name="login"
-                    rules={[{ required: true, message: "Please input your login" }]}
+                    initialValues={{ remember: true }}
+                    onFinish={logInSystem}
+                    onFinishFailed={(error) => {
+                        console.log({ error });
+                    }}
                 >
-                    <Input
-                        value={state.email}
-                        onChange={(e) => setEmail(e)}
-                    />
-                </Form.Item>
 
-                <Form.Item
-                    label="Password"
-                    name="password"
-                    rules={[{ required: true, message: "Please input your password." }]}
-                >
-                    <Input.Password
-                        value={state.password}
-                        onChange={(e) => setPassword(e)}
-                    />
-                </Form.Item>
+                    <div className="headlines_main">Login</div>
 
-                <Form.Item
-                    name="remember"
-                    valuePropName="checked"
-                    wrapperCol={{ offset: 8, span: 16 }}
-                >
-                    <Checkbox>Remember me</Checkbox>
-                </Form.Item>
-
-                <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-                    <Button type="primary" htmlType="submit"
-                        onClick={(res) => {
-                            console.log("Aboba")
-                        }}
-                        onError={(error) => {
-                            console.log(error);
-                        }}
+                    <Form.Item
+                        /* label="Login " */
+                        name="login"
+                        rules={[{
+                            required: true,
+                            message: "Enter valid login!",
+                            min: 2,
+                            whitespace: true
+                        }]}
+                        hasFeedback
                     >
-                        Sign In
-                    </Button>
-                </Form.Item>
+                        <Input
+                            
+                            prefix={<UserOutlined style={{ color: 'rgba(0,0,0,.25)', paddingRight: "5px" }} />}
+                            placeholder="Enter your login"
+                            value={state.email}
+                            onChange={(e) => setEmail(e)}
+                        />
+                    </Form.Item>
 
-                <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-                    <GoogleLogin clientId={clientId}
-                        buttonText="Sign In via Google"
-                        isSignedIn={true}
-                        onSuccess={(res) => {
-                            console.log("Hello")
-                            loginGoogleAsync(res);
-                        }}
+                    <Form.Item
+                        name="password"
+                        rules={[{ required: true, message: "Enter your password" }]}
+                    >
+                        <Input.Password
+                            prefix={<LockOutlined style={{ color: 'rgba(0,0,0,.25)', paddingRight: "5px" }} />}
+                            placeholder="Enter valid password"
+                            value={state.password}
+                            onChange={(e) => setPassword(e)}
+                        />
+                    </Form.Item>
 
-                        onFailure={(error) => {
-                            console.log(error)
-                        }}
-                    />
-                </Form.Item>
-            </Form>
+                    <Form.Item
+                        name="remember"
+                        valuePropName="checked"
+                    >
+                        <div className="remember_me_and_forgot_password">
+                            <Checkbox>Remember me</Checkbox>
+                            <a className="forgot_password_styling" href="#" >
+                                Forgot password?
+                            </a>
+                        </div>
+
+                    </Form.Item>
+
+                    <Form.Item >
+                        <Button type="primary" htmlType="submit" className="main_btns"
+                            onClick={(res) => {
+                                console.log("Aboba")
+                            }}
+                            onError={(error) => {
+                                console.log(error);
+                            }}
+                            block
+                        >
+                            Log In
+                        </Button>
+                    </Form.Item>
+
+                    <Divider style={{ borderColor: "black" }}><div style={{ paddingBottom: "4px" }}>or</div></Divider>
+
+                    <div className="socials">
+                        <Form.Item>
+                            <GoogleLogin clientId={clientId}
+                                buttonText="Log In via Google"
+                                isSignedIn={true}
+                                onSuccess={(res) => {
+                                    console.log("Google Login")
+                                    loginGoogleAsync(res);
+                                }}
+
+                                onFailure={(error) => {
+                                    console.log(error)
+                                }}
+                            />
+                        </Form.Item>
+                    </div>
+
+                </Form>
+            </Row>
+
         </>
     );
 }

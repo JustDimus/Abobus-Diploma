@@ -39,10 +39,6 @@ export const FooterLink = styled.a`
   margin-bottom: 20px;
   font-size: 18px;
   text-decoration: none;
-  &:hover {
-    color: green;
-    transition: 200ms ease-in;
-  }
 `;
 
 export const Heading = styled.p`

@@ -7,6 +7,13 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.main_styling {
+  padding: 20px 50px;
+
+  background: url("../public/images/main_image3.jpg");
+  background-size: cover;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -19,10 +26,110 @@ code {
   width: '100%';
   display: 'flex';
   align-items: 'center';
-  background-color:black;
+  background-color: black;
+}
+
+.authorization_form {
+  background-color: rgba(255, 255, 255, 0.33);
+
+  box-shadow: 0px 8px 32px 0 rgba(0, 0, 255, 0.33);
+  backdrop-filter: blur(7px);
+  width: 430px;
+  border-radius: 14px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  padding: 0px 20px 0px 20px;
+}
+
+.main_btns {
+  font-family: 'Lobster', cursive;
+  font-size: 20px;
+  color: white;
+  padding-bottom: 35px;
+
+  background-color: rgba(45, 45, 229, 0.663);
+}
+
+.headlines_main {
+  font-family: 'Lobster', cursive;
+  color: rgba(45, 45, 229, 0.863);
+
+  text-align: center;
+  font-size: 40px;
+  padding-bottom: 15px;
+  padding-top: 8px;
+
+  user-select: none; 
+}
+
+.socials {
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+
+  color: black;
+
+  padding-top: 15px;
+  padding-bottom: 10px;
+}
+
+.remember_me_and_forgot_password {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.forgot_password_styling:hover {
+  color: #F0FFF0;
+  transition-delay: 0.2s;
+}
+
+.additional_text {
+  font-family: 'Lobster', cursive;
+}
+
+input::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #ff0000;
+  opacity: 1;
+  /* Firefox */
+}
+
+.auth_two_items_in_one_row {
+  display: flex;
+  /* flex-wrap: nowrap; */
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.ant_input_suffix {
+  margin-inline-start: 0px;
 }
 
 .header_menu {
-  background-color:black;
-  float: right;
+  background-color: black;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: rgba(255, 255, 255, 0.65);
+
+  
+}
+
+.header {
+  background-color: black;
+}
+
+.logo_main {
+  color: white;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  font-family: 'Lobster', cursive;
+  font-size: 35px;
+  user-select: none; 
 }

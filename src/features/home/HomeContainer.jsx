@@ -6,15 +6,9 @@ const HomeContainer = () => {
     return (
         <>
             <div
-                style={{
-                    padding: "1em",
-                    fontSize: "40px",
-                    textAlign: "center",
-                    border: "3px inset #00BFFF",
-                    borderRadius: "30px",
-                }}
+
             >
-                The best library services for you
+                Aboba                
             </div>
         </>
     );

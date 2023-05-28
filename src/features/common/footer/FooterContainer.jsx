@@ -12,7 +12,7 @@ const FooterContainer = () => {
     return (
         <Box>
             <h1 style={{ color: "white", textAlign: "center", marginTop: "-50px" }}>
-                Find and get new knowledge on this web site
+                Find and get to new places that might be your favorite
             </h1>
             <Container>
                 <Row>
@@ -20,7 +20,6 @@ const FooterContainer = () => {
                         <Heading>About Us</Heading>
                         <FooterLink href="#">Aim</FooterLink>
                         <FooterLink href="#">Vision</FooterLink>
-                        <FooterLink href="#">Testimonials</FooterLink>
                     </Column>
                     <Column>
                         <Heading>Services</Heading>
