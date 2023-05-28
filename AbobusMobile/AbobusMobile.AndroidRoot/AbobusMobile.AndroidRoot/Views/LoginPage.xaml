@@ -8,7 +8,8 @@
              mc:Ignorable="d"
              x:Class="AbobusMobile.AndroidRoot.Views.LoginPage"
              Shell.FlyoutItemIsVisible="False"
-             Shell.TabBarIsVisible="False">
+             Shell.TabBarIsVisible="False"
+             BindingContext="{Binding LoginViewModel, Source={StaticResource AppProvider}}">
 
     <Shell.TitleView>
         <Label Text="{x:Static resources:ApplicationTexts.LoginPage_TitleText}"
@@ -16,7 +17,10 @@
     </Shell.TitleView>
     <ContentPage.Content>
         <StackLayout Padding="10,0,10,0" VerticalOptions="Center">
-            <Button VerticalOptions="Center" Text="Login" Command="{Binding LoginCommand}"/>
+            <Entry Text="{Binding Email}" />
+            <Entry Text="{Binding Password}" IsPassword="True" />
+            
+            <Button VerticalOptions="Center" Text="Login" Command="{Binding LoginCommand}" />
         </StackLayout>
     </ContentPage.Content>
 </local:BasePage>

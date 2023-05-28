@@ -93,12 +93,12 @@ namespace AbobusMobile.Communication.Services.Abstractions.Models
             return requestSender.SendRequest(this);
         }
 
-        private void SetRequestResponse(BaseResponse newResponse)
+        protected void SetRequestResponse(BaseResponse newResponse)
         {
             response = newResponse ?? throw new ArgumentNullException(nameof(newResponse));
         }
 
-        private void SetRequestFactory(IRequestSender requestSender)
+        protected void SetRequestFactory(IRequestSender requestSender)
         {
             this.requestSender = requestSender ?? throw new ArgumentNullException(nameof(requestSender));
         }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Xamarin.Forms;
 
 namespace AbobusMobile.AndroidRoot.ViewModels
 {
@@ -8,7 +9,12 @@ namespace AbobusMobile.AndroidRoot.ViewModels
     {
         public StartViewModel()
         {
-            this.ToString();
+
+        }
+
+        public override async void OnPageAppeared()
+        {
+            await Shell.Current.GoToAsync("//login");
         }
     }
 }

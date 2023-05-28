@@ -4,4 +4,15 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="System.Reactive" Version="6.0.0" />
+    <PackageReference Include="System.Reactive.Linq" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AbobusMobile.BLL.Services.Abstractions\AbobusMobile.BLL.Services.Abstractions.csproj" />
+    <ProjectReference Include="..\AbobusMobile.Communication.Services.Abstractions\AbobusMobile.Communication.Services.Abstractions.csproj" />
+    <ProjectReference Include="..\AbobusMobile.DAL.Services.Abstractions\AbobusMobile.DAL.Services.Abstractions.csproj" />
+  </ItemGroup>
+
 </Project>

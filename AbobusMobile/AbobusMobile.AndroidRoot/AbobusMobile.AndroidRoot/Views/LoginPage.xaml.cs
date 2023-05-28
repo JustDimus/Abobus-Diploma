@@ -13,9 +13,9 @@ namespace AbobusMobile.AndroidRoot.Views
     public partial class LoginPage : BasePage
     {
         public LoginPage()
+            : base()
         {
             InitializeComponent();
-            this.BindingContext = new LoginViewModel();
         }
     }
 }

@@ -22,8 +22,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\AbobusMobile.BLL.Services.Abstractions\AbobusMobile.BLL.Services.Abstractions.csproj" />
+    <ProjectReference Include="..\..\AbobusMobile.BLL.Services\AbobusMobile.BLL.Services.csproj" />
     <ProjectReference Include="..\..\AbobusMobile.Communication.Services.Abstractions\AbobusMobile.Communication.Services.Abstractions.csproj" />
     <ProjectReference Include="..\..\AbobusMobile.Communication.Services\AbobusMobile.Communication.Services.csproj" />
+    <ProjectReference Include="..\..\AbobusMobile.DAL.Services\AbobusMobile.DAL.Services.csproj" />
     <ProjectReference Include="..\..\AbobusMobile.Database.Models\AbobusMobile.Database.Models.csproj" />
     <ProjectReference Include="..\..\AbobusMobile.Database.Services.SQLite\AbobusMobile.Database.Services.SQLite.csproj" />
   </ItemGroup>
@@ -38,6 +41,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Reference Include="Mono.Android">
+      <HintPath>..\..\..\..\..\Programs\VisualStudio2022\VisualStudio\Common7\IDE\ReferenceAssemblies\Microsoft\Framework\MonoAndroid\v13.0\Mono.Android.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="Resources\ApplicationTexts.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -47,14 +56,14 @@
 
   <ItemGroup>
     <EmbeddedResource Update="Resources\ApplicationTexts.en-US.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator></Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Resources\ApplicationTexts.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ApplicationTexts.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="Resources\ApplicationTexts.ua.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator></Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\StartPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>

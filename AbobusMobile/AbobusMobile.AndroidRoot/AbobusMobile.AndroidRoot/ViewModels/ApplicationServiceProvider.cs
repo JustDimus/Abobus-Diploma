@@ -3,6 +3,7 @@ using AbobusMobile.BLL.Services.Abstractions.Authorization;
 using AbobusMobile.BLL.Services.Authorization;
 using AbobusMobile.Communication.Services;
 using AbobusMobile.Communication.Services.Abstractions;
+using AbobusMobile.Communication.Services.Abstractions.Configuration;
 using AbobusMobile.Communication.Services.Handlers;
 using AbobusMobile.DAL.Services.Abstractions.Authorization;
 using AbobusMobile.DAL.Services.Authorization;
@@ -35,7 +36,11 @@ namespace AbobusMobile.AndroidRoot.ViewModels
             _container = new TinyIoCContainer();
 
             _container
-                .ConfigureEndpoints()
+                .AddRequestConsumerService(options =>
+                {
+                    options.UseRelativeUrls = true;
+                    options.BaseURL = configuration.GetConnectionString("ApiUrl");
+                })
                 .ConfigureRequestFactory()
                 .ConfigureRequestHandlers();
 

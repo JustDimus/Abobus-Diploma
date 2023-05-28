@@ -56,7 +56,7 @@ namespace AbobusMobile.Communication.Services
                 ExtractRequiredMethods(requestType);
             }
 
-            var request = (BaseRequest) _cachedTypes[requestType].Constructor.Invoke(new object[] { });
+            var request = (BaseRequest)_cachedTypes[requestType].Constructor.Invoke(new object[] { });
 
             _cachedTypes[requestType].SetupSenderMethod.Invoke(request, new object[] { this });
 
@@ -95,16 +95,14 @@ namespace AbobusMobile.Communication.Services
             requestType.ValidateBaseType(typeof(BaseRequest));
             requestType.ValidateTypeMethod(method
                 => method.Name == CommunicationConstants.REQUEST_SENDER_SETUP_METHOD_NAME
-                && method.IsPrivate);
+                && method.IsFamily);
             requestType.ValidateTypeMethod(method
                 => method.Name == CommunicationConstants.RESPONSE_SETUP_METHOD_NAME
-                && method.IsPrivate);
-
-            requestType.ValidateTypeMethod(method => method.Name == CommunicationConstants.REQUEST_SENDER_SETUP_METHOD_NAME);
+                && method.IsFamily);
 
             _cachedTypes.Add(requestType, new RequestParameters
             {
-                Constructor = requestType.GetConstructor(BindingFlags.Public, Type.DefaultBinder, Type.EmptyTypes, null),
+                Constructor = requestType.GetConstructor(Type.EmptyTypes),
                 SetupSenderMethod = requestType.GetMethod(
                     CommunicationConstants.REQUEST_SENDER_SETUP_METHOD_NAME,
                     BindingFlags.NonPublic | BindingFlags.Instance),

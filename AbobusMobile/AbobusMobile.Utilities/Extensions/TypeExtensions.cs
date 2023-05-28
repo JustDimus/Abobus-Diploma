@@ -27,7 +27,9 @@ namespace AbobusMobile.Utilities.Extensions
 
         public static void ValidateTypeMethod(this Type type, Func<MethodInfo, bool> validatorFunction)
         {
-            if (!type.GetMethods(BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public).Any(validatorFunction))
+            var availableMethods = type.GetMethods(BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public);
+
+            if (!availableMethods.Any(validatorFunction))
             {
                 throw new ValidationException($"Type {type.Name} does not contain method that matches {nameof(validatorFunction)}");
             }

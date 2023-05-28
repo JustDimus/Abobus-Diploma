@@ -4,4 +4,11 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\AbobusMobile.DAL.Services.Abstractions\AbobusMobile.DAL.Services.Abstractions.csproj" />
+    <ProjectReference Include="..\AbobusMobile.Database.Models\AbobusMobile.Database.Models.csproj" />
+    <ProjectReference Include="..\AbobusMobile.Database.Services.Abstractions\AbobusMobile.Database.Services.Abstractions.csproj" />
+    <ProjectReference Include="..\AbobusMobile.Utilities\AbobusMobile.Utilities.csproj" />
+  </ItemGroup>
+
 </Project>

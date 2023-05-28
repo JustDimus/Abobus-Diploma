@@ -14,13 +14,16 @@ namespace AbobusMobile.AndroidRoot.Extensions
 {
     public static class IoCContainerExtensions
     {
-        public static TinyIoCContainer ConfigureEndpoints(this TinyIoCContainer container)
+        public static TinyIoCContainer AddRequestConsumerService(
+            this TinyIoCContainer container,
+            Action<RequestConsumerServiceConfiguration> configurator)
         {
-            container.Register<RequestConsumerServiceConfiguration>(new RequestConsumerServiceConfiguration()
-            {
-                UseRelativeUrls = true,
-                BaseURL = @"http://localhost:5555/api/v1/"
-            });
+            var configuration = new RequestConsumerServiceConfiguration();
+
+            configurator.Invoke(configuration);
+
+            container.Register<IRequestConsumerService, RequestConsumerService>();
+            container.Register<RequestConsumerServiceConfiguration>(configuration);
 
             return container;
         }
