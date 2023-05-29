@@ -8,6 +8,7 @@ import FooterContainer from "./features/common/footer/FooterContainer";
 import HeaderContainer from "./features/common/header/HeaderContainer";
 import CustomMenu from "./features/menu/CustomMenu";
 import BackgroundImage from "./features/common/background/BackgroundImage";
+import NotFoundContainer from "./features/common/NotFoundContainer";
 /* import Account from "./features/Account"; */
 
 function App() {
@@ -19,12 +20,16 @@ function App() {
             <CustomMenu />
           </Header>
 
-          <Layout style={{ minHeight: "500px" }}>
+          <Layout style={{ minHeight: "100vh" }}>
             <Content className="main_styling">
               <Routes>
                 <Route path="/" element={<HomeContainer />} />
                 <Route path="Auth/Login" element={<Login />} />
                 <Route path="Auth/Registration" element={<Registration />} />
+                <Route
+                  path="*"
+                  element={<NotFoundContainer />}
+                />
 
               </Routes>
             </Content>

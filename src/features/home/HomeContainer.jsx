@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 const HomeContainer = () => {
     return (
         <>
-            <div
+            <div className="home_container_styling"
 
             >
                 Aboba                

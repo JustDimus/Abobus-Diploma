@@ -61,7 +61,7 @@ code {
   padding-bottom: 15px;
   padding-top: 8px;
 
-  user-select: none; 
+  user-select: none;
 }
 
 .socials {
@@ -115,7 +115,7 @@ input::placeholder {
   justify-content: space-between;
   color: rgba(255, 255, 255, 0.65);
 
-  
+
 }
 
 .header {
@@ -131,5 +131,18 @@ input::placeholder {
 
   font-family: 'Lobster', cursive;
   font-size: 35px;
-  user-select: none; 
+  user-select: none;
+}
+
+.page_not_found {
+  padding-top: 120px;
+  /* padding-bottom: 100px; */
+  text-align: center;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  flex-direction: column;
+
+  font-family: 'Lobster', cursive;
+  color: rgb(129, 71, 109);
 }

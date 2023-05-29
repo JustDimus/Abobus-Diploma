@@ -96,7 +96,7 @@ const Login = () => {
 
                     <Form.Item
                         name="password"
-                        rules={[{ required: true, message: "Enter your password" }]}
+                        rules={[{ required: true, message: "Enter your password!" }]}
                     >
                         <Input.Password
                             prefix={<LockOutlined style={{ color: 'rgba(0,0,0,.25)', paddingRight: "5px" }} />}
