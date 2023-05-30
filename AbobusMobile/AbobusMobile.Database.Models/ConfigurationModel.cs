@@ -10,10 +10,6 @@ namespace AbobusMobile.Database.Models
     [Table("Configurations")]
     public class ConfigurationModel : BaseModel
     {
-        [PrimaryKey, AutoIncrement]
-        [Column("ID")]
-        public int Id { get; set; }
-
         [Column("Name"), Unique]
         public string Name { get; set; }
 

@@ -61,11 +61,182 @@ namespace AbobusMobile.AndroidRoot.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Authorization failed.
+        /// </summary>
+        internal static string LoginPage_AuthorizationFailed {
+            get {
+                return ResourceManager.GetString("LoginPage_AuthorizationFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email.
+        /// </summary>
+        internal static string LoginPage_EmailLabelText {
+            get {
+                return ResourceManager.GetString("LoginPage_EmailLabelText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter your email.
+        /// </summary>
+        internal static string LoginPage_EmailPlaceholder {
+            get {
+                return ResourceManager.GetString("LoginPage_EmailPlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Login.
+        /// </summary>
+        internal static string LoginPage_LoginButtonText {
+            get {
+                return ResourceManager.GetString("LoginPage_LoginButtonText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password.
+        /// </summary>
+        internal static string LoginPage_PasswordLabelText {
+            get {
+                return ResourceManager.GetString("LoginPage_PasswordLabelText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter your password.
+        /// </summary>
+        internal static string LoginPage_PasswordPlaceholder {
+            get {
+                return ResourceManager.GetString("LoginPage_PasswordPlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Register.
+        /// </summary>
+        internal static string LoginPage_RegisterButtonText {
+            get {
+                return ResourceManager.GetString("LoginPage_RegisterButtonText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Please Authorize.
         /// </summary>
         internal static string LoginPage_TitleText {
             get {
                 return ResourceManager.GetString("LoginPage_TitleText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Visited cities:.
+        /// </summary>
+        internal static string ProfilePage_Cities {
+            get {
+                return ResourceManager.GetString("ProfilePage_Cities", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Passed Distance:.
+        /// </summary>
+        internal static string ProfilePage_Distance {
+            get {
+                return ResourceManager.GetString("ProfilePage_Distance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email:.
+        /// </summary>
+        internal static string ProfilePage_Email {
+            get {
+                return ResourceManager.GetString("ProfilePage_Email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Friends:.
+        /// </summary>
+        internal static string ProfilePage_Friends {
+            get {
+                return ResourceManager.GetString("ProfilePage_Friends", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Logout.
+        /// </summary>
+        internal static string ProfilePage_Logout {
+            get {
+                return ResourceManager.GetString("ProfilePage_Logout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are you sure?.
+        /// </summary>
+        internal static string ProfilePage_LogoutEnsure {
+            get {
+                return ResourceManager.GetString("ProfilePage_LogoutEnsure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your Routes:.
+        /// </summary>
+        internal static string ProfilePage_Routes {
+            get {
+                return ResourceManager.GetString("ProfilePage_Routes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Settings.
+        /// </summary>
+        internal static string ProfilePage_Settings {
+            get {
+                return ResourceManager.GetString("ProfilePage_Settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your Profile.
+        /// </summary>
+        internal static string ProfilePage_TitleText {
+            get {
+                return ResourceManager.GetString("ProfilePage_TitleText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Username:.
+        /// </summary>
+        internal static string ProfilePage_Username {
+            get {
+                return ResourceManager.GetString("ProfilePage_Username", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Abobus App.
+        /// </summary>
+        internal static string StartPage_AppName {
+            get {
+                return ResourceManager.GetString("StartPage_AppName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Welcome.
+        /// </summary>
+        internal static string StartPage_WelcomeMessage {
+            get {
+                return ResourceManager.GetString("StartPage_WelcomeMessage", resourceCulture);
             }
         }
     }

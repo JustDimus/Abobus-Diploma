@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AbobusMobile.BLL.Services.Abstractions\AbobusMobile.BLL.Services.Abstractions.csproj" />
+    <ProjectReference Include="..\AbobusMobile.Communication.Requests\AbobusMobile.Communication.Requests.csproj" />
     <ProjectReference Include="..\AbobusMobile.Communication.Services.Abstractions\AbobusMobile.Communication.Services.Abstractions.csproj" />
     <ProjectReference Include="..\AbobusMobile.DAL.Services.Abstractions\AbobusMobile.DAL.Services.Abstractions.csproj" />
   </ItemGroup>

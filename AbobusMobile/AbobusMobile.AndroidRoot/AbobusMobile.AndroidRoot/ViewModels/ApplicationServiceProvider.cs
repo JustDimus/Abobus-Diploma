@@ -1,12 +1,17 @@
-﻿using AbobusMobile.AndroidRoot.Extensions;
+﻿using AbobusMobile.AndroidRoot.Configurations;
+using AbobusMobile.AndroidRoot.Extensions;
+using AbobusMobile.BLL.Services.Abstractions.Account;
 using AbobusMobile.BLL.Services.Abstractions.Authorization;
+using AbobusMobile.BLL.Services.Account;
 using AbobusMobile.BLL.Services.Authorization;
 using AbobusMobile.Communication.Services;
 using AbobusMobile.Communication.Services.Abstractions;
 using AbobusMobile.Communication.Services.Abstractions.Configuration;
 using AbobusMobile.Communication.Services.Handlers;
 using AbobusMobile.DAL.Services.Abstractions.Authorization;
+using AbobusMobile.DAL.Services.Abstractions.Configurations;
 using AbobusMobile.DAL.Services.Authorization;
+using AbobusMobile.DAL.Services.Configurations;
 using AbobusMobile.Database.Models;
 using AbobusMobile.Database.Services.SQLite;
 using Microsoft.Extensions.Configuration;
@@ -14,6 +19,7 @@ using Nancy.TinyIoc;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using System.Text;
 using Xamarin.Forms;
@@ -36,10 +42,15 @@ namespace AbobusMobile.AndroidRoot.ViewModels
             _container = new TinyIoCContainer();
 
             _container
+                .AddOptions<EndpointConfigurations>(GetConfigurationString(nameof(EndpointConfigurations)));
+
+            _container
                 .AddRequestConsumerService(options =>
                 {
+                    var endpoints = _container.Resolve<Options<EndpointConfigurations>>();
+
                     options.UseRelativeUrls = true;
-                    options.BaseURL = configuration.GetConnectionString("ApiUrl");
+                    options.BaseURL = endpoints.Value.ApiUrl;
                 })
                 .ConfigureRequestFactory()
                 .ConfigureRequestHandlers();
@@ -54,8 +65,29 @@ namespace AbobusMobile.AndroidRoot.ViewModels
 
             _container.AddViewModels();
 
+            // DAL
             _container.Register<IAuthorizationDataManager, AuthorizationDataManager>();
+            _container.Register<IConfigurationDataManager, ConfigurationDataManager>();
+
+            // BLL
             _container.Register<IAuthorizationService, AuthorizationService>();
+            _container.Register<IAccountService, AccountService>();
+
+
+            string GetConfigurationString(string sectionName)
+            {
+                var sectionItems = configuration
+                    .GetSection(sectionName)
+                    .GetChildren().SelectMany(i => i.AsEnumerable()).ToList();
+
+                StringBuilder builder = new StringBuilder();
+
+                builder.Append("{");
+                builder.Append(string.Join(",", sectionItems.Select(i => $"\"{i.Key.Split(':')[1]}\":\"{i.Value}\"")));
+                builder.Append("}");
+
+                return builder.ToString();
+            }
         }
 
         private AppShellViewModel appShellViewModel = null;
@@ -66,5 +98,8 @@ namespace AbobusMobile.AndroidRoot.ViewModels
 
         private StartViewModel startViewModel = null;
         public StartViewModel StartViewModel => startViewModel ?? (startViewModel = _container.Resolve<StartViewModel>());
+
+        private ProfileViewModel profileViewModel = null;
+        public ProfileViewModel ProfileViewModel => profileViewModel ?? (profileViewModel = _container.Resolve<ProfileViewModel>());
     }
 }

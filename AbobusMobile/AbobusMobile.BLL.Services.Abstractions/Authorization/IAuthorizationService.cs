@@ -11,6 +11,8 @@ namespace AbobusMobile.BLL.Services.Abstractions.Authorization
 
         Task<AuthorizationStatus> CheckAuthorizationStatusAsync();
 
+        Task<AuthorizationStatus> RefreshAuthorizationAsync();
+
         Task<AuthorizationStatus> LoginAsync(LoginAuthorizationModel loginData);
 
         Task<AuthorizationStatus> LogoutAsync();

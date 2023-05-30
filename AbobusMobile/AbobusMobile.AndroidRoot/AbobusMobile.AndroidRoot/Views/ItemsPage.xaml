@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AbobusMobile.AndroidRoot.Views.ItemsPage"
-             Title="{Binding Title}"
+             Title="Browse Page"
              xmlns:local="clr-namespace:AbobusMobile.AndroidRoot.ViewModels"  
              xmlns:model="clr-namespace:AbobusMobile.AndroidRoot.Models"  
              x:Name="BrowseItemsPage">

@@ -1,4 +1,5 @@
 ﻿using AbobusMobile.DAL.Services.Abstractions.Authorization;
+using AbobusMobile.DAL.Services.Abstractions.Configurations;
 using AbobusMobile.Database.Models;
 using AbobusMobile.Database.Services.Abstractions;
 using AbobusMobile.Utilities.Exceptions;
@@ -13,11 +14,13 @@ namespace AbobusMobile.DAL.Services.Authorization
 {
     public class AuthorizationDataManager : IAuthorizationDataManager
     {
-        private readonly IRepository<ConfigurationModel> _configurations;
+        private readonly IConfigurationDataManager _configurationManager;
 
-        public AuthorizationDataManager(IRepository<ConfigurationModel> configurationsRepository)
+        public AuthorizationDataManager(
+            IRepository<ConfigurationModel> configurationsRepository,
+            IConfigurationDataManager configurationManager)
         {
-            _configurations = configurationsRepository ?? throw new ArgumentNullException(nameof(configurationsRepository));
+            _configurationManager = configurationManager ?? throw new ArgumentNullException(nameof(configurationManager));
         }
 
         public async Task<bool> CheckAuthorizationDataAvailabilityAsync()
@@ -67,13 +70,13 @@ namespace AbobusMobile.DAL.Services.Authorization
 
             foreach (var configuration in configurations)
             {
-                await _configurations.DeleteAsync(configuration);
+                await _configurationManager.DeleteAsync(configuration.Name);
             }
         }
 
         private async Task<List<ConfigurationModel>> SelectAuthorizationConfigurations()
         {
-            return await _configurations.Select(configuration
+            return await _configurationManager.SelectAsync(configuration
                 => configuration.Name == AuthorizationDataConstants.AUTHORIZATION_EXPIRATION
                 || configuration.Name == AuthorizationDataConstants.AUTHORIZATION_TOKEN
                 || configuration.Name == AuthorizationDataConstants.REFRESH_TOKEN);
@@ -91,14 +94,7 @@ namespace AbobusMobile.DAL.Services.Authorization
 
         private async Task UpdateConfiguration(string name, string value)
         {
-            var configuration = new ConfigurationModel()
-            {
-                Id = 0,
-                Name = name,
-                Value = value
-            };
-
-            await _configurations.UpdateAsync(configuration);
+            await _configurationManager.UpdateAsync(name, value);
         }
     }
 }

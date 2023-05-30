@@ -117,7 +117,64 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="LoginPage_AuthorizationFailed" xml:space="preserve">
+    <value>Authorization failed</value>
+  </data>
+  <data name="LoginPage_EmailLabelText" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="LoginPage_EmailPlaceholder" xml:space="preserve">
+    <value>Enter your email</value>
+  </data>
+  <data name="LoginPage_LoginButtonText" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="LoginPage_PasswordLabelText" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="LoginPage_PasswordPlaceholder" xml:space="preserve">
+    <value>Enter your password</value>
+  </data>
+  <data name="LoginPage_RegisterButtonText" xml:space="preserve">
+    <value>Register</value>
+  </data>
   <data name="LoginPage_TitleText" xml:space="preserve">
     <value>Please Authorize</value>
+  </data>
+  <data name="ProfilePage_Cities" xml:space="preserve">
+    <value>Visited cities:</value>
+  </data>
+  <data name="ProfilePage_Distance" xml:space="preserve">
+    <value>Passed Distance:</value>
+  </data>
+  <data name="ProfilePage_Email" xml:space="preserve">
+    <value>Email:</value>
+  </data>
+  <data name="ProfilePage_Friends" xml:space="preserve">
+    <value>Friends:</value>
+  </data>
+  <data name="ProfilePage_Logout" xml:space="preserve">
+    <value>Logout</value>
+  </data>
+  <data name="ProfilePage_LogoutEnsure" xml:space="preserve">
+    <value>Are you sure?</value>
+  </data>
+  <data name="ProfilePage_Routes" xml:space="preserve">
+    <value>Your Routes:</value>
+  </data>
+  <data name="ProfilePage_Settings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="ProfilePage_TitleText" xml:space="preserve">
+    <value>Your Profile</value>
+  </data>
+  <data name="ProfilePage_Username" xml:space="preserve">
+    <value>Username:</value>
+  </data>
+  <data name="StartPage_AppName" xml:space="preserve">
+    <value>Abobus App</value>
+  </data>
+  <data name="StartPage_WelcomeMessage" xml:space="preserve">
+    <value>Welcome</value>
   </data>
 </root>

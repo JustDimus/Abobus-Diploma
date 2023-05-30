@@ -1,9 +1,9 @@
 ﻿using AbobusCore.Models.Session;
 using AbobusMobile.BLL.Services.Abstractions.Authorization;
+using AbobusMobile.Communication.Requests.Session;
 using AbobusMobile.Communication.Services.Abstractions;
 using AbobusMobile.Communication.Services.Abstractions.Handlers;
 using AbobusMobile.Communication.Services.Abstractions.Models;
-using AbobusMobile.Communication.Services.Abstractions.Models.Requests;
 using AbobusMobile.DAL.Services.Abstractions.Authorization;
 using AbobusMobile.Utilities.Exceptions;
 using AbobusMobile.Utilities.Extensions;
@@ -73,6 +73,37 @@ namespace AbobusMobile.BLL.Services.Authorization
             return result;
         }
 
+        public async Task<AuthorizationStatus> RefreshAuthorizationAsync()
+        {
+            var authorizationResult = AuthorizationStatus.Unknown;
+
+            var refreshAvailable = await _authorizationManager.CheckAuthorizationDataAvailabilityAsync();
+
+            if (refreshAvailable)
+            {
+                var authorizationData = await _authorizationManager.GetAuthorizationDataAsync();
+
+                RefreshRequest.Initialize(authorizationData.RefreshToken);
+
+                var result = await RefreshRequest.SendRequestAsync();
+
+                if (result.Succeeded)
+                {
+                    var sessionModel = result.As<SessionResultModel>();
+                    await UpdateAuthorizationData(sessionModel);
+
+                    authorizationResult = AuthorizationStatus.Authorized;
+                }
+                else
+                {
+                    await ClearAuthorizationData();
+                    authorizationResult = AuthorizationStatus.OperationFailed;
+                }
+            }
+
+            return authorizationResult;
+        }
+
         public async Task<AuthorizationStatus> LoginAsync(LoginAuthorizationModel loginData)
         {
             ValidateLoginData(loginData);
@@ -99,7 +130,7 @@ namespace AbobusMobile.BLL.Services.Authorization
 
             if (result.Succeeded)
             {
-                await _authorizationManager.ClearAuthorizationDataAsync();
+                await ClearAuthorizationData();
 
                 return AuthorizationStatus.Unauthorized;
             }
@@ -129,6 +160,8 @@ namespace AbobusMobile.BLL.Services.Authorization
 
                     return;
                 }
+
+                await ClearAuthorizationData();
             }
 
             _authorizationNeededSubject.OnNext(false);
@@ -144,6 +177,11 @@ namespace AbobusMobile.BLL.Services.Authorization
                 RefreshToken = sessionModel.RefreshToken,
                 ExpirationTime = sessionModel.ExpirationTime,
             });
+        }
+
+        private async Task ClearAuthorizationData()
+        {
+            await _authorizationManager.ClearAuthorizationDataAsync();
         }
 
         private void ValidateLoginData(LoginAuthorizationModel loginData)

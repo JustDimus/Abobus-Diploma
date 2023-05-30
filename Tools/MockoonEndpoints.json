@@ -1,0 +1,226 @@
+{
+  "uuid": "2b897466-6ff4-4bf2-90bd-8dab17f7046c",
+  "lastMigration": 27,
+  "name": "MockoonEndpoints",
+  "endpointPrefix": "",
+  "latency": 0,
+  "port": 3001,
+  "hostname": "",
+  "folders": [],
+  "routes": [
+    {
+      "uuid": "ca35048c-970f-4512-8256-48c1edb01821",
+      "type": "http",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "api/v1/session/login",
+      "responses": [
+        {
+          "uuid": "fa204e2d-4099-44cc-824e-d14e1ea25202",
+          "body": "{\n  \"authorization_token\" : \"mocked-authorization-token\",\n  \"refresh_token\" : \"mocked-refresh-token\",\n  \"expiration_time\" : \"2023-06-06T18:57Z\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "45103ace-f99e-4496-a00f-20626c05a644",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "register",
+      "responses": [
+        {
+          "uuid": "2bd71dd1-f9ec-4e9a-a793-29b1858c9a60",
+          "body": "<!DOCTYPE html>\r\n<html>\r\n<head>\r\n    <title>Registration Page</title>\r\n</head>\r\n<body>\r\n    <h1>Registration Page</h1>\r\n    <p>Welcome to the registration page!</p>\r\n    <!-- Здесь можно добавить другие элементы HTML для формы регистрации -->\r\n</body>\r\n</html>",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "text/html"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "a5165bdd-3e7e-4eb0-a747-d5fa020bf0e4",
+      "type": "http",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "api/v1/session/logout",
+      "responses": [
+        {
+          "uuid": "3c4e4238-abe8-4401-b7c3-8d22aeaa8cfc",
+          "body": "",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "e4aeddee-e2f0-4d64-85c6-02835107b387",
+      "type": "http",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "api/v1/session/refresh",
+      "responses": [
+        {
+          "uuid": "27b0c812-82fe-417a-a5fd-fce6744bfe97",
+          "body": "{\n  \"authorization_token\" : \"mocked-authorization-token\",\n  \"refresh_token\" : \"mocked-refresh-token\",\n  \"expiration_time\" : \"2023-06-06T18:57Z\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "4e5af10f-42b8-42f1-9b93-480a446ba5f4",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "accounts/current",
+      "responses": [
+        {
+          "uuid": "71e9b378-ca32-4095-b1cd-01b4d5e43a22",
+          "body": "{\n  \"id\": \"E8DA8A12-37C3-41F8-852B-CF7C1213678B\",\n  \"username\": \"TurboTheBoar\",\n  \"email\": \"evtushenkodmitriy02@gmail.com\",\n  \"profile_photo\": \"2251E270-D798-4F73-B551-5749570F6532\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    }
+  ],
+  "rootChildren": [
+    {
+      "type": "route",
+      "uuid": "ca35048c-970f-4512-8256-48c1edb01821"
+    },
+    {
+      "type": "route",
+      "uuid": "45103ace-f99e-4496-a00f-20626c05a644"
+    },
+    {
+      "type": "route",
+      "uuid": "a5165bdd-3e7e-4eb0-a747-d5fa020bf0e4"
+    },
+    {
+      "type": "route",
+      "uuid": "e4aeddee-e2f0-4d64-85c6-02835107b387"
+    },
+    {
+      "type": "route",
+      "uuid": "4e5af10f-42b8-42f1-9b93-480a446ba5f4"
+    }
+  ],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "",
+    "keyPath": "",
+    "caPath": "",
+    "passphrase": ""
+  },
+  "cors": true,
+  "headers": [
+    {
+      "key": "Content-Type",
+      "value": "application/json"
+    }
+  ],
+  "proxyReqHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "proxyResHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "data": []
+}

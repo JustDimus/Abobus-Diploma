@@ -43,23 +43,18 @@ namespace AbobusMobile.Database.Services.SQLite
             return entity != null;
         }
 
-        public Task<List<TEntity>> Select(Expression<Func<TEntity, bool>> predicate)
+        public Task<List<TEntity>> SelectAsync(Expression<Func<TEntity, bool>> predicate)
         {
             return Entities.Where(predicate).ToListAsync();
         }
 
-        public Task<List<TEntity>> Select()
+        public Task<List<TEntity>> SelectAsync()
         {
             return Entities.ToListAsync();
         }
 
-        public Task<int> UpdateAsync(TEntity entity, bool insertIfExist = true)
+        public Task<int> UpdateAsync(TEntity entity)
         {
-            if (insertIfExist)
-            {
-                return Database.InsertOrReplaceAsync(entity);
-            }
-
             return Database.UpdateAsync(entity);
         }
 

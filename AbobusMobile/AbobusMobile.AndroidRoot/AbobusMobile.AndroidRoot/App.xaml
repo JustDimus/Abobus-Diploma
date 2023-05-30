@@ -10,14 +10,61 @@
     <Application.Resources>
         <ResourceDictionary>
             <viewModels:ApplicationServiceProvider x:Key="AppProvider" />
+            <converters:BoolInverseConverter x:Key="BoolInverse" />
+            <Color x:Key="Primary">#2196F3</Color>
+            <Color x:Key="HighPriority">#8896E2</Color>
+            <Color x:Key="LowPriority">#8E8E93</Color>
+            <Color x:Key="ImportantAction">Green</Color>
+            <Color x:Key="DangerAction">Red</Color>
             <Style TargetType="Label" x:Key="PageTitleLabel">
                 <Setter Property="VerticalTextAlignment" Value="Center" />
                 <Setter Property="HorizontalTextAlignment" Value="Center" />
                 <Setter Property="FontSize" Value="26" />
                 <Setter Property="TextColor" Value="White"/>
             </Style>
-            <Color x:Key="Primary">#2196F3</Color>
-            
+            <Style TargetType="Label" x:Key="HeaderLabel">
+                <Setter Property="FontSize" Value="50" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
+            <Style TargetType="Label" x:Key="BaseLabel">
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+                <Setter Property="TextColor" Value="Black" />
+            </Style>
+            <Style TargetType="Label" x:Key="DescriptionLabel" BasedOn="{StaticResource BaseLabel}">
+                <Setter Property="FontSize" Value="35" />
+            </Style>
+            <Style TargetType="Label" x:Key="CommonLabel" BasedOn="{StaticResource BaseLabel}">
+                <Setter Property="FontSize" Value="20" />
+                <Setter Property="TextColor" Value="DimGray" />
+            </Style>
+            <Style TargetType="Label" x:Key="ErrorLabel" BasedOn="{StaticResource BaseLabel}">
+                <Setter Property="FontSize" Value="20" />
+                <Setter Property="TextColor" Value="Red" />
+            </Style>
+            <Style TargetType="Entry" x:Key="PrimaryEntry">
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="PlaceholderColor" Value="DimGray" />
+            </Style>
+            <Style TargetType="Button" x:Key="BaseButton">
+                <Setter Property="CornerRadius" Value="15" />
+                <Setter Property="BackgroundColor" Value="{StaticResource ImportantAction}" />
+                <Setter Property="FontSize" Value="20"/>
+            </Style>
+            <Style TargetType="Button" x:Key="ImportantButton" BasedOn="{StaticResource BaseButton}">
+                <Setter Property="BackgroundColor" Value="{StaticResource ImportantAction}" />
+            </Style>
+            <Style TargetType="Button" x:Key="DangerButton" BasedOn="{StaticResource BaseButton}">
+                <Setter Property="BackgroundColor" Value="{StaticResource DangerAction}" />
+            </Style>
+            <Style TargetType="Button" x:Key="PrimaryButton" BasedOn="{StaticResource BaseButton}">
+                <Setter Property="BackgroundColor" Value="{StaticResource HighPriority}" />
+            </Style>
+            <Style TargetType="Button" x:Key="SecondaryButton" BasedOn="{StaticResource BaseButton}">
+                <Setter Property="BackgroundColor" Value="{StaticResource LowPriority}" />
+            </Style>
             <Style TargetType="Button">
                 <Setter Property="TextColor" Value="White"></Setter>
                 <Setter Property="VisualStateManager.VisualStateGroups">

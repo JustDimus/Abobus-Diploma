@@ -1,4 +1,6 @@
-﻿using AbobusMobile.AndroidRoot.ViewModels;
+﻿using AbobusMobile.AndroidRoot.Configurations;
+using AbobusMobile.AndroidRoot.ViewModels;
+using AbobusMobile.Communication.Requests.Session;
 using AbobusMobile.Communication.Services;
 using AbobusMobile.Communication.Services.Abstractions;
 using AbobusMobile.Communication.Services.Abstractions.Configuration;
@@ -14,6 +16,16 @@ namespace AbobusMobile.AndroidRoot.Extensions
 {
     public static class IoCContainerExtensions
     {
+        public static TinyIoCContainer AddOptions<TEntity>(
+            this TinyIoCContainer container,
+            string entity)
+        {
+            container
+                .Register<Options<TEntity>>(new Options<TEntity>(entity));
+
+            return container;
+        }
+
         public static TinyIoCContainer AddRequestConsumerService(
             this TinyIoCContainer container,
             Action<RequestConsumerServiceConfiguration> configurator)
@@ -34,6 +46,7 @@ namespace AbobusMobile.AndroidRoot.Extensions
 
             configuration.LoadRequestsFromAssembly(typeof(RequestFactoryConfiguration).Assembly);
             configuration.LoadRequestsFromAssembly(typeof(IoCContainerExtensions).Assembly);
+            configuration.LoadRequestsFromAssembly(typeof(LoginRequest).Assembly);
 
             container.Register<RequestFactoryConfiguration>(configuration);
 

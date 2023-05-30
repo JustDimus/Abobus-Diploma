@@ -24,6 +24,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\AbobusMobile.BLL.Services.Abstractions\AbobusMobile.BLL.Services.Abstractions.csproj" />
     <ProjectReference Include="..\..\AbobusMobile.BLL.Services\AbobusMobile.BLL.Services.csproj" />
+    <ProjectReference Include="..\..\AbobusMobile.Communication.Requests\AbobusMobile.Communication.Requests.csproj" />
     <ProjectReference Include="..\..\AbobusMobile.Communication.Services.Abstractions\AbobusMobile.Communication.Services.Abstractions.csproj" />
     <ProjectReference Include="..\..\AbobusMobile.Communication.Services\AbobusMobile.Communication.Services.csproj" />
     <ProjectReference Include="..\..\AbobusMobile.DAL.Services\AbobusMobile.DAL.Services.csproj" />
@@ -32,7 +33,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="NewFolder\" />
     <Folder Include="Requests\" />
   </ItemGroup>
 
@@ -64,6 +64,9 @@
     </EmbeddedResource>
     <EmbeddedResource Update="Resources\ApplicationTexts.ua.resx">
       <Generator></Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\ProfilePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\StartPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>

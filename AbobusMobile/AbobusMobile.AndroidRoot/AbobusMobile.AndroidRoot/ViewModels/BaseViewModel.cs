@@ -9,11 +9,33 @@ using Xamarin.Forms;
 
 namespace AbobusMobile.AndroidRoot.ViewModels
 {
-    public class BaseViewModel : INotifyPropertyChanged
+    public class BaseViewModel : IBasePage, INotifyPropertyChanged
     {
-        public virtual void OnPageAppeared() { }
+        protected bool PageOnScreen { get; private set; } = false;
 
-        public virtual void OnPageDisappeared() { }
+        void IBasePage.OnPageAppeared()
+        {
+            if (!PageOnScreen)
+            {
+                PageOnScreen = true;
+
+                OnPageAppeared();
+            }
+        }
+
+        void IBasePage.OnPageDisappeared()
+        {
+            if (PageOnScreen)
+            {
+                PageOnScreen = false;
+
+                OnPageDisappeared();
+            }
+        }
+
+        protected virtual void OnPageAppeared() { }
+
+        protected virtual void OnPageDisappeared() { }
 
         protected bool SetProperty<T>(
             ref T backingStore,

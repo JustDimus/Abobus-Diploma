@@ -13,14 +13,37 @@
 
     <Shell.TitleView>
         <Label Text="{x:Static resources:ApplicationTexts.LoginPage_TitleText}"
-               Style="{StaticResource PageTitleLabel}"/>
+               Style="{StaticResource PageTitleLabel}" />
     </Shell.TitleView>
     <ContentPage.Content>
         <StackLayout Padding="10,0,10,0" VerticalOptions="Center">
-            <Entry Text="{Binding Email}" />
-            <Entry Text="{Binding Password}" IsPassword="True" />
+            <Label Text="{x:Static resources:ApplicationTexts.LoginPage_EmailLabelText}"
+                   Style="{StaticResource CommonLabel}"
+                   HorizontalOptions="Start"
+                   Margin="0,0,0,3" />
+            <Entry Text="{Binding Email}"
+                   Placeholder="{x:Static resources:ApplicationTexts.LoginPage_EmailPlaceholder}"
+                   Style="{StaticResource PrimaryEntry}"
+                   Margin="0,0,10,0" />
+            <Label Text="{x:Static resources:ApplicationTexts.LoginPage_PasswordLabelText}"
+                   Style="{StaticResource CommonLabel}"
+                   HorizontalOptions="Start"
+                   Margin="10,0,0,3" />
+            <Entry Text="{Binding Password}"
+                   Placeholder="{x:Static resources:ApplicationTexts.LoginPage_PasswordPlaceholder}"
+                   IsPassword="True"
+                   Style="{StaticResource PrimaryEntry}" />
             
-            <Button VerticalOptions="Center" Text="Login" Command="{Binding LoginCommand}" />
+            <Button VerticalOptions="Center" Text="{x:Static resources:ApplicationTexts.LoginPage_LoginButtonText}"
+                    Command="{Binding LoginCommand}"
+                    Style="{StaticResource PrimaryButton}"/>
+            <Button VerticalOptions="Center" Text="{x:Static resources:ApplicationTexts.LoginPage_RegisterButtonText}"
+                    Command="{Binding RegisterCommand}"
+                    Style="{StaticResource SecondaryButton}"/>
+
+            <Label Text="{x:Static resources:ApplicationTexts.LoginPage_AuthorizationFailed}"
+                   IsVisible="{Binding LoginFailed}"
+                   Style="{StaticResource ErrorLabel}" />
         </StackLayout>
     </ContentPage.Content>
 </local:BasePage>

@@ -17,11 +17,11 @@ namespace AbobusMobile.Database.Services.Abstractions
 
         Task<bool> AnyAsync(Expression<Func<TEntity, bool>> predicate);
 
-        Task<List<TEntity>> Select(Expression<Func<TEntity, bool>> predicate);
+        Task<List<TEntity>> SelectAsync(Expression<Func<TEntity, bool>> predicate);
 
-        Task<List<TEntity>> Select();
+        Task<List<TEntity>> SelectAsync();
 
-        Task<int> UpdateAsync(TEntity entity, bool insertIfExist = true);
+        Task<int> UpdateAsync(TEntity entity);
 
         Task<int> InsertAsync(TEntity entity);
 

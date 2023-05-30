@@ -16,7 +16,7 @@ namespace AbobusMobile.AndroidRoot.Views
 
         private void BasePage_Appeared(object sender, EventArgs e)
         {
-            if (BindingContext is BaseViewModel viewModel)
+            if (BindingContext is IBasePage viewModel)
             {
                 viewModel.OnPageAppeared();
             }
@@ -24,7 +24,7 @@ namespace AbobusMobile.AndroidRoot.Views
 
         private void BasePage_Disappeared(object sender, EventArgs e)
         {
-            if (BindingContext is BaseViewModel viewModel)
+            if (BindingContext is IBasePage viewModel)
             {
                 viewModel.OnPageDisappeared();
             }

@@ -8,7 +8,7 @@ namespace AbobusMobile.DAL.Services.Authorization
     {
         public const string AUTHORIZATION_TOKEN = "AuthorizationToken";
         public const string REFRESH_TOKEN = "RefreshToken";
-        public const string AUTHORIZATION_EXPIRATION = "AuthorizationToken";
+        public const string AUTHORIZATION_EXPIRATION = "AuthorizationExpiration";
 
         public const int AUTHORIZATION_CONFIG_COUNT = 3;
     }

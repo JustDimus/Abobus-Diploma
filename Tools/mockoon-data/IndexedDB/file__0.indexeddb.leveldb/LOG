@@ -1,0 +1,7 @@
+2023/05/30-12:54:00.389 61dc Creating DB D:\Projects\Abobus-Diploma\Tools\mockoon-data\IndexedDB\file__0.indexeddb.leveldb since it was missing.
+2023/05/30-12:54:00.395 61dc Reusing MANIFEST D:\Projects\Abobus-Diploma\Tools\mockoon-data\IndexedDB\file__0.indexeddb.leveldb/MANIFEST-000001
+2023/05/30-12:54:00.493 3854 Manual compaction at level-0 from '\x00\x01\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x02\x00\x00\x00' @ 0 : 0; will stop at (end)
+2023/05/30-12:54:00.554 3854 Level-0 table #5: started
+2023/05/30-12:54:00.558 3854 Level-0 table #5: 1428 bytes OK
+2023/05/30-12:54:00.562 3854 Delete type=0 #3
+2023/05/30-12:54:00.562 3854 Manual compaction at level-0 from '\x00\x02\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x03\x00\x00\x00' @ 0 : 0; will stop at (end)

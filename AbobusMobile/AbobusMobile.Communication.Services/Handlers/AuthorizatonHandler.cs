@@ -1,7 +1,6 @@
 ﻿using AbobusCore.Models.Session;
 using AbobusMobile.Communication.Services.Abstractions.Handlers;
 using AbobusMobile.Communication.Services.Abstractions.Models;
-using AbobusMobile.Communication.Services.Abstractions.Models.Requests;
 using AbobusMobile.DAL.Services.Abstractions.Authorization;
 using System;
 using System.Collections.Generic;
