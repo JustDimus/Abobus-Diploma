@@ -2,14 +2,21 @@
 using AbobusMobile.AndroidRoot.Extensions;
 using AbobusMobile.BLL.Services.Abstractions.Account;
 using AbobusMobile.BLL.Services.Abstractions.Authorization;
+using AbobusMobile.BLL.Services.Abstractions.Error;
+using AbobusMobile.BLL.Services.Abstractions.Resources;
 using AbobusMobile.BLL.Services.Account;
 using AbobusMobile.BLL.Services.Authorization;
+using AbobusMobile.BLL.Services.Error;
+using AbobusMobile.BLL.Services.Resources;
 using AbobusMobile.Communication.Services;
 using AbobusMobile.Communication.Services.Abstractions;
 using AbobusMobile.Communication.Services.Abstractions.Configuration;
 using AbobusMobile.Communication.Services.Handlers;
+using AbobusMobile.DAL.Services.Abstractions.Account;
 using AbobusMobile.DAL.Services.Abstractions.Authorization;
 using AbobusMobile.DAL.Services.Abstractions.Configurations;
+using AbobusMobile.DAL.Services.Abstractions.Resource;
+using AbobusMobile.DAL.Services.Account;
 using AbobusMobile.DAL.Services.Authorization;
 using AbobusMobile.DAL.Services.Configurations;
 using AbobusMobile.Database.Models;
@@ -66,13 +73,22 @@ namespace AbobusMobile.AndroidRoot.ViewModels
             _container.AddViewModels();
 
             // DAL
+            _container.ConfigureResources(options =>
+            {
+                options.UsePath(Path.Combine(
+                    Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
+                    configuration.GetConnectionString("ResourcesPath")));
+            });
+
             _container.Register<IAuthorizationDataManager, AuthorizationDataManager>();
-            _container.Register<IConfigurationDataManager, ConfigurationDataManager>();
+            _container.Register<IConfigurationsDataManager, ConfigurationsDataManager>();
+            _container.Register<IAccountDataManager, AccountDataManager>();
 
             // BLL
             _container.Register<IAuthorizationService, AuthorizationService>();
             _container.Register<IAccountService, AccountService>();
-
+            _container.Register<IResourcesService, ResourcesService>();
+            _container.Register<IErrorHandlingService, ErrorHandlingService>();
 
             string GetConfigurationString(string sectionName)
             {

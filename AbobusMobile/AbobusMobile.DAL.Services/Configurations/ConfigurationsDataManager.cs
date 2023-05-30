@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace AbobusMobile.DAL.Services.Configurations
 {
-    public class ConfigurationDataManager : IConfigurationDataManager
+    public class ConfigurationsDataManager : IConfigurationsDataManager
     {
         private IRepository<ConfigurationModel> _configurations;
 
-        public ConfigurationDataManager(
+        public ConfigurationsDataManager(
             IRepository<ConfigurationModel> configurations)
         {
             _configurations = configurations ?? throw new ArgumentNullException(nameof(configurations));

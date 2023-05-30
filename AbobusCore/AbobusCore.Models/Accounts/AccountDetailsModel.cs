@@ -17,6 +17,6 @@ namespace AbobusCore.Models.Accounts
         public string Email { get; set; }
 
         [JsonProperty("profile_photo")]
-        public string ProfilePhotoId { get; set; }
+        public Guid ProfilePhotoId { get; set; }
     }
 }

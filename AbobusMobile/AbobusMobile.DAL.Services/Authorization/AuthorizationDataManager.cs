@@ -3,6 +3,7 @@ using AbobusMobile.DAL.Services.Abstractions.Configurations;
 using AbobusMobile.Database.Models;
 using AbobusMobile.Database.Services.Abstractions;
 using AbobusMobile.Utilities.Exceptions;
+using AbobusMobile.Utilities.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -14,11 +15,9 @@ namespace AbobusMobile.DAL.Services.Authorization
 {
     public class AuthorizationDataManager : IAuthorizationDataManager
     {
-        private readonly IConfigurationDataManager _configurationManager;
+        private readonly IConfigurationsDataManager _configurationManager;
 
-        public AuthorizationDataManager(
-            IRepository<ConfigurationModel> configurationsRepository,
-            IConfigurationDataManager configurationManager)
+        public AuthorizationDataManager(IConfigurationsDataManager configurationManager)
         {
             _configurationManager = configurationManager ?? throw new ArgumentNullException(nameof(configurationManager));
         }
@@ -40,10 +39,9 @@ namespace AbobusMobile.DAL.Services.Authorization
             {
                 result = new AuthorizationDataModel()
                 {
-                    AuthorizationToken = configurations.First(config => config.Name == AuthorizationDataConstants.AUTHORIZATION_TOKEN).Value,
-                    RefreshToken = configurations.First(config => config.Name == AuthorizationDataConstants.REFRESH_TOKEN).Value,
-                    ExpirationTime = DateTime.Parse(
-                        configurations.First(config => config.Name == AuthorizationDataConstants.AUTHORIZATION_EXPIRATION).Value),
+                    AuthorizationToken = configurations.GetString(AuthorizationDataConstants.AUTHORIZATION_TOKEN),
+                    RefreshToken = configurations.GetString(AuthorizationDataConstants.REFRESH_TOKEN),
+                    ExpirationTime = configurations.GetDateTime(AuthorizationDataConstants.AUTHORIZATION_EXPIRATION),
                 };
             }
 
@@ -85,8 +83,8 @@ namespace AbobusMobile.DAL.Services.Authorization
         private void ValidateAuthorizationData(AuthorizationDataModel authorizationData)
         {
             if (authorizationData == null
-                || authorizationData.AuthorizationToken == null
-                || authorizationData.RefreshToken == null)
+                || authorizationData.AuthorizationToken.IsNotNullOrWhiteSpace()
+                || authorizationData.RefreshToken.IsNotNullOrWhiteSpace())
             {
                 throw new ValidationException($"Model {nameof(authorizationData)} is not valid");
             }

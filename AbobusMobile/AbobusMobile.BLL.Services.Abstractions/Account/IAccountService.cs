@@ -8,10 +8,10 @@ namespace AbobusMobile.BLL.Services.Abstractions.Account
 {
     public interface IAccountService
     {
-        Task<AccountDetailsModel> LoadAccountDetailsAsync();
+        Task<AccountDetailsServiceModel> LoadAccountDetailsAsync();
 
         Task<Stream> LoadAccountImageAsync();
 
-        Task<AccountStatisticsModel> LoadAccountStatisticsAsync();
+        Task<AccountStatisticsServiceModel> LoadAccountStatisticsAsync();
     }
 }

@@ -5,7 +5,7 @@
   "maxLogsPerEnvironment": 50,
   "truncateRouteName": true,
   "mainMenuSize": 182,
-  "secondaryMenuSize": 200,
+  "secondaryMenuSize": 267,
   "fakerLocale": "en",
   "fakerSeed": null,
   "lastChangelog": "3.0.0",

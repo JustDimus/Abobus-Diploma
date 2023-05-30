@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AbobusMobile.DAL.Services.Abstractions.Configurations
 {
-    public interface IConfigurationDataManager
+    public interface IConfigurationsDataManager
     {
         Task<ConfigurationModel> GetAsync(string name);
 

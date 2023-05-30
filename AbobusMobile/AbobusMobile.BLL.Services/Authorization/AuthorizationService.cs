@@ -46,9 +46,9 @@ namespace AbobusMobile.BLL.Services.Authorization
 
         public IObservable<bool> AuthorizationNeededObservable => _authorizationNeededSubject.AsObservable();
 
-        public async Task<AuthorizationStatus> CheckAuthorizationStatusAsync()
+        public async Task<AuthorizationServiceStatus> CheckAuthorizationStatusAsync()
         {
-            var result = AuthorizationStatus.Unknown;
+            var result = AuthorizationServiceStatus.Unknown;
 
             var authorizationDataAvailable = await _authorizationManager.CheckAuthorizationDataAvailabilityAsync();
 
@@ -58,24 +58,24 @@ namespace AbobusMobile.BLL.Services.Authorization
 
                 if (authorizationData.ExpirationTime.AddMinutes(-1) <= DateTime.UtcNow)
                 {
-                    result = AuthorizationStatus.AuthorizationTokenExpired;
+                    result = AuthorizationServiceStatus.AuthorizationTokenExpired;
                 }
                 else
                 {
-                    result = AuthorizationStatus.Authorized;
+                    result = AuthorizationServiceStatus.Authorized;
                 }
             }
             else
             {
-                result = AuthorizationStatus.Unauthorized;
+                result = AuthorizationServiceStatus.Unauthorized;
             }
 
             return result;
         }
 
-        public async Task<AuthorizationStatus> RefreshAuthorizationAsync()
+        public async Task<AuthorizationServiceStatus> RefreshAuthorizationAsync()
         {
-            var authorizationResult = AuthorizationStatus.Unknown;
+            var authorizationResult = AuthorizationServiceStatus.Unknown;
 
             var refreshAvailable = await _authorizationManager.CheckAuthorizationDataAvailabilityAsync();
 
@@ -92,19 +92,19 @@ namespace AbobusMobile.BLL.Services.Authorization
                     var sessionModel = result.As<SessionResultModel>();
                     await UpdateAuthorizationData(sessionModel);
 
-                    authorizationResult = AuthorizationStatus.Authorized;
+                    authorizationResult = AuthorizationServiceStatus.Authorized;
                 }
                 else
                 {
                     await ClearAuthorizationData();
-                    authorizationResult = AuthorizationStatus.OperationFailed;
+                    authorizationResult = AuthorizationServiceStatus.OperationFailed;
                 }
             }
 
             return authorizationResult;
         }
 
-        public async Task<AuthorizationStatus> LoginAsync(LoginAuthorizationModel loginData)
+        public async Task<AuthorizationServiceStatus> LoginAsync(LoginAuthorizationServiceModel loginData)
         {
             ValidateLoginData(loginData);
 
@@ -118,13 +118,13 @@ namespace AbobusMobile.BLL.Services.Authorization
 
                 await UpdateAuthorizationData(sessionModel);
 
-                return AuthorizationStatus.Authorized;
+                return AuthorizationServiceStatus.Authorized;
             }
 
-            return AuthorizationStatus.OperationFailed;
+            return AuthorizationServiceStatus.OperationFailed;
         }
 
-        public async Task<AuthorizationStatus> LogoutAsync()
+        public async Task<AuthorizationServiceStatus> LogoutAsync()
         {
             var result = await LogoutRequest.SendRequestAsync();
 
@@ -132,10 +132,10 @@ namespace AbobusMobile.BLL.Services.Authorization
             {
                 await ClearAuthorizationData();
 
-                return AuthorizationStatus.Unauthorized;
+                return AuthorizationServiceStatus.Unauthorized;
             }
 
-            return AuthorizationStatus.OperationFailed;
+            return AuthorizationServiceStatus.OperationFailed;
         }
 
         private async Task OnAuthorizationFailed(BaseRequest failedRequest)
@@ -184,7 +184,7 @@ namespace AbobusMobile.BLL.Services.Authorization
             await _authorizationManager.ClearAuthorizationDataAsync();
         }
 
-        private void ValidateLoginData(LoginAuthorizationModel loginData)
+        private void ValidateLoginData(LoginAuthorizationServiceModel loginData)
         {
             if (loginData == null
                 || string.IsNullOrWhiteSpace(loginData.Email)

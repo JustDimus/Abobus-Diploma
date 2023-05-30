@@ -9,12 +9,12 @@ namespace AbobusMobile.BLL.Services.Abstractions.Authorization
     {
         IObservable<bool> AuthorizationNeededObservable { get; }
 
-        Task<AuthorizationStatus> CheckAuthorizationStatusAsync();
+        Task<AuthorizationServiceStatus> CheckAuthorizationStatusAsync();
 
-        Task<AuthorizationStatus> RefreshAuthorizationAsync();
+        Task<AuthorizationServiceStatus> RefreshAuthorizationAsync();
 
-        Task<AuthorizationStatus> LoginAsync(LoginAuthorizationModel loginData);
+        Task<AuthorizationServiceStatus> LoginAsync(LoginAuthorizationServiceModel loginData);
 
-        Task<AuthorizationStatus> LogoutAsync();
+        Task<AuthorizationServiceStatus> LogoutAsync();
     }
 }

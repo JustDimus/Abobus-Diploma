@@ -1,4 +1,5 @@
 ﻿using AbobusMobile.AndroidRoot.Views;
+using AbobusMobile.BLL.Services.Abstractions.Account;
 using AbobusMobile.BLL.Services.Abstractions.Authorization;
 using System;
 using System.Collections.Generic;
@@ -11,11 +12,14 @@ namespace AbobusMobile.AndroidRoot.ViewModels
     public class ProfileViewModel : BaseViewModel
     {
         private IAuthorizationService _authorizationService;
+        private IAccountService _accountService;
 
         public ProfileViewModel(
-            IAuthorizationService authorizationService)
+            IAuthorizationService authorizationService,
+            IAccountService accountService)
         {
             _authorizationService = authorizationService ?? throw new ArgumentNullException(nameof(authorizationService));
+            _accountService = accountService ?? throw new ArgumentNullException(nameof(accountService));
 
             LogoutCommand = new Command(async (forceExit) =>
             {
@@ -88,14 +92,56 @@ namespace AbobusMobile.AndroidRoot.ViewModels
             set => SetProperty(ref logoutInitiated, value);
         }
 
+        private bool profileUpdateRequired = true;
+
+        public bool ProfileUpdateRequired
+        {
+            get => logoutInitiated;
+            set => SetProperty(ref profileUpdateRequired, value);
+        }
+
         public Command SettingsCommand { get; }
         public Command LogoutCommand { get; }
 
         #endregion
 
-        protected override void OnPageAppeared()
+        protected override async void OnPageAppeared()
         {
             LogoutInitiated = false;
+
+            if (!ProfileUpdateRequired)
+            {
+                await UpdateProfile();
+            }
+        }
+
+        private async Task UpdateProfile()
+        {
+            ProfileUpdateRequired = true;
+
+            var accountDetails = await _accountService.LoadAccountDetailsAsync();
+            Username = accountDetails.Username;
+            Email = accountDetails.Email;
+
+            var accountStatistics = await _accountService.LoadAccountStatisticsAsync();
+            RoutesCount = accountStatistics.RoutesCount;
+            CitiesCount = accountStatistics.VisitedCitiesCount;
+            FriendsCount = accountStatistics.FriendsCount;
+            PassedDistance = accountStatistics.PassedDistance;
+            DistanceUnit = accountStatistics.DistanceUnit;
+
+            await UpdateProfilePhoto();
+
+            ProfileUpdateRequired = false;
+        }
+
+        private async Task UpdateProfilePhoto()
+        {
+            var imageStream = await _accountService.LoadAccountImageAsync();
+
+            var profileImageSource = ImageSource.FromStream(() => imageStream);
+
+            ProfilePhoto = profileImageSource;
         }
 
         private async Task OnLogoutClicked(bool forceExit)
@@ -105,7 +151,7 @@ namespace AbobusMobile.AndroidRoot.ViewModels
             {
                 var logoutResult = await _authorizationService.LogoutAsync();
 
-                if (logoutResult == AuthorizationStatus.Unauthorized)
+                if (logoutResult == AuthorizationServiceStatus.Unauthorized)
                 {
                     await Shell.Current.GoToAsync(PathConstants.LOGIN);
                 }

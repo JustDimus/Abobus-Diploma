@@ -6,7 +6,7 @@ using System.Text;
 
 namespace AbobusMobile.Communication.Requests.Accounts
 {
-    public class GetAccountDetailsRequest : AuthorizationRequest
+    public class GetCurrentAccountDetailsRequest : AuthorizationRequest
     {
         protected override string Url => "accounts/current";
 

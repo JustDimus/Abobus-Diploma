@@ -65,7 +65,7 @@ namespace AbobusMobile.AndroidRoot.ViewModels
             LoginStarted = true;
             LoginFailed = false;
 
-            var loginModel = new LoginAuthorizationModel()
+            var loginModel = new LoginAuthorizationServiceModel()
             {
                 Email = Email,
                 Password = Password,
@@ -73,7 +73,7 @@ namespace AbobusMobile.AndroidRoot.ViewModels
 
             var result = await _authorizationService.LoginAsync(loginModel);
 
-            if (result == AuthorizationStatus.Authorized)
+            if (result == AuthorizationServiceStatus.Authorized)
             {
                 await Shell.Current.GoToAsync(PathConstants.MAIN);
             }

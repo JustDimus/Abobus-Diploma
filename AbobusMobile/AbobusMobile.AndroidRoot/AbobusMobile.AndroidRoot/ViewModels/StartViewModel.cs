@@ -25,19 +25,19 @@ namespace AbobusMobile.AndroidRoot.ViewModels
 
             switch (currentAuthorizationStatus)
             {
-                case AuthorizationStatus.AuthorizationTokenExpired:
+                case AuthorizationServiceStatus.AuthorizationTokenExpired:
                     var result = await RefreshAuthorization();
 
                     await Shell.Current.GoToAsync(
-                        result == AuthorizationStatus.Authorized
+                        result == AuthorizationServiceStatus.Authorized
                         ? PathConstants.MAIN
                         : PathConstants.LOGIN);
 
                     break;
-                case AuthorizationStatus.Authorized:
+                case AuthorizationServiceStatus.Authorized:
                     await Shell.Current.GoToAsync(PathConstants.PROFILE_ABSOLUTE);
                     break;
-                case AuthorizationStatus.Unauthorized:
+                case AuthorizationServiceStatus.Unauthorized:
                     await Shell.Current.GoToAsync(PathConstants.LOGIN);
                     break;
                 default:
@@ -45,7 +45,7 @@ namespace AbobusMobile.AndroidRoot.ViewModels
             }
         }
 
-        private async Task<AuthorizationStatus> RefreshAuthorization()
+        private async Task<AuthorizationServiceStatus> RefreshAuthorization()
             => await _authorizationService.RefreshAuthorizationAsync();
     }
 }

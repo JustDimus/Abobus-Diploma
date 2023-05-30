@@ -4,7 +4,7 @@ using System.Text;
 
 namespace AbobusMobile.BLL.Services.Abstractions.Authorization
 {
-    public enum AuthorizationStatus
+    public enum AuthorizationServiceStatus
     {
         Unauthorized,
         Authorized,

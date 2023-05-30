@@ -1,7 +1,17 @@
-2023/05/30-12:54:00.389 61dc Creating DB D:\Projects\Abobus-Diploma\Tools\mockoon-data\IndexedDB\file__0.indexeddb.leveldb since it was missing.
-2023/05/30-12:54:00.395 61dc Reusing MANIFEST D:\Projects\Abobus-Diploma\Tools\mockoon-data\IndexedDB\file__0.indexeddb.leveldb/MANIFEST-000001
-2023/05/30-12:54:00.493 3854 Manual compaction at level-0 from '\x00\x01\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x02\x00\x00\x00' @ 0 : 0; will stop at (end)
-2023/05/30-12:54:00.554 3854 Level-0 table #5: started
-2023/05/30-12:54:00.558 3854 Level-0 table #5: 1428 bytes OK
-2023/05/30-12:54:00.562 3854 Delete type=0 #3
-2023/05/30-12:54:00.562 3854 Manual compaction at level-0 from '\x00\x02\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x03\x00\x00\x00' @ 0 : 0; will stop at (end)
+2023/05/30-16:52:16.226 5c88 Reusing MANIFEST D:\Projects\Abobus-Diploma\Tools\mockoon-data\IndexedDB\file__0.indexeddb.leveldb/MANIFEST-000001
+2023/05/30-16:52:16.226 5c88 Recovering log #4
+2023/05/30-16:52:16.227 5c88 Reusing old log D:\Projects\Abobus-Diploma\Tools\mockoon-data\IndexedDB\file__0.indexeddb.leveldb/000004.log 
+2023/05/30-16:52:16.330 7b9c Level-0 table #8: started
+2023/05/30-16:52:16.333 7b9c Level-0 table #8: 8853 bytes OK
+2023/05/30-16:52:16.336 7b9c Delete type=0 #4
+2023/05/30-16:52:16.336 283c Manual compaction at level-0 from '\x00\x06\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x07\x00\x00\x00' @ 0 : 0; will stop at (end)
+2023/05/30-16:52:16.371 7b9c Level-0 table #10: started
+2023/05/30-16:52:16.374 7b9c Level-0 table #10: 569 bytes OK
+2023/05/30-16:52:16.376 7b9c Delete type=0 #7
+2023/05/30-16:52:16.377 283c Manual compaction at level-0 from '\x00\x07\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x08\x00\x00\x00' @ 0 : 0; will stop at '\x00\x07\x00\x00\x05' @ 374 : 1
+2023/05/30-16:52:16.377 283c Compacting 1@0 + 1@1 files
+2023/05/30-16:52:16.379 283c Generated table #11@0: 140 keys, 4016 bytes
+2023/05/30-16:52:16.379 283c Compacted 1@0 + 1@1 files => 4016 bytes
+2023/05/30-16:52:16.381 283c compacted to: files[ 0 1 1 0 0 0 0 ]
+2023/05/30-16:52:16.381 283c Delete type=2 #10
+2023/05/30-16:52:16.381 283c Manual compaction at level-0 from '\x00\x07\x00\x00\x05' @ 374 : 1 .. '\x00\x08\x00\x00\x00' @ 0 : 0; will stop at (end)

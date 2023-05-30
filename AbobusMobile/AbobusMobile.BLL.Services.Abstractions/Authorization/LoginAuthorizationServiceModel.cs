@@ -4,7 +4,7 @@ using System.Text;
 
 namespace AbobusMobile.BLL.Services.Abstractions.Authorization
 {
-    public class LoginAuthorizationModel
+    public class LoginAuthorizationServiceModel
     {
         public string Email { get; set; }
 

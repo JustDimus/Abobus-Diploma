@@ -1,2 +1,3 @@
-2023/05/30-13:21:05.199 434c Creating DB D:\Projects\Abobus-Diploma\Tools\mockoon-data\Service Worker\Database since it was missing.
-2023/05/30-13:21:05.204 434c Reusing MANIFEST D:\Projects\Abobus-Diploma\Tools\mockoon-data\Service Worker\Database/MANIFEST-000001
+2023/05/30-16:52:16.015 5c88 Reusing MANIFEST D:\Projects\Abobus-Diploma\Tools\mockoon-data\Service Worker\Database/MANIFEST-000001
+2023/05/30-16:52:16.015 5c88 Recovering log #3
+2023/05/30-16:52:16.015 5c88 Reusing old log D:\Projects\Abobus-Diploma\Tools\mockoon-data\Service Worker\Database/000003.log 
