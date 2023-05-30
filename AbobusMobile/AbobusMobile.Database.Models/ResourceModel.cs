@@ -12,10 +12,10 @@ namespace AbobusMobile.Database.Models
         [Column("global_id"), Unique]
         public Guid GlobalId { get; set; }
 
-        [Column("Name"), Unique]
+        [Column("Name")]
         public string Name { get; set; }
 
-        [Column("Path")]
+        [Column("Path"), Unique]
         public string Path { get; set; }
     }
 }

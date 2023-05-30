@@ -1,2 +1,3 @@
-2023/05/30-12:54:01.042 4b74 Creating DB D:\Projects\Abobus-Diploma\Tools\mockoon-data\Session Storage since it was missing.
-2023/05/30-12:54:01.049 4b74 Reusing MANIFEST D:\Projects\Abobus-Diploma\Tools\mockoon-data\Session Storage/MANIFEST-000001
+2023/05/30-16:52:16.859 283c Reusing MANIFEST D:\Projects\Abobus-Diploma\Tools\mockoon-data\Session Storage/MANIFEST-000001
+2023/05/30-16:52:16.859 283c Recovering log #3
+2023/05/30-16:52:16.860 283c Reusing old log D:\Projects\Abobus-Diploma\Tools\mockoon-data\Session Storage/000003.log 

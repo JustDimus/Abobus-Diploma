@@ -7,6 +7,7 @@ using System.Threading;
 using AbobusMobile.Communication.Services.Abstractions.Models;
 using AbobusMobile.Communication.Services.Abstractions;
 using AbobusMobile.Communication.Services.Abstractions.Configuration;
+using System.IO;
 
 namespace AbobusMobile.Communication.Services
 {
@@ -51,6 +52,11 @@ namespace AbobusMobile.Communication.Services
                     httpRequest.Headers.Add(header.Key, header.Value);
                 }
 
+                if (request is DownloadRequest)
+                {
+                    return await DownloadFile(httpRequest);
+                }
+
                 return await GetResponse(httpRequest);
             }
         }
@@ -70,6 +76,35 @@ namespace AbobusMobile.Communication.Services
                 catch (Exception ex)
                 {
                     result = new HttpResponse(-1, null)
+                    {
+                        Exception = ex
+                    };
+                }
+            }
+
+            return result;
+        }
+
+        private async Task<BaseResponse> DownloadFile(HttpRequestMessage message)
+        {
+            HttpStreamResponse result = null;
+
+            using (CancellationTokenSource source = new CancellationTokenSource(120000))
+            {
+                try
+                {
+                    var response = await this.client.SendAsync(message, source.Token);
+
+                    var downloadStream = new MemoryStream();
+
+                    await response.Content.CopyToAsync(downloadStream);
+                    downloadStream.Seek(0, SeekOrigin.Begin);
+
+                    result = new HttpStreamResponse((int)response.StatusCode, downloadStream);
+                }
+                catch (Exception ex)
+                {
+                    result = new HttpStreamResponse(-1, null)
                     {
                         Exception = ex
                     };

@@ -8,6 +8,8 @@ namespace AbobusMobile.DAL.Services.Abstractions.Resource
 {
     public interface IResourcesDataManager
     {
+        Task<bool> CheckAvailability(Guid resourceId);
+
         Task<ResourceDataModel> GetAsync(Guid resourceId);
 
         Task<MemoryStream> LoadAsync(Guid resourceId);

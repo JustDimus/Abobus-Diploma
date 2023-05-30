@@ -22,5 +22,11 @@ namespace AbobusMobile.Utilities.Extensions
                 throw new ValidationException($"{nameof(obj)} is null");
             }
         }
+
+        public static bool IsNull(this object obj)
+            => obj == null;
+
+        public static bool IsNotNull(this object obj)
+            => !obj.IsNull();
     }
 }

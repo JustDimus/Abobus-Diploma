@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 
 namespace AbobusMobile.Communication.Services.Abstractions.Models
@@ -10,13 +11,13 @@ namespace AbobusMobile.Communication.Services.Abstractions.Models
     {
         protected int statusCode;
 
-        protected string responseContent;
+        protected object responseContent;
 
         public int StatusCode => statusCode;
 
         public abstract bool Succeeded { get; }
 
-        public string ResponseContent => responseContent;
+        public object ResponseContent => responseContent;
 
         public Exception Exception { get; set; }
 
@@ -24,7 +25,10 @@ namespace AbobusMobile.Communication.Services.Abstractions.Models
         {
             responseContent.ValidateIsNotNull();
 
-            return JsonConvert.DeserializeObject<TEntity>(responseContent);
+            return JsonConvert.DeserializeObject<TEntity>(ResponseContent.ToString());
         }
+
+        public Stream AsStream()
+            => ResponseContent as Stream;
     }
 }

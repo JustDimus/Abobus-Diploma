@@ -13,5 +13,10 @@ namespace AbobusMobile.Communication.Services.Abstractions.Models
             base.statusCode = statusCode;
             base.responseContent = responseBody;
         }
+
+        public HttpResponse(int statusCode)
+        {
+            base.statusCode = statusCode;
+        }
     }
 }

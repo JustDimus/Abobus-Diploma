@@ -10,6 +10,7 @@ namespace AbobusMobile.BLL.Services.Abstractions.Resources
         Available,
         NotFound,
         Deleted,
+        DownloadFailed,
         Unknown
     }
 }

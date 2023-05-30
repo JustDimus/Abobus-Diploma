@@ -12,31 +12,118 @@ namespace AbobusMobile.DAL.Services.Resources
     public class ResourcesDataManager : IResourcesDataManager
     {
         private IRepository<ResourceModel> _resources;
+        private ResourcesDirectoryManager _resourcesManager;
 
         public ResourcesDataManager(
-            IRepository<ResourceModel> resources) 
+            IRepository<ResourceModel> resources,
+            ResourcesDirectoryManager resourcesManager) 
         {
+            _resourcesManager = resourcesManager ?? throw new ArgumentNullException(nameof(resourcesManager));
             _resources = resources ?? throw new ArgumentNullException(nameof(resources));
         }
 
-        public Task CreateAsync(CreateResourceDataModel resource)
+        public async Task<bool> CheckAvailability(Guid resourceId)
         {
-            throw new NotImplementedException();
+            var resource = await GetResourceModel(resourceId);
+
+            if (resource != null)
+            {
+                return await _resourcesManager.CheckResourceFileAvailabilityAsync(resource.Path);
+            }
+
+            return false;
         }
 
-        public Task DeleteAsync(Guid resourceId)
+        public async Task CreateAsync(CreateResourceDataModel resource)
         {
-            throw new NotImplementedException();
+            var resourceIdIsBusy = await _resources.AnyAsync(i => i.GlobalId == resource.GlobalId);
+
+            if (resourceIdIsBusy)
+            {
+                await DeleteAsync(resource.GlobalId);
+            }
+
+            var newResource = new ResourceModel()
+            {
+                GlobalId = resource.GlobalId,
+                Name = resource.Name,
+                Path = resource.Name
+            };
+
+            var resourceNameIsBusy = await _resources.AnyAsync(i => i.Path == newResource.Path);
+
+            resourceNameIsBusy = resourceNameIsBusy
+                || await _resourcesManager.CheckResourceFileAvailabilityAsync(newResource.Path);
+
+            if (resourceNameIsBusy)
+            {
+                newResource.Path = string.Concat(Guid.NewGuid(), newResource.Path);
+            }
+
+            await _resourcesManager.WriteResourceFileAsync(newResource.Path, resource.SourceStream);
+
+            await _resources.InsertAsync(newResource);
         }
 
-        public Task<ResourceDataModel> GetAsync(Guid resourceId)
+        public async Task DeleteAsync(Guid resourceId)
         {
-            throw new NotImplementedException();
+            var resourceExist = await CheckAvailability(resourceId);
+
+            if (resourceExist)
+            {
+                var resource = await GetResourceModel(resourceId);
+
+                var resourceFileExist = await _resourcesManager.CheckResourceFileAvailabilityAsync(resource.Path);
+
+                if (resourceFileExist)
+                {
+                    await _resourcesManager.DeleteResourceFileAsync(resource.Path);
+                }
+
+                await _resources.DeleteAsync(resource);
+            }
         }
 
-        public Task<MemoryStream> LoadAsync(Guid resourceId)
+        public async Task<ResourceDataModel> GetAsync(Guid resourceId)
         {
-            throw new NotImplementedException();
+            var resource = await GetResourceModel(resourceId);
+
+            ResourceDataModel result = null;
+
+            if (resource != null)
+            {
+                result = new ResourceDataModel()
+                {
+                    GlobalId = resource.GlobalId,
+                    Name = resource.Name,
+                };
+            }
+
+            return result;
         }
+
+        public async Task<MemoryStream> LoadAsync(Guid resourceId)
+        {
+            var resourceExist = await CheckAvailability(resourceId);
+
+            MemoryStream result = null;
+
+            if (resourceExist)
+            {
+                var resource = await GetResourceModel(resourceId);
+
+                var resourceFileExist = await _resourcesManager.CheckResourceFileAvailabilityAsync(resource.Path);
+
+                if (resourceFileExist)
+                {
+                    result = await _resourcesManager.LoadResourceFileAsync(resource.Path);
+                }
+            }
+
+            return result;
+        }
+
+        private async Task<ResourceModel> GetResourceModel(Guid resourceId)
+            => await _resources.FirstOrDefaultAsync(i => i.GlobalId == resourceId);
     }
 }

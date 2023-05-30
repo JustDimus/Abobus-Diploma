@@ -1,6 +1,10 @@
-﻿using AbobusMobile.BLL.Services.Abstractions.Resources;
+﻿using AbobusCore.Models.Resources;
+using AbobusMobile.BLL.Services.Abstractions.Resources;
+using AbobusMobile.Communication.Requests.Resources;
 using AbobusMobile.Communication.Services.Abstractions;
+using AbobusMobile.Communication.Services.Abstractions.Extensions;
 using AbobusMobile.DAL.Services.Abstractions.Resource;
+using AbobusMobile.Utilities.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -13,6 +17,9 @@ namespace AbobusMobile.BLL.Services.Resources
         private IResourcesDataManager _resourcesManager;
         private IRequestFactory _requestFactory;
 
+        private GetResourceDetailsRequest resourceDetailsRequest;
+        private DownloadResourceRequest downloadResourceRequest;
+
         public ResourcesService(
             IRequestFactory requestFactory,
             IResourcesDataManager resourcesManager)
@@ -21,24 +28,128 @@ namespace AbobusMobile.BLL.Services.Resources
             _resourcesManager = resourcesManager ?? throw new ArgumentNullException(nameof(resourcesManager));
         }
 
-        public Task<ResourceServiceStatus> DeleteResourceAsync(Guid resourceId)
+        private GetResourceDetailsRequest ResourceDetailsRequest
+            => resourceDetailsRequest ?? (resourceDetailsRequest = _requestFactory.CreateRequest<GetResourceDetailsRequest>());
+
+        private DownloadResourceRequest DownloadResourceRequest
+            => downloadResourceRequest ?? (downloadResourceRequest = _requestFactory.CreateRequest<DownloadResourceRequest>());
+
+        public async Task<ResourceServiceStatus> DeleteResourceAsync(Guid resourceId)
         {
-            throw new NotImplementedException();
+            await _resourcesManager.DeleteAsync(resourceId);
+
+            return ResourceServiceStatus.Deleted;
         }
 
-        public Task<ResourceServiceStatus> DownloadResourceAsync(Guid resourceId)
+        public async Task<ResourceServiceStatus> DownloadResourceAsync(Guid resourceId)
         {
-            throw new NotImplementedException();
+            ResourceDetailsRequest.Initialize(resourceId);
+
+            var resourceResponse = await ResourceDetailsRequest.SendRequestAsync();
+
+            if (resourceResponse.Succeeded)
+            {
+                var resourceDetails = resourceResponse.As<ResourcesDetailsModel>();
+
+                DownloadResourceRequest.Initialize(resourceId);
+
+                var downloadResponse = await DownloadResourceRequest.SendRequestAsync();
+
+                if (downloadResponse.Succeeded)
+                {
+                    downloadResponse.AsStream();
+
+                    await _resourcesManager.CreateAsync(new CreateResourceDataModel()
+                    {
+                        GlobalId = resourceId,
+                        Name = resourceDetails.Name,
+                        SourceStream = downloadResponse.AsStream()
+                    });
+
+                    return ResourceServiceStatus.Downloaded;
+                }
+            }
+
+            return ResourceServiceStatus.DownloadFailed;
         }
 
-        public Task<ResourceServiceModel> GetResourceAsync(Guid resourceId)
+        public async Task<ResourceServiceModel> GetResourceAsync(Guid resourceId)
         {
-            throw new NotImplementedException();
+            var resourceStatus = await GetResourceStatusAsync(resourceId);
+
+            ResourceServiceModel result = null;
+
+            switch (resourceStatus)
+            {
+                case ResourceServiceStatus.Downloaded:
+                    result = await LoadResourceAsync(resourceId);
+                    break;
+                case ResourceServiceStatus.Available:
+                    var downloadResult = await DownloadResourceAsync(resourceId);
+                    
+                    if (downloadResult == ResourceServiceStatus.Downloaded)
+                    {
+                        result = await LoadResourceAsync(resourceId);
+                    }
+
+                    ThrowInvalidResourceException(resourceId);
+                    break;
+                default:
+                    ThrowInvalidResourceException(resourceId);
+                    break;
+            }
+
+            return result;
         }
 
-        public Task<ResourceServiceStatus> GetResourceStatusAsync(Guid resourceId)
+
+        public async Task<ResourceServiceStatus> GetResourceStatusAsync(Guid resourceId)
         {
-            throw new NotImplementedException();
+            var downloadedResourceAvailable = await _resourcesManager.CheckAvailability(resourceId);
+
+            if (!downloadedResourceAvailable)
+            {
+                ResourceDetailsRequest.Initialize(resourceId);
+
+                var response = await ResourceDetailsRequest.SendRequestAsync();
+
+                if (response.NotFound())
+                {
+                    return ResourceServiceStatus.NotFound;
+                }
+
+                if (response.Succeeded)
+                {
+                    return ResourceServiceStatus.Available;
+                }
+
+                return ResourceServiceStatus.Unknown;
+            }
+
+            return ResourceServiceStatus.Downloaded;
+        }
+
+        private async Task<ResourceServiceModel> LoadResourceAsync(Guid resourceId)
+        {
+            var resourceDetails = await _resourcesManager.GetAsync(resourceId);
+            var resourceStream = await _resourcesManager.LoadAsync(resourceId);
+
+            if (resourceDetails.IsNotNull()
+                && resourceStream.IsNotNull())
+            {
+                return new ResourceServiceModel()
+                {
+                    Name = resourceDetails.Name,
+                    Resource = resourceStream,
+                };
+            }
+
+            return null;
+        }
+
+        private void ThrowInvalidResourceException(Guid resourceId)
+        {
+            throw new InvalidOperationException($"Could not download resource {resourceId}");
         }
     }
 }
