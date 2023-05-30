@@ -14,6 +14,11 @@ namespace AbobusMobile.DAL.Services.Abstractions.Resource
         {
             ResourceFolderPath = resourcesDirectoryPath;
 
+            if (!Directory.Exists(resourcesDirectoryPath))
+            {
+                Directory.CreateDirectory(resourcesDirectoryPath);
+            }
+
             return this;
         }
 

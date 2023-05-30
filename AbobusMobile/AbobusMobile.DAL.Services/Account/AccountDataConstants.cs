@@ -8,7 +8,7 @@ namespace AbobusMobile.DAL.Services.Account
     {
         public const string DETAILS_ID = "CurrentAccountId";
         public const string DETAILS_USERNAME = "CurrentAccountUsername";
-        public const string DETAILS_EMAIL = "CurrentAccountUsername";
+        public const string DETAILS_EMAIL = "CurrentAccountEmail";
         public const string DETAILS_PROFILE_PHOTO_NAME = "CurrentAccountPhoto";
 
         public const int DETAILS_CONFIG_COUNT = 4;

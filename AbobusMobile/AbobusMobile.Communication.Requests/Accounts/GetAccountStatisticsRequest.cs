@@ -14,7 +14,7 @@ namespace AbobusMobile.Communication.Requests.Accounts
 
         protected override string Url => $"accounts/{accountId}/statistics";
 
-        protected override HttpMethod HttpMethod => throw new NotImplementedException();
+        protected override HttpMethod HttpMethod => HttpMethod.Get;
 
         public override Task<BaseResponse> SendRequestAsync()
         {

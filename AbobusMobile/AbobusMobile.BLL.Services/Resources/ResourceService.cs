@@ -57,8 +57,6 @@ namespace AbobusMobile.BLL.Services.Resources
 
                 if (downloadResponse.Succeeded)
                 {
-                    downloadResponse.AsStream();
-
                     await _resourcesManager.CreateAsync(new CreateResourceDataModel()
                     {
                         GlobalId = resourceId,

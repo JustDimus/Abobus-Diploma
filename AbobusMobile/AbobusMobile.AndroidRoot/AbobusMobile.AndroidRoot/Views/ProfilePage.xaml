@@ -19,30 +19,30 @@
     </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout Padding="10,10,10,5">
-            <StackLayout Orientation="Horizontal">
+            <StackLayout Orientation="Horizontal"
+                         HeightRequest="140"
+                         Margin="0,0,0,10">
                 <Frame HasShadow="True">
                     <Image Source="{Binding ProfilePhoto}"
-                       WidthRequest="100" HeightRequest="100" />
+                       WidthRequest="130" HeightRequest="130" />
                 </Frame>
-                <StackLayout Orientation="Vertical">
+                <StackLayout Orientation="Vertical"
+                             WidthRequest="250">
                     <Frame>
-                        <Label LineBreakMode="WordWrap">
-                            <Label.FormattedText>
-                                <FormattedString>
-                                    <Span Text="{x:Static resources:ApplicationTexts.ProfilePage_Username}" />
-                                    <Span Text="&#x0a;" />
-                                    <Span Text="{Binding Username}" />
-                                </FormattedString>
-                            </Label.FormattedText>
-                        </Label>
+                        <Label LineBreakMode="WordWrap"
+                               Text="{Binding Username}"
+                               FontSize="25"
+                               HeightRequest="65" />
                     </Frame>
-                    <Frame >
-                        <Label LineBreakMode="WordWrap" WidthRequest="200">
+                    <Frame>
+                        <Label LineBreakMode="WordWrap"
+                               HeightRequest="65"
+                               FontSize="15">
                             <Label.FormattedText>
                                 <FormattedString>
-                                    <Span Text="{x:Static resources:ApplicationTexts.ProfilePage_Email}" />
-                                    <Span Text="&#x0a;" />
-                                    <Span Text="{Binding Email}" />
+                                    <Span Text="{x:Static resources:ApplicationTexts.ProfilePage_Routes}" />
+                                    <Span Text=" " />
+                                    <Span Text="{Binding RoutesCount}" />
                                 </FormattedString>
                             </Label.FormattedText>
                         </Label>
@@ -53,9 +53,9 @@
                 <Label LineBreakMode="WordWrap">
                     <Label.FormattedText>
                         <FormattedString>
-                            <Span Text="{x:Static resources:ApplicationTexts.ProfilePage_Routes}" />
+                            <Span Text="{x:Static resources:ApplicationTexts.ProfilePage_Email}" />
                             <Span Text=" " />
-                            <Span Text="{Binding RoutesCount}" />
+                            <Span Text="{Binding Email}" />
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>

@@ -29,50 +29,50 @@ namespace AbobusMobile.AndroidRoot.ViewModels
 
         #region Properties
 
-        private ImageSource profilePhoto = null;
+        private ImageSource profilePhoto;
         public ImageSource ProfilePhoto
         {
             get => profilePhoto;
             set => SetProperty(ref profilePhoto, value);
         }
 
-        private string username = "turboTheBoar";
+        private string username;
         public string Username
         {
             get => username;
             set => SetProperty(ref username, value);
         }
 
-        private string email = "helllodsad@gmail.com";
+        private string email;
         public string Email
         {
             get => email;
             set => SetProperty(ref email, value);
         }
 
-        private int routesCount = 15;
-        public int RoutesCount
+        private int? routesCount;
+        public int? RoutesCount
         {
             get => routesCount;
             set => SetProperty(ref routesCount, value);
         }
 
-        private int citiesCount = 27;
-        public int CitiesCount
+        private int? citiesCount;
+        public int? CitiesCount
         {
             get => citiesCount;
             set => SetProperty(ref citiesCount, value);
         }
 
-        private int friendsCount = 146;
-        public int FriendsCount
+        private int? friendsCount;
+        public int? FriendsCount
         {
             get => friendsCount;
             set => SetProperty(ref friendsCount, value);
         }
 
-        private int passedDistance = 14;
-        public int PassedDistance
+        private int? passedDistance;
+        public int? PassedDistance
         {
             get => passedDistance;
             set => SetProperty(ref passedDistance, value);
