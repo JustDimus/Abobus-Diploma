@@ -22,7 +22,7 @@ namespace AbobusMobile.Database.Services.SQLite
                 new SQLiteConnectionString(dbOptions.DatabasePath, dbOptions.OpenFlags, dbOptions.StoreDateTimeAsTicks));
         }
 
-        internal SQLiteAsyncConnection Database
+        public SQLiteAsyncConnection Database
         {
             get
             {
@@ -39,7 +39,10 @@ namespace AbobusMobile.Database.Services.SQLite
         {
             initialized = true;
 
-            return Task.Run(async () => await Database.CreateTablesAsync(_options.CreateFlags, _options.Tables));
+            return Task.Run(async () =>
+            {
+                await Database.CreateTablesAsync(_options.CreateFlags, _options.Tables);
+            });
         }
     }
 }

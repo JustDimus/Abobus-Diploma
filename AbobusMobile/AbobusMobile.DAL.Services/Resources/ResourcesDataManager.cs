@@ -15,8 +15,8 @@ namespace AbobusMobile.DAL.Services.Resources
         private ResourcesDirectoryManager _resourcesManager;
 
         public ResourcesDataManager(
-            IRepository<ResourceModel> resources,
-            ResourcesDirectoryManager resourcesManager) 
+            ResourcesDirectoryManager resourcesManager,
+            IRepository<ResourceModel> resources)
         {
             _resourcesManager = resourcesManager ?? throw new ArgumentNullException(nameof(resourcesManager));
             _resources = resources ?? throw new ArgumentNullException(nameof(resources));

@@ -34,6 +34,7 @@ namespace AbobusMobile.Communication.Services
             RequestFactoryConfiguration factoryConfiguration,
             IRequestConsumerService requestConsumerService)
         {
+            var requestHanle = requestHandlers.ToList();
             _requestConsumerService = requestConsumerService ?? throw new ArgumentNullException(nameof(requestConsumerService));
 
             _handlers = requestHandlers?.ToList() ?? throw new ArgumentNullException(nameof(requestHandlers));

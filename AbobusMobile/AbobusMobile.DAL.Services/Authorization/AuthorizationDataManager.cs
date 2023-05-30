@@ -17,7 +17,8 @@ namespace AbobusMobile.DAL.Services.Authorization
     {
         private readonly IConfigurationsDataManager _configurationManager;
 
-        public AuthorizationDataManager(IConfigurationsDataManager configurationManager)
+        public AuthorizationDataManager(
+            IConfigurationsDataManager configurationManager)
         {
             _configurationManager = configurationManager ?? throw new ArgumentNullException(nameof(configurationManager));
         }

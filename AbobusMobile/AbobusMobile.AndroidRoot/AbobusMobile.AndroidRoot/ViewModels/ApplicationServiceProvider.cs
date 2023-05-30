@@ -19,9 +19,12 @@ using AbobusMobile.DAL.Services.Abstractions.Resource;
 using AbobusMobile.DAL.Services.Account;
 using AbobusMobile.DAL.Services.Authorization;
 using AbobusMobile.DAL.Services.Configurations;
+using AbobusMobile.DAL.Services.Resources;
 using AbobusMobile.Database.Models;
+using AbobusMobile.Database.Services.Abstractions;
 using AbobusMobile.Database.Services.SQLite;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Nancy.TinyIoc;
 using System;
 using System.Collections.Generic;
@@ -35,7 +38,7 @@ namespace AbobusMobile.AndroidRoot.ViewModels
 {
     public class ApplicationServiceProvider
     {
-        private readonly TinyIoCContainer _container;
+        private readonly IServiceProvider _provider;
 
         public ApplicationServiceProvider()
         {
@@ -46,15 +49,15 @@ namespace AbobusMobile.AndroidRoot.ViewModels
                 .AddJsonStream(configurationStream)
                 .Build();
 
-            _container = new TinyIoCContainer();
+            IServiceCollection serviceCollection = new ServiceCollection();
 
-            _container
+            serviceCollection
                 .AddOptions<EndpointConfigurations>(GetConfigurationString(nameof(EndpointConfigurations)));
 
-            _container
-                .AddRequestConsumerService(options =>
+            serviceCollection
+                .AddRequestConsumerService((provider, options) =>
                 {
-                    var endpoints = _container.Resolve<Options<EndpointConfigurations>>();
+                    var endpoints = provider.GetRequiredService<Options<EndpointConfigurations>>();
 
                     options.UseRelativeUrls = true;
                     options.BaseURL = endpoints.Value.ApiUrl;
@@ -62,7 +65,7 @@ namespace AbobusMobile.AndroidRoot.ViewModels
                 .ConfigureRequestFactory()
                 .ConfigureRequestHandlers();
 
-            _container.AddDatabase(true, options =>
+            serviceCollection.AddDatabase(true, options =>
             {
                 options.LoadTablesFromAssembly(typeof(ConfigurationModel).Assembly);
                 options.UseDatabasePath(Path.Combine(
@@ -70,25 +73,28 @@ namespace AbobusMobile.AndroidRoot.ViewModels
                     configuration.GetConnectionString("DatabasePath")));
             });
 
-            _container.AddViewModels();
+            serviceCollection.AddViewModels();
 
             // DAL
-            _container.ConfigureResources(options =>
+            serviceCollection.ConfigureResources(options =>
             {
                 options.UsePath(Path.Combine(
                     Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
                     configuration.GetConnectionString("ResourcesPath")));
             });
 
-            _container.Register<IAuthorizationDataManager, AuthorizationDataManager>();
-            _container.Register<IConfigurationsDataManager, ConfigurationsDataManager>();
-            _container.Register<IAccountDataManager, AccountDataManager>();
+            serviceCollection.AddSingleton<IAuthorizationDataManager, AuthorizationDataManager>();
+            serviceCollection.AddSingleton<IConfigurationsDataManager, ConfigurationsDataManager>();
+            serviceCollection.AddSingleton<IAccountDataManager, AccountDataManager>();
+            serviceCollection.AddSingleton<IResourcesDataManager, ResourcesDataManager>();
 
             // BLL
-            _container.Register<IAuthorizationService, AuthorizationService>();
-            _container.Register<IAccountService, AccountService>();
-            _container.Register<IResourcesService, ResourcesService>();
-            _container.Register<IErrorHandlingService, ErrorHandlingService>();
+            serviceCollection.AddSingleton<IAuthorizationService, AuthorizationService>();
+            serviceCollection.AddSingleton<IAccountService, AccountService>();
+            serviceCollection.AddSingleton<IResourcesService, ResourcesService>();
+            serviceCollection.AddSingleton<IErrorHandlingService, ErrorHandlingService>();
+
+            _provider = serviceCollection.BuildServiceProvider();
 
             string GetConfigurationString(string sectionName)
             {
@@ -107,15 +113,15 @@ namespace AbobusMobile.AndroidRoot.ViewModels
         }
 
         private AppShellViewModel appShellViewModel = null;
-        public AppShellViewModel AppShellViewModel => appShellViewModel ?? (appShellViewModel = _container.Resolve<AppShellViewModel>());
+        public AppShellViewModel AppShellViewModel => appShellViewModel ?? (appShellViewModel = _provider.GetRequiredService<AppShellViewModel>());
 
         private LoginViewModel loginViewModel = null;
-        public LoginViewModel LoginViewModel => loginViewModel ?? (loginViewModel = _container.Resolve<LoginViewModel>());
+        public LoginViewModel LoginViewModel => loginViewModel ?? (loginViewModel = _provider.GetRequiredService<LoginViewModel>());
 
         private StartViewModel startViewModel = null;
-        public StartViewModel StartViewModel => startViewModel ?? (startViewModel = _container.Resolve<StartViewModel>());
+        public StartViewModel StartViewModel => startViewModel ?? (startViewModel = _provider.GetRequiredService<StartViewModel>());
 
         private ProfileViewModel profileViewModel = null;
-        public ProfileViewModel ProfileViewModel => profileViewModel ?? (profileViewModel = _container.Resolve<ProfileViewModel>());
+        public ProfileViewModel ProfileViewModel => profileViewModel ?? (profileViewModel = _provider.GetRequiredService<ProfileViewModel>());
     }
 }

@@ -10,5 +10,6 @@ namespace AbobusMobile.AndroidRoot.Views
         public const string LOGIN = "//login";
         public const string MAIN = "//main";
         public const string PROFILE_ABSOLUTE = "//main/profile";
+        public const string ABOUT_ABSOLUTE = "//main/profile";
     }
 }

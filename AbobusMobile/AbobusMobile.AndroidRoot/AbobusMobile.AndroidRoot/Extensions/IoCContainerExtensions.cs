@@ -6,6 +6,7 @@ using AbobusMobile.Communication.Services.Abstractions;
 using AbobusMobile.Communication.Services.Abstractions.Configuration;
 using AbobusMobile.Communication.Services.Abstractions.Handlers;
 using AbobusMobile.Communication.Services.Handlers;
+using Microsoft.Extensions.DependencyInjection;
 using Nancy.TinyIoc;
 using System;
 using System.Collections.Generic;
@@ -16,31 +17,34 @@ namespace AbobusMobile.AndroidRoot.Extensions
 {
     public static class IoCContainerExtensions
     {
-        public static TinyIoCContainer AddOptions<TEntity>(
-            this TinyIoCContainer container,
+        public static IServiceCollection AddOptions<TEntity>(
+            this IServiceCollection services,
             string entity)
         {
-            container
-                .Register<Options<TEntity>>(new Options<TEntity>(entity));
+            services
+                .AddSingleton<Options<TEntity>>(new Options<TEntity>(entity));
 
-            return container;
+            return services;
         }
 
-        public static TinyIoCContainer AddRequestConsumerService(
-            this TinyIoCContainer container,
-            Action<RequestConsumerServiceConfiguration> configurator)
+        public static IServiceCollection AddRequestConsumerService(
+            this IServiceCollection services,
+            Action<IServiceProvider, RequestConsumerServiceConfiguration> configurator)
         {
-            var configuration = new RequestConsumerServiceConfiguration();
+            services.AddTransient<IRequestConsumerService, RequestConsumerService>();
+            services.AddSingleton<RequestConsumerServiceConfiguration>(provider =>
+            {
+                var configuration = new RequestConsumerServiceConfiguration();
 
-            configurator.Invoke(configuration);
+                configurator.Invoke(provider, configuration);
 
-            container.Register<IRequestConsumerService, RequestConsumerService>();
-            container.Register<RequestConsumerServiceConfiguration>(configuration);
+                return configuration;
+            });
 
-            return container;
+            return services;
         }
 
-        public static TinyIoCContainer ConfigureRequestFactory(this TinyIoCContainer container)
+        public static IServiceCollection ConfigureRequestFactory(this IServiceCollection services)
         {
             var configuration = new RequestFactoryConfiguration();
 
@@ -48,27 +52,25 @@ namespace AbobusMobile.AndroidRoot.Extensions
             configuration.LoadRequestsFromAssembly(typeof(IoCContainerExtensions).Assembly);
             configuration.LoadRequestsFromAssembly(typeof(LoginRequest).Assembly);
 
-            container.Register<RequestFactoryConfiguration>(configuration);
+            services.AddSingleton<RequestFactoryConfiguration>(configuration);
 
-            container.Register<IRequestFactory, RequestFactory>().AsSingleton();
+            services.AddSingleton<IRequestFactory, RequestFactory>();
 
-            return container;
+            return services;
         }
 
-        public static TinyIoCContainer ConfigureRequestHandlers(this TinyIoCContainer container)
+        public static IServiceCollection ConfigureRequestHandlers(this IServiceCollection services)
         {
-            container.RegisterMultiple<IRequestHandler>(new Type[]
-            {
-                typeof(AuthorizatonHandler),
-                typeof(ExceptionHandler),
-            }).AsSingleton();
+            services.AddSingleton<AuthorizatonHandler>();
+            services.AddSingleton<IAuthorizationHandler>(provider => provider.GetRequiredService<AuthorizatonHandler>());
 
-            container.Register<IAuthorizationHandler>((provider, _) => provider.Resolve<AuthorizatonHandler>());
+            services.AddSingleton<IRequestHandler>(provider => provider.GetRequiredService<AuthorizatonHandler>());
+            services.AddSingleton<IRequestHandler, ExceptionHandler>();
 
-            return container;
+            return services;
         }
 
-        public static TinyIoCContainer AddViewModels(this TinyIoCContainer container)
+        public static IServiceCollection AddViewModels(this IServiceCollection services)
         {
             IEnumerable<Type> viewModels = typeof(IoCContainerExtensions).Assembly
                 .GetTypes()
@@ -76,10 +78,10 @@ namespace AbobusMobile.AndroidRoot.Extensions
 
             foreach (Type viewModel in viewModels)
             {
-                container.Register(viewModel);
+                services.AddSingleton(viewModel);
             }
 
-            return container;
+            return services;
         }
     }
 }
