@@ -171,6 +171,27 @@
   <data name="ProfilePage_Username" xml:space="preserve">
     <value>Username:</value>
   </data>
+  <data name="RoutesPage_AdditionalRoutes" xml:space="preserve">
+    <value>Additional Routes</value>
+  </data>
+  <data name="RoutesPage_AvailableRoutes" xml:space="preserve">
+    <value>Possible Routes</value>
+  </data>
+  <data name="RoutesPage_ChooseCityTitle" xml:space="preserve">
+    <value>Your City:</value>
+  </data>
+  <data name="RoutesPage_CityNotFound" xml:space="preserve">
+    <value>Unknown</value>
+  </data>
+  <data name="RoutesPage_DownloadedRoutes" xml:space="preserve">
+    <value>Downloaded Routes</value>
+  </data>
+  <data name="RoutesPage_TitleText" xml:space="preserve">
+    <value>Location:</value>
+  </data>
+  <data name="RoutesPage_YourRoutes" xml:space="preserve">
+    <value>Your Routes</value>
+  </data>
   <data name="StartPage_AppName" xml:space="preserve">
     <value>Abobus App</value>
   </data>

@@ -35,7 +35,7 @@ namespace AbobusMobile.AndroidRoot.ViewModels
 
                     break;
                 case AuthorizationServiceStatus.Authorized:
-                    await Shell.Current.GoToAsync(PathConstants.PROFILE_ABSOLUTE);
+                    await Shell.Current.GoToAsync(PathConstants.ROUTES_ABSOLUTE);
                     break;
                 case AuthorizationServiceStatus.Unauthorized:
                     await Shell.Current.GoToAsync(PathConstants.LOGIN);

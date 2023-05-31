@@ -54,6 +54,15 @@ namespace AbobusMobile.BLL.Services.Account
             };
         }
 
+        public async Task<Guid> GetCurrentAccountIdAsync()
+        {
+            await SynchronizeUserData();
+
+            var accountDetailsData = await _accountDataManager.GetAccountDetailsAsync();
+
+            return accountDetailsData.Id;
+        }
+
         public async Task<Stream> LoadAccountImageAsync()
         {
             await SynchronizeUserData();

@@ -41,9 +41,11 @@
     </ShellItem>
 
     <TabBar Route="main">
-        <Tab Route="info">
+        <Tab Route="info"
+             Icon="icon_about.png"
+             Title="info">
             <ShellContent Title="routes" Route="routes" ContentTemplate="{DataTemplate local:RoutesPage}" />
-            <ShellContent Title="about" Icon="icon_about.png" Route="about" ContentTemplate="{DataTemplate local:AboutPage}" />
+            <ShellContent Title="about" Route="about" ContentTemplate="{DataTemplate local:AboutPage}" />
         </Tab>
         <ShellContent Title="browse" Icon="icon_feed.png" ContentTemplate="{DataTemplate local:ItemsPage}" />
         <ShellContent Title="profile" Icon="icon_feed.png" Route="profile" ContentTemplate="{DataTemplate local:ProfilePage}" />

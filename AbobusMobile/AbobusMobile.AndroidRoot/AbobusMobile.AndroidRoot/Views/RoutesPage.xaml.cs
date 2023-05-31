@@ -13,6 +13,7 @@ namespace AbobusMobile.AndroidRoot.Views
     public partial class RoutesPage : BasePage
     {
         public RoutesPage()
+            : base()
         {
             InitializeComponent();
         }

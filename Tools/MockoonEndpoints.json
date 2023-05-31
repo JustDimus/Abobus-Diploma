@@ -6,7 +6,23 @@
   "latency": 0,
   "port": 3001,
   "hostname": "",
-  "folders": [],
+  "folders": [
+    {
+      "uuid": "5e9ffe6c-dbc7-4a43-8507-bc5629bf39ee",
+      "name": "Resources",
+      "collapsed": false,
+      "children": [
+        {
+          "type": "route",
+          "uuid": "d0e42f3c-6204-4d9e-ac2f-acbd071c5564"
+        },
+        {
+          "type": "route",
+          "uuid": "5c1a53e7-bc9d-491d-9caf-9e85a874bf32"
+        }
+      ]
+    }
+  ],
   "routes": [
     {
       "uuid": "ca35048c-970f-4512-8256-48c1edb01821",
@@ -284,6 +300,146 @@
       ],
       "enabled": true,
       "responseMode": null
+    },
+    {
+      "uuid": "5c1a53e7-bc9d-491d-9caf-9e85a874bf32",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/resources/34EA47AE-B5EF-4EF4-97FA-98367F8C0D0F",
+      "responses": [
+        {
+          "uuid": "cf9f87d5-7620-4594-bc89-2336d424eb87",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "FILE",
+          "filePath": "D:\\Projects\\Abobus-Diploma\\Tools\\TestResource.png",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "d0e42f3c-6204-4d9e-ac2f-acbd071c5564",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/resources/34EA47AE-B5EF-4EF4-97FA-98367F8C0D0F/details",
+      "responses": [
+        {
+          "uuid": "47b30da8-86e7-4151-bda6-4346868e180a",
+          "body": "{\n  \"id\": \"34EA47AE-B5EF-4EF4-97FA-98367F8C0D0F\",\n  \"name\": \"TestResource.png\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "3242a0f5-b51a-4db1-82cf-114c97ac142e",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/locations/current?longitude=:longitude&latitude=:latitude",
+      "responses": [
+        {
+          "uuid": "5dd5d44b-942f-47cd-a58e-abcac2ff77a5",
+          "body": "{\n  \"location_found\": \"true\",\n  \"city_id\": \"F4B652C5-CC00-4139-B249-48AFFBDE3381\",\n  \"city_name\": \"Khmelnytskyi\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "b3483225-b3e9-49a8-bf3e-7a2db2fbce6c",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/locations?cityname=kh",
+      "responses": [
+        {
+          "uuid": "8c8a9182-1644-4903-8cd3-cea304775b8a",
+          "body": "[\n{\n  \"location_found\": \"true\",\n  \"city_id\": \"F4B652C5-CC00-4139-B249-48AFFBDE3381\",\n  \"city_name\": \"Khmelnytskyi\"\n},\n{\n  \"location_found\": \"true\",\n  \"city_id\": \"B5C71BA9-3CEA-4CDF-BFCC-F115DD82417D\",\n  \"city_name\": \"Kherson\"\n}\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "74aaab94-36f2-46b1-8e1a-c306c564d7ce",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/locations?cityname=:name",
+      "responses": [
+        {
+          "uuid": "250f92e4-871a-44fb-94e0-7483596215bb",
+          "body": "[\n{\n  \"location_found\": \"true\",\n  \"city_id\": \"F4B652C5-CC00-4139-B249-48AFFBDE3381\",\n  \"city_name\": \"Khmelnytskyi\"\n},\n{\n  \"location_found\": \"true\",\n  \"city_id\": \"B5C71BA9-3CEA-4CDF-BFCC-F115DD82417D\",\n  \"city_name\": \"Kherson\"\n}\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
     }
   ],
   "rootChildren": [
@@ -317,11 +473,27 @@
     },
     {
       "type": "route",
-      "uuid": "2e1742b1-f671-46b9-94a1-fabdf5bf8893"
+      "uuid": "8941710f-980c-4bd7-8b17-5d7c4ced7ee1"
     },
     {
       "type": "route",
-      "uuid": "8941710f-980c-4bd7-8b17-5d7c4ced7ee1"
+      "uuid": "2e1742b1-f671-46b9-94a1-fabdf5bf8893"
+    },
+    {
+      "type": "folder",
+      "uuid": "5e9ffe6c-dbc7-4a43-8507-bc5629bf39ee"
+    },
+    {
+      "type": "route",
+      "uuid": "3242a0f5-b51a-4db1-82cf-114c97ac142e"
+    },
+    {
+      "type": "route",
+      "uuid": "b3483225-b3e9-49a8-bf3e-7a2db2fbce6c"
+    },
+    {
+      "type": "route",
+      "uuid": "74aaab94-36f2-46b1-8e1a-c306c564d7ce"
     }
   ],
   "proxyMode": false,

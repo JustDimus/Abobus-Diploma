@@ -4,35 +4,32 @@ using AbobusMobile.BLL.Services.Abstractions.Account;
 using AbobusMobile.BLL.Services.Abstractions.Authorization;
 using AbobusMobile.BLL.Services.Abstractions.Error;
 using AbobusMobile.BLL.Services.Abstractions.Resources;
+using AbobusMobile.BLL.Services.Abstractions.Routes;
+using AbobusMobile.BLL.Services.Abstractions.Utilities;
 using AbobusMobile.BLL.Services.Account;
 using AbobusMobile.BLL.Services.Authorization;
 using AbobusMobile.BLL.Services.Error;
 using AbobusMobile.BLL.Services.Resources;
-using AbobusMobile.Communication.Services;
-using AbobusMobile.Communication.Services.Abstractions;
-using AbobusMobile.Communication.Services.Abstractions.Configuration;
-using AbobusMobile.Communication.Services.Handlers;
+using AbobusMobile.BLL.Services.Routes;
+using AbobusMobile.BLL.Services.Utitlities;
 using AbobusMobile.DAL.Services.Abstractions.Account;
 using AbobusMobile.DAL.Services.Abstractions.Authorization;
 using AbobusMobile.DAL.Services.Abstractions.Configurations;
 using AbobusMobile.DAL.Services.Abstractions.Resource;
+using AbobusMobile.DAL.Services.Abstractions.Utilities;
 using AbobusMobile.DAL.Services.Account;
 using AbobusMobile.DAL.Services.Authorization;
 using AbobusMobile.DAL.Services.Configurations;
 using AbobusMobile.DAL.Services.Resources;
+using AbobusMobile.DAL.Services.Utilities;
 using AbobusMobile.Database.Models;
-using AbobusMobile.Database.Services.Abstractions;
 using AbobusMobile.Database.Services.SQLite;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Nancy.TinyIoc;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Reflection;
 using System.Text;
-using Xamarin.Forms;
 
 namespace AbobusMobile.AndroidRoot.ViewModels
 {
@@ -87,12 +84,15 @@ namespace AbobusMobile.AndroidRoot.ViewModels
             serviceCollection.AddSingleton<IConfigurationsDataManager, ConfigurationsDataManager>();
             serviceCollection.AddSingleton<IAccountDataManager, AccountDataManager>();
             serviceCollection.AddSingleton<IResourcesDataManager, ResourcesDataManager>();
+            serviceCollection.AddSingleton<ILocationsDataManager, LocationsDataManager>();
 
             // BLL
             serviceCollection.AddSingleton<IAuthorizationService, AuthorizationService>();
             serviceCollection.AddSingleton<IAccountService, AccountService>();
             serviceCollection.AddSingleton<IResourcesService, ResourcesService>();
             serviceCollection.AddSingleton<IErrorHandlingService, ErrorHandlingService>();
+            serviceCollection.AddSingleton<ILocationService, LocationService>();
+            serviceCollection.AddSingleton<IRouteService, RouteService>();
 
             _provider = serviceCollection.BuildServiceProvider();
 

@@ -223,6 +223,69 @@ namespace AbobusMobile.AndroidRoot.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Additional Routes.
+        /// </summary>
+        internal static string RoutesPage_AdditionalRoutes {
+            get {
+                return ResourceManager.GetString("RoutesPage_AdditionalRoutes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Possible Routes.
+        /// </summary>
+        internal static string RoutesPage_AvailableRoutes {
+            get {
+                return ResourceManager.GetString("RoutesPage_AvailableRoutes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your City:.
+        /// </summary>
+        internal static string RoutesPage_ChooseCityTitle {
+            get {
+                return ResourceManager.GetString("RoutesPage_ChooseCityTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unknown.
+        /// </summary>
+        internal static string RoutesPage_CityNotFound {
+            get {
+                return ResourceManager.GetString("RoutesPage_CityNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Downloaded Routes.
+        /// </summary>
+        internal static string RoutesPage_DownloadedRoutes {
+            get {
+                return ResourceManager.GetString("RoutesPage_DownloadedRoutes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Location:.
+        /// </summary>
+        internal static string RoutesPage_TitleText {
+            get {
+                return ResourceManager.GetString("RoutesPage_TitleText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your Routes.
+        /// </summary>
+        internal static string RoutesPage_YourRoutes {
+            get {
+                return ResourceManager.GetString("RoutesPage_YourRoutes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Abobus App.
         /// </summary>
         internal static string StartPage_AppName {
