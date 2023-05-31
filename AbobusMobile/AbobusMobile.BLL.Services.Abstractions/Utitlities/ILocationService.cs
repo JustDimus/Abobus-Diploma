@@ -9,7 +9,9 @@ namespace AbobusMobile.BLL.Services.Abstractions.Utilities
     {
         Task<LocationServiceModel> GetCurrentLocationAsync();
 
-        Task<List<LocationServiceModel>> GetLocations(string cityNamePattern);
+        Task<LocationServiceModel> GetLocationAsync(Guid locationId);
+
+        Task<List<LocationServiceModel>> GetLocationsAsync(string cityNamePattern);
 
     }
 }

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AbobusMobile.DAL.Services.Abstractions.Resource
+namespace AbobusMobile.DAL.Services.Abstractions.Resources
 {
     public class ResourceDataModel
     {

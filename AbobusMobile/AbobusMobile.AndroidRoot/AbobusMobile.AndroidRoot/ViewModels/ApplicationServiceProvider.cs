@@ -15,12 +15,14 @@ using AbobusMobile.BLL.Services.Utitlities;
 using AbobusMobile.DAL.Services.Abstractions.Account;
 using AbobusMobile.DAL.Services.Abstractions.Authorization;
 using AbobusMobile.DAL.Services.Abstractions.Configurations;
-using AbobusMobile.DAL.Services.Abstractions.Resource;
+using AbobusMobile.DAL.Services.Abstractions.Resources;
+using AbobusMobile.DAL.Services.Abstractions.Routes;
 using AbobusMobile.DAL.Services.Abstractions.Utilities;
 using AbobusMobile.DAL.Services.Account;
 using AbobusMobile.DAL.Services.Authorization;
 using AbobusMobile.DAL.Services.Configurations;
 using AbobusMobile.DAL.Services.Resources;
+using AbobusMobile.DAL.Services.Routes;
 using AbobusMobile.DAL.Services.Utilities;
 using AbobusMobile.Database.Models;
 using AbobusMobile.Database.Services.SQLite;
@@ -85,6 +87,7 @@ namespace AbobusMobile.AndroidRoot.ViewModels
             serviceCollection.AddSingleton<IAccountDataManager, AccountDataManager>();
             serviceCollection.AddSingleton<IResourcesDataManager, ResourcesDataManager>();
             serviceCollection.AddSingleton<ILocationsDataManager, LocationsDataManager>();
+            serviceCollection.AddSingleton<IRoutesDataManager, RoutesDataManager>();
 
             // BLL
             serviceCollection.AddSingleton<IAuthorizationService, AuthorizationService>();

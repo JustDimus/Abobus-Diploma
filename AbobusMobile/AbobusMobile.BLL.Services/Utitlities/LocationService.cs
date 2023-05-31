@@ -18,7 +18,8 @@ namespace AbobusMobile.BLL.Services.Utitlities
         private IRequestFactory _requestFactory;
         private ILocationsDataManager _locationsManager;
 
-        private GetLocationRequest getLocationRequest = null;
+        private GetLocationByCoordinatesRequest locationByCoordinatesRequest = null;
+        private GetLocationByIdRequest locationByIdRequest = null;
         private GetLocationsRequest getLocationsRequest = null;
 
         public LocationService(
@@ -29,8 +30,11 @@ namespace AbobusMobile.BLL.Services.Utitlities
             _locationsManager = locationsManager ?? throw new ArgumentNullException(nameof(locationsManager));
         }
 
-        private GetLocationRequest GetLocationRequest
-            => getLocationRequest ?? (getLocationRequest = _requestFactory.CreateRequest<GetLocationRequest>());
+        private GetLocationByIdRequest LocationByIdRequest
+            => locationByIdRequest ?? (locationByIdRequest = _requestFactory.CreateRequest<GetLocationByIdRequest>());
+
+        private GetLocationByCoordinatesRequest LocationByCoordinatesRequest
+            => locationByCoordinatesRequest ?? (locationByCoordinatesRequest = _requestFactory.CreateRequest<GetLocationByCoordinatesRequest>());
 
         private GetLocationsRequest GetLocationsRequest
             => getLocationsRequest ?? (getLocationsRequest = _requestFactory.CreateRequest<GetLocationsRequest>());
@@ -39,9 +43,9 @@ namespace AbobusMobile.BLL.Services.Utitlities
         {
             var deviceLocation = await GetLocationAsync();
 
-            GetLocationRequest.Initialize(deviceLocation.Longitude, deviceLocation.Latitude);
+            LocationByCoordinatesRequest.Initialize(deviceLocation.Longitude, deviceLocation.Latitude);
 
-            var locationResponse = await GetLocationRequest.SendRequestAsync();
+            var locationResponse = await LocationByCoordinatesRequest.SendRequestAsync();
 
             LocationServiceModel result = null;
 
@@ -60,7 +64,7 @@ namespace AbobusMobile.BLL.Services.Utitlities
             return result;
         }
 
-        public async Task<List<LocationServiceModel>> GetLocations(string cityNamePattern)
+        public async Task<List<LocationServiceModel>> GetLocationsAsync(string cityNamePattern)
         {
             GetLocationsRequest.Initialize(cityNamePattern);
 
@@ -85,6 +89,29 @@ namespace AbobusMobile.BLL.Services.Utitlities
                         result.Add(GetLocationServiceModel(location));
                     }
                 }
+            }
+
+            return result;
+        }
+
+        public async Task<LocationServiceModel> GetLocationAsync(Guid locationId)
+        {
+            LocationByIdRequest.Initialize(locationId);
+
+            var locationResponse = await LocationByIdRequest.SendRequestAsync();
+
+            LocationServiceModel result = null;
+
+            if (locationResponse.Succeeded)
+            {
+                var locationData = locationResponse.As<LocationDetailsModel>();
+
+                if (locationData.LocationFound)
+                {
+                    await SaveLocationToCache(locationData);
+                }
+
+                result = GetLocationServiceModel(locationData);
             }
 
             return result;

@@ -4,7 +4,7 @@ using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AbobusMobile.DAL.Services.Abstractions.Resource
+namespace AbobusMobile.DAL.Services.Abstractions.Resources
 {
     public interface IResourcesDataManager
     {

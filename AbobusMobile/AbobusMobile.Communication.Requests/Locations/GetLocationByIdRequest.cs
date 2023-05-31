@@ -8,27 +8,24 @@ using System.Threading.Tasks;
 
 namespace AbobusMobile.Communication.Requests.Locations
 {
-    public class GetLocationRequest : AuthorizationRequest
+    public class GetLocationByIdRequest : AuthorizationRequest
     {
-        private double longitude;
-        private double latitude;
+        private Guid locationId;
 
-        protected override string Url => $"locations/current?longitude={longitude}&latitude={latitude}";
+        protected override string Url => $"locations/{locationId}";
 
         protected override HttpMethod HttpMethod => HttpMethod.Get;
 
         public override Task<BaseResponse> SendRequestAsync()
         {
-            longitude.ValidateIsNotEmpty();
-            latitude.ValidateIsNotEmpty();
+            locationId.ValidateNotEmpty();
 
             return base.SendRequestAsync();
         }
 
-        public void Initialize(double desiredLongitude, double desiredLatitude)
+        public void Initialize(Guid desiredLocationId)
         {
-            longitude = desiredLongitude;
-            latitude = desiredLatitude;
+            locationId = desiredLocationId;
         }
     }
 }

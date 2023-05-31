@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace AbobusMobile.DAL.Services.Abstractions.Resource
+namespace AbobusMobile.DAL.Services.Abstractions.Resources
 {
     public static class IoCContainerResourcesConfigurationExtensions
     {

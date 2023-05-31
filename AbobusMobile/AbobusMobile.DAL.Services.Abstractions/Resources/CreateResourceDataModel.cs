@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace AbobusMobile.DAL.Services.Abstractions.Resource
+namespace AbobusMobile.DAL.Services.Abstractions.Resources
 {
     public class CreateResourceDataModel
     {

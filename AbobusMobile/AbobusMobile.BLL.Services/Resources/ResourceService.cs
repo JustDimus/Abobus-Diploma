@@ -3,10 +3,11 @@ using AbobusMobile.BLL.Services.Abstractions.Resources;
 using AbobusMobile.Communication.Requests.Resources;
 using AbobusMobile.Communication.Services.Abstractions;
 using AbobusMobile.Communication.Services.Abstractions.Extensions;
-using AbobusMobile.DAL.Services.Abstractions.Resource;
+using AbobusMobile.DAL.Services.Abstractions.Resources;
 using AbobusMobile.Utilities.Extensions;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -69,6 +70,18 @@ namespace AbobusMobile.BLL.Services.Resources
             }
 
             return ResourceServiceStatus.DownloadFailed;
+        }
+
+        public async Task<ResourceServiceStatus> DownloadeResourceIfNeededAsync(Guid resourceId)
+        {
+            var resourceDownloadStatus = await GetResourceStatusAsync(resourceId);
+
+            if (resourceDownloadStatus != ResourceServiceStatus.Downloaded)
+            {
+                resourceDownloadStatus = await DownloadResourceAsync(resourceId);
+            }
+
+            return resourceDownloadStatus;
         }
 
         public async Task<ResourceServiceModel> GetResourceAsync(Guid resourceId)

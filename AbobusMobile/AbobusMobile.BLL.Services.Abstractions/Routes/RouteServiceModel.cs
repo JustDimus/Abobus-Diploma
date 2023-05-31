@@ -17,6 +17,8 @@ namespace AbobusMobile.BLL.Services.Abstractions.Routes
 
         public string DistanceUnit { get; set; }
 
+        public Guid RouteResourceId { get; set; }
+
         public Guid CreatorId { get; set; }
 
         public Guid RouteImageId { get; set; }

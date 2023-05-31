@@ -1,4 +1,4 @@
-﻿using AbobusMobile.DAL.Services.Abstractions.Resource;
+﻿using AbobusMobile.DAL.Services.Abstractions.Resources;
 using AbobusMobile.Database.Models;
 using AbobusMobile.Database.Services.Abstractions;
 using System;
