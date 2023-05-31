@@ -123,5 +123,8 @@ namespace AbobusMobile.AndroidRoot.ViewModels
 
         private ProfileViewModel profileViewModel = null;
         public ProfileViewModel ProfileViewModel => profileViewModel ?? (profileViewModel = _provider.GetRequiredService<ProfileViewModel>());
+
+        private RoutesViewModel routesViewModel = null;
+        public RoutesViewModel RoutesViewModel => routesViewModel ?? (routesViewModel = _provider.GetRequiredService<RoutesViewModel>());
     }
 }

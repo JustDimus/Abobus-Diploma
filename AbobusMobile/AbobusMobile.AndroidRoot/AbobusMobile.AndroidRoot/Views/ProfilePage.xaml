@@ -15,96 +15,105 @@
                 <Setter Property="FontSize" Value="15" />
                 <Setter Property="HorizontalTextAlignment" Value="Start" />
             </Style>
+            <Style TargetType="ActivityIndicator">
+                <Setter Property="Color" Value="{StaticResource Primary}" />
+                <Setter Property="IsRunning" Value="True" />
+                <Setter Property="Margin" Value="10" />
+            </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout Padding="10,10,10,5">
-            <StackLayout Orientation="Horizontal"
+        <AbsoluteLayout>
+            <StackLayout Padding="10,10,10,5"
+                         AbsoluteLayout.LayoutFlags="All"
+                         AbsoluteLayout.LayoutBounds="0,0,1,1">
+                <StackLayout Orientation="Horizontal"
                          HeightRequest="140"
                          Margin="0,0,0,10">
-                <Frame HasShadow="True">
-                    <Image Source="{Binding ProfilePhoto}"
+                    <Frame HasShadow="True">
+                        <Image Source="{Binding ProfilePhoto}"
                        WidthRequest="130" HeightRequest="130" />
-                </Frame>
-                <StackLayout Orientation="Vertical"
+                    </Frame>
+                    <StackLayout Orientation="Vertical"
                              WidthRequest="250">
-                    <Frame>
-                        <Label LineBreakMode="WordWrap"
+                        <Frame>
+                            <Label LineBreakMode="WordWrap"
                                Text="{Binding Username}"
                                FontSize="25"
+                               HorizontalTextAlignment="Center"
                                HeightRequest="65" />
-                    </Frame>
-                    <Frame>
-                        <Label LineBreakMode="WordWrap"
+                        </Frame>
+                        <Frame>
+                            <Label LineBreakMode="WordWrap"
                                HeightRequest="65"
                                FontSize="15">
-                            <Label.FormattedText>
-                                <FormattedString>
-                                    <Span Text="{x:Static resources:ApplicationTexts.ProfilePage_Routes}" />
-                                    <Span Text=" " />
-                                    <Span Text="{Binding RoutesCount}" />
-                                </FormattedString>
-                            </Label.FormattedText>
-                        </Label>
-                    </Frame>
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="{x:Static resources:ApplicationTexts.ProfilePage_Routes}" />
+                                        <Span Text=" " />
+                                        <Span Text="{Binding RoutesCount}" />
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                        </Frame>
+                    </StackLayout>
                 </StackLayout>
-            </StackLayout>
-            <Frame>
-                <Label LineBreakMode="WordWrap">
-                    <Label.FormattedText>
-                        <FormattedString>
-                            <Span Text="{x:Static resources:ApplicationTexts.ProfilePage_Email}" />
-                            <Span Text=" " />
-                            <Span Text="{Binding Email}" />
-                        </FormattedString>
-                    </Label.FormattedText>
-                </Label>
-            </Frame>
-            <Frame>
-                <Label LineBreakMode="WordWrap">
-                    <Label.FormattedText>
-                        <FormattedString>
-                            <Span Text="{x:Static resources:ApplicationTexts.ProfilePage_Cities}" />
-                            <Span Text=" " />
-                            <Span Text="{Binding CitiesCount}" />
-                        </FormattedString>
-                    </Label.FormattedText>
-                </Label>
-            </Frame>
-            <Frame>
-                <Label LineBreakMode="WordWrap">
-                    <Label.FormattedText>
-                        <FormattedString>
-                            <Span Text="{x:Static resources:ApplicationTexts.ProfilePage_Friends}" />
-                            <Span Text=" " />
-                            <Span Text="{Binding FriendsCount}" />
-                        </FormattedString>
-                    </Label.FormattedText>
-                </Label>
-            </Frame>
-            <Frame>
-                <Label LineBreakMode="WordWrap">
-                    <Label.FormattedText>
-                        <FormattedString>
-                            <Span Text="{x:Static resources:ApplicationTexts.ProfilePage_Distance}" />
-                            <Span Text=" " />
-                            <Span Text="{Binding PassedDistance}" />
-                            <Span Text=" " />
-                            <Span Text="{Binding DistanceUnit}" />
-                        </FormattedString>
-                    </Label.FormattedText>
-                </Label>
-            </Frame>
-            <StackLayout Orientation="Horizontal"
+                <Frame>
+                    <Label LineBreakMode="WordWrap">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="{x:Static resources:ApplicationTexts.ProfilePage_Email}" />
+                                <Span Text=" " />
+                                <Span Text="{Binding Email}" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </Frame>
+                <Frame>
+                    <Label LineBreakMode="WordWrap">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="{x:Static resources:ApplicationTexts.ProfilePage_Cities}" />
+                                <Span Text=" " />
+                                <Span Text="{Binding CitiesCount}" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </Frame>
+                <Frame>
+                    <Label LineBreakMode="WordWrap">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="{x:Static resources:ApplicationTexts.ProfilePage_Friends}" />
+                                <Span Text=" " />
+                                <Span Text="{Binding FriendsCount}" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </Frame>
+                <Frame>
+                    <Label LineBreakMode="WordWrap">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="{x:Static resources:ApplicationTexts.ProfilePage_Distance}" />
+                                <Span Text=" " />
+                                <Span Text="{Binding PassedDistance}" />
+                                <Span Text=" " />
+                                <Span Text="{Binding DistanceUnit}" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </Frame>
+                <StackLayout Orientation="Horizontal"
                          VerticalOptions="EndAndExpand"
                          Margin="5,0,5,10">
-                <Button Text="{x:Static resources:ApplicationTexts.ProfilePage_Settings}"
+                    <Button Text="{x:Static resources:ApplicationTexts.ProfilePage_Settings}"
                         Command="{Binding SettingsCommand}"
                         Style="{StaticResource ImportantButton}"
                         HorizontalOptions="StartAndExpand"
                         WidthRequest="175"
                         FontSize="15" />
-                <Button Text="{x:Static resources:ApplicationTexts.ProfilePage_Logout}"
+                    <Button Text="{x:Static resources:ApplicationTexts.ProfilePage_Logout}"
                         Command="{Binding LogoutCommand}"
                         CommandParameter="False"
                         FontSize="15"
@@ -112,7 +121,7 @@
                         IsVisible="{Binding LogoutInitiated, Converter={StaticResource BoolInverse}}"
                         HorizontalOptions="EndAndExpand"
                         WidthRequest="175" />
-                <Button Text="{x:Static resources:ApplicationTexts.ProfilePage_LogoutEnsure}"
+                    <Button Text="{x:Static resources:ApplicationTexts.ProfilePage_LogoutEnsure}"
                         Command="{Binding LogoutCommand}"
                         CommandParameter="True"
                         Style="{StaticResource DangerButton}"
@@ -120,7 +129,19 @@
                         HorizontalOptions="EndAndExpand"
                         WidthRequest="175"
                         FontSize="15" />
+                </StackLayout>
             </StackLayout>
-        </StackLayout>
+            <Frame
+                BackgroundColor="#CC000000"
+                WidthRequest="1000"
+                HeightRequest="1000"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                IsVisible="{Binding ProfileUpdateRequired}"
+                AbsoluteLayout.LayoutFlags="All"
+                AbsoluteLayout.LayoutBounds="0,0,1,1">
+                <ActivityIndicator />
+            </Frame>
+        </AbsoluteLayout>
     </ContentPage.Content>
 </local:BasePage>

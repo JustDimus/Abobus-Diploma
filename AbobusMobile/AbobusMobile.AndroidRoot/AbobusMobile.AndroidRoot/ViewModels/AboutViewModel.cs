@@ -12,7 +12,7 @@ namespace AbobusMobile.AndroidRoot.ViewModels
         {
             OpenWebCommand = new Command(async () =>
             {
-                await Shell.Current.GoToAsync("//main/browse");
+                await Shell.Current.GoToAsync("//main");
             });
         }
 

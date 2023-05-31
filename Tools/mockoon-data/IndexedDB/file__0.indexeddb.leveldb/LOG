@@ -1,15 +1,15 @@
-2023/05/30-23:19:56.782 544 Reusing MANIFEST D:\Projects\Abobus-Diploma\Tools\mockoon-data\IndexedDB\file__0.indexeddb.leveldb/MANIFEST-000001
-2023/05/30-23:19:56.782 544 Recovering log #17
-2023/05/30-23:19:56.783 544 Reusing old log D:\Projects\Abobus-Diploma\Tools\mockoon-data\IndexedDB\file__0.indexeddb.leveldb/000017.log 
-2023/05/30-23:19:56.783 544 Delete type=2 #15
-2023/05/30-23:19:56.888 12f4 Level-0 table #22: started
-2023/05/30-23:19:56.890 12f4 Level-0 table #22: 1270 bytes OK
-2023/05/30-23:19:56.892 12f4 Delete type=0 #17
-2023/05/30-23:19:56.893 12f4 Manual compaction at level-0 from '\x00\x0c\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x0d\x00\x00\x00' @ 0 : 0; will stop at '\x00\x0c\x00\x00\x05' @ 507 : 1
-2023/05/30-23:19:56.893 12f4 Compacting 1@0 + 1@1 files
-2023/05/30-23:19:56.895 12f4 Generated table #23@0: 144 keys, 4059 bytes
-2023/05/30-23:19:56.895 12f4 Compacted 1@0 + 1@1 files => 4059 bytes
-2023/05/30-23:19:56.897 12f4 compacted to: files[ 0 1 1 0 0 0 0 ]
-2023/05/30-23:19:56.897 12f4 Delete type=2 #22
-2023/05/30-23:19:56.898 544 Manual compaction at level-0 from '\x00\x0c\x00\x00\x05' @ 507 : 1 .. '\x00\x0d\x00\x00\x00' @ 0 : 0; will stop at (end)
-2023/05/30-23:19:56.933 12f4 Manual compaction at level-0 from '\x00\x0d\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x0e\x00\x00\x00' @ 0 : 0; will stop at (end)
+2023/05/31-00:33:53.317 588c Reusing MANIFEST D:\Projects\Abobus-Diploma\Tools\mockoon-data\IndexedDB\file__0.indexeddb.leveldb/MANIFEST-000001
+2023/05/31-00:33:53.318 588c Recovering log #21
+2023/05/31-00:33:53.318 588c Reusing old log D:\Projects\Abobus-Diploma\Tools\mockoon-data\IndexedDB\file__0.indexeddb.leveldb/000021.log 
+2023/05/31-00:33:53.318 588c Delete type=2 #19
+2023/05/31-00:33:53.420 51d4 Level-0 table #26: started
+2023/05/31-00:33:53.422 51d4 Level-0 table #26: 1270 bytes OK
+2023/05/31-00:33:53.423 51d4 Delete type=0 #21
+2023/05/31-00:33:53.423 2728 Manual compaction at level-0 from '\x00\x0e\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x0f\x00\x00\x00' @ 0 : 0; will stop at '\x00\x0e\x00\x00\x05' @ 557 : 1
+2023/05/31-00:33:53.423 2728 Compacting 1@0 + 1@1 files
+2023/05/31-00:33:53.426 2728 Generated table #27@0: 144 keys, 4049 bytes
+2023/05/31-00:33:53.426 2728 Compacted 1@0 + 1@1 files => 4049 bytes
+2023/05/31-00:33:53.428 2728 compacted to: files[ 0 1 1 0 0 0 0 ]
+2023/05/31-00:33:53.428 2728 Delete type=2 #26
+2023/05/31-00:33:53.428 588c Manual compaction at level-0 from '\x00\x0e\x00\x00\x05' @ 557 : 1 .. '\x00\x0f\x00\x00\x00' @ 0 : 0; will stop at (end)
+2023/05/31-00:33:53.589 2728 Manual compaction at level-0 from '\x00\x0f\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x10\x00\x00\x00' @ 0 : 0; will stop at (end)

@@ -3,6 +3,7 @@ using AbobusMobile.BLL.Services.Abstractions.Account;
 using AbobusMobile.BLL.Services.Abstractions.Authorization;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
@@ -96,7 +97,7 @@ namespace AbobusMobile.AndroidRoot.ViewModels
 
         public bool ProfileUpdateRequired
         {
-            get => logoutInitiated;
+            get => profileUpdateRequired;
             set => SetProperty(ref profileUpdateRequired, value);
         }
 
@@ -109,7 +110,7 @@ namespace AbobusMobile.AndroidRoot.ViewModels
         {
             LogoutInitiated = false;
 
-            if (!ProfileUpdateRequired)
+            if (ProfileUpdateRequired)
             {
                 await UpdateProfile();
             }
@@ -137,9 +138,19 @@ namespace AbobusMobile.AndroidRoot.ViewModels
 
         private async Task UpdateProfilePhoto()
         {
-            var imageStream = await _accountService.LoadAccountImageAsync();
+            var profileImageStream = await _accountService.LoadAccountImageAsync();
 
-            var profileImageSource = ImageSource.FromStream(() => imageStream);
+            var profileImageSource = ImageSource.FromStream(() =>
+            {
+                var newMemoryStream = new MemoryStream();
+
+                profileImageStream.Seek(0, SeekOrigin.Begin);
+                profileImageStream.CopyTo(newMemoryStream);
+
+                newMemoryStream.Seek(0, SeekOrigin.Begin);
+
+                return newMemoryStream;
+            });
 
             ProfilePhoto = profileImageSource;
         }
