@@ -1,6 +1,9 @@
 ﻿using AbobusMobile.DAL.Services.Abstractions.Routes;
+using AbobusMobile.Database.Models;
+using AbobusMobile.Database.Services.Abstractions;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,39 +11,85 @@ namespace AbobusMobile.DAL.Services.Routes
 {
     public class RoutesDataManager : IRoutesDataManager
     {
-        public RoutesDataManager()
+        private IRepository<RouteModel> _routes;
+
+        public RoutesDataManager(
+            IRepository<RouteModel> routes)
         {
-            
+            _routes = routes ?? throw new ArgumentNullException(nameof(routes));
         }
 
-        public Task<bool> CheckRouteAvailabilityAsync(Guid routeId)
+        public async Task<bool> CheckRouteAvailabilityAsync(Guid routeId)
         {
-            throw new NotImplementedException();
+            return await _routes.AnyAsync(i => i.RouteId == routeId);
         }
 
-        public Task CreateAsync(RouteDataModel route)
+        public async Task CreateAsync(RouteDataModel route)
         {
-            throw new NotImplementedException();
+            var newRouteModel = ToDbModel(route);
+
+            await _routes.InsertAsync(newRouteModel);
         }
 
-        public Task DeleteAsync(Guid routeId)
+        public async Task DeleteAsync(Guid routeId)
         {
-            throw new NotImplementedException();
+            var existingRoute = await _routes.FirstOrDefaultAsync(i => i.RouteId == routeId);
+
+            if (existingRoute != null)
+            {
+                await _routes.DeleteAsync(existingRoute);
+            }
         }
 
-        public Task<List<RouteDataModel>> GetAllAsync(Guid cityId)
+        public async Task<List<RouteDataModel>> GetAllAsync(Guid cityId)
         {
-            throw new NotImplementedException();
+            var routes = await _routes.SelectAsync(i => i.CityId == cityId);
+
+            return routes.Select(ToDataModel).ToList();
         }
 
-        public Task<RouteDataModel> GetAsync(Guid routeId)
+        public async Task<RouteDataModel> GetAsync(Guid routeId)
         {
-            throw new NotImplementedException();
+            var existingRoute = await _routes.FirstOrDefaultAsync(i => i.RouteId == routeId);
+
+            if (existingRoute != null)
+            {
+                return ToDataModel(existingRoute);
+            }
+
+            return null;
         }
 
-        public Task UpdateAsync(RouteDataModel route)
+        public async Task UpdateAsync(RouteDataModel route)
         {
-            throw new NotImplementedException();
+            await DeleteAsync(route.Id);
+
+            await CreateAsync(route);
         }
+
+        private RouteDataModel ToDataModel(RouteModel route)
+            => new RouteDataModel()
+            {
+                CityId = route.CityId,
+                CreatorId = route.CreatorId,
+                Distance = route.Distance,
+                DistanceUnit = route.DistanceUnit,
+                Name = route.Name,
+                RouteImageId = route.RouteImageId,
+                RouteResourceId = route.RouteResourceId,
+            };
+
+        private RouteModel ToDbModel(RouteDataModel route)
+            => new RouteModel()
+            {
+                CityId = route.CityId,
+                CreatorId = route.CreatorId,
+                Distance = route.Distance,
+                DistanceUnit = route.DistanceUnit,
+                Name = route.Name,
+                RouteId = route.Id,
+                RouteImageId = route.RouteImageId,
+                RouteResourceId = route.RouteResourceId,
+            };
     }
 }

@@ -1,6 +1,9 @@
 ﻿using AbobusMobile.DAL.Services.Abstractions.Utilities;
+using AbobusMobile.Database.Models;
+using AbobusMobile.Database.Services.Abstractions;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,29 +11,78 @@ namespace AbobusMobile.DAL.Services.Utilities
 {
     public class LocationsDataManager : ILocationsDataManager
     {
-        public Task<bool> CheckLocationAvailabilityAsync(Guid cityId)
+        private IRepository<LocationModel> _locations;
+
+        public LocationsDataManager(
+            IRepository<LocationModel> locations)
         {
-            throw new NotImplementedException();
+            _locations = locations ?? throw new ArgumentNullException(nameof(locations));
         }
 
-        public Task CreateLocation(LocationDataModel locationDataModel)
+        public async Task<bool> CheckLocationAvailabilityAsync(Guid cityId)
         {
-            throw new NotImplementedException();
+            return await _locations.AnyAsync(i => i.CityId == cityId);
         }
 
-        public Task DeleteLocation(Guid cityId)
+        public async Task CreateLocation(LocationDataModel locationDataModel)
         {
-            throw new NotImplementedException();
+            var existingLocation = await _locations.FirstOrDefaultAsync(i => i.CityId == locationDataModel.CityId);
+
+            if (existingLocation != null)
+            {
+                existingLocation.CityName = locationDataModel.CityName;
+
+                await _locations.UpdateAsync(existingLocation);
+            }
+            else
+            {
+                var newLocation = ToDbModel(locationDataModel);
+
+                await _locations.InsertAsync(newLocation);
+            }
         }
 
-        public Task<List<LocationDataModel>> FindLocations(string cityNamePattern)
+        public async Task DeleteLocation(Guid cityId)
         {
-            throw new NotImplementedException();
+            var location = await _locations.FirstOrDefaultAsync(i => i.CityId == cityId);
+
+            if (location != null)
+            {
+                await _locations.DeleteAsync(location);
+            }
         }
 
-        public Task<LocationDataModel> GetLocationAsync(Guid cityId)
+        public async Task<List<LocationDataModel>> FindLocations(string cityNamePattern)
         {
-            throw new NotImplementedException();
+            var locations = await _locations.SelectAsync(i => i.CityName.Contains(cityNamePattern));
+
+            return locations.Select(ToDataModel).ToList();
         }
+
+        public async Task<LocationDataModel> GetLocationAsync(Guid cityId)
+        {
+            var location = await _locations.FirstOrDefaultAsync(i => i.CityId == cityId);
+
+            if (location != null)
+            {
+                return ToDataModel(location);
+            }
+
+            return null;
+        }
+
+        private LocationDataModel ToDataModel(LocationModel model)
+            => new LocationDataModel()
+            {
+                CityId = model.CityId,
+                CityName = model.CityName
+            };
+
+        private LocationModel ToDbModel(LocationDataModel model)
+            => new LocationModel()
+            {
+                CityId = model.CityId,
+                CityName = model.CityName
+            };
     }
 }

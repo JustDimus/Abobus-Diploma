@@ -6,10 +6,10 @@ using System.Text;
 
 namespace AbobusMobile.Database.Models
 {
-    [Table("resources")]
+    [Table("Resources")]
     public class ResourceModel : BaseModel
     {
-        [Column("global_id"), Unique]
+        [Column("GlobalID"), Unique]
         public Guid GlobalId { get; set; }
 
         [Column("Name")]
