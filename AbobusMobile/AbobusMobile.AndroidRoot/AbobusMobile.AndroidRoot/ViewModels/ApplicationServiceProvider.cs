@@ -1,4 +1,5 @@
 ﻿using AbobusMobile.AndroidRoot.Configurations;
+using AbobusMobile.AndroidRoot.DataExchangeService;
 using AbobusMobile.AndroidRoot.Extensions;
 using AbobusMobile.BLL.Services.Abstractions.Account;
 using AbobusMobile.BLL.Services.Abstractions.Authorization;
@@ -97,6 +98,9 @@ namespace AbobusMobile.AndroidRoot.ViewModels
             serviceCollection.AddSingleton<ILocationService, LocationService>();
             serviceCollection.AddSingleton<IRouteService, RouteService>();
 
+            // PL
+            serviceCollection.AddSingleton<RouteExchangeService>();
+
             _provider = serviceCollection.BuildServiceProvider();
 
             string GetConfigurationString(string sectionName)
@@ -129,5 +133,8 @@ namespace AbobusMobile.AndroidRoot.ViewModels
 
         private RoutesViewModel routesViewModel = null;
         public RoutesViewModel RoutesViewModel => routesViewModel ?? (routesViewModel = _provider.GetRequiredService<RoutesViewModel>());
+
+        private RouteDetailsViewModel routeDetailsViewModel = null;
+        public RouteDetailsViewModel RouteDetailsViewModel => routeDetailsViewModel ?? (routeDetailsViewModel = _provider.GetRequiredService<RouteDetailsViewModel>());
     }
 }

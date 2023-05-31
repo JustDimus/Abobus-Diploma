@@ -11,6 +11,8 @@ namespace AbobusMobile.BLL.Services.Abstractions.Routes
 
         public string Name { get; set; }
 
+        public Guid CityId { get; set; } 
+
         public bool Downloaded { get; set; }
 
         public int Distance { get; set; }

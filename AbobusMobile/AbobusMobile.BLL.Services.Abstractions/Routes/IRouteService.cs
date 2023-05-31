@@ -19,8 +19,8 @@ namespace AbobusMobile.BLL.Services.Abstractions.Routes
 
         Task<RouteDetailsServiceModel> GetRouteDetailsAsync(Guid routeId);
 
-        Task<Stream> GetRouteImageAsync(Guid routeId);
+        //Task<Stream> GetRouteImageAsync(Guid routeId);
 
-        Task<Stream> GetRouteResourceAsync(Guid routeId);
+        //Task<Stream> GetRouteResourceAsync(Guid routeId);
     }
 }

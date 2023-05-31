@@ -15,5 +15,7 @@ namespace AbobusMobile.BLL.Services.Abstractions.Account
         Task<Stream> LoadAccountImageAsync();
 
         Task<AccountStatisticsServiceModel> LoadAccountStatisticsAsync();
+
+        Task<AccountPublicInfoServiceModel> LoadAccountInfo(Guid accountId);
     }
 }

@@ -45,6 +45,8 @@
              Icon="icon_about.png"
              Title="info">
             <ShellContent Title="routes" Route="routes" ContentTemplate="{DataTemplate local:RoutesPage}" />
+            <ShellContent Title="requested" Route="routedetails" ContentTemplate="{DataTemplate local:RouteDetailsPage}"
+                          IsVisible="{Binding ShowRouteDetailsTab}" />
             <ShellContent Title="about" Route="about" ContentTemplate="{DataTemplate local:AboutPage}" />
         </Tab>
         <ShellContent Title="browse" Icon="icon_feed.png" ContentTemplate="{DataTemplate local:ItemsPage}" />

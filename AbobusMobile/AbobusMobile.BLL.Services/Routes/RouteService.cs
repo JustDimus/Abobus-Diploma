@@ -108,9 +108,9 @@ namespace AbobusMobile.BLL.Services.Routes
 
                 var routeLocationData = await _locationService.GetLocationAsync(routeDetails.CityId);
 
-                var resourceDownloadStatus = await _resourceService.DownloadeResourceIfNeededAsync(routeDetails.RouteResourceId);
+                var resourceDownloadStatus = await _resourceService.DownloadResourceIfNeededAsync(routeDetails.RouteResourceId);
 
-                var imageDownloadStatus = await _resourceService.DownloadeResourceIfNeededAsync(routeDetails.RouteResourceId);
+                var imageDownloadStatus = await _resourceService.DownloadResourceIfNeededAsync(routeDetails.RouteResourceId);
 
                 if (resourceDownloadStatus == ResourceServiceStatus.Downloaded
                     && imageDownloadStatus == ResourceServiceStatus.Downloaded
@@ -168,7 +168,7 @@ namespace AbobusMobile.BLL.Services.Routes
 
                 ResourceServiceStatus updateStatus = ResourceServiceStatus.Unknown;
 
-                updateStatus = await _resourceService.DownloadeResourceIfNeededAsync(routeDetails.RouteImageId);
+                updateStatus = await _resourceService.DownloadResourceIfNeededAsync(routeDetails.RouteImageId);
 
                 if (updateStatus != ResourceServiceStatus.Downloaded)
                 {
@@ -178,7 +178,7 @@ namespace AbobusMobile.BLL.Services.Routes
                 if (downloadedRouteExist
                     && routeDetails.RouteResourceId != result.RouteResourceId)
                 {
-                    updateStatus = await _resourceService.DownloadeResourceIfNeededAsync(routeDetails.RouteResourceId);
+                    updateStatus = await _resourceService.DownloadResourceIfNeededAsync(routeDetails.RouteResourceId);
 
                     if (updateStatus != ResourceServiceStatus.Downloaded)
                     {
@@ -204,7 +204,7 @@ namespace AbobusMobile.BLL.Services.Routes
 
             if (!routeDetails.Downloaded)
             {
-                var routeImageStatus = await _resourceService.DownloadeResourceIfNeededAsync(routeDetails.RouteImageId);
+                var routeImageStatus = await _resourceService.DownloadResourceIfNeededAsync(routeDetails.RouteImageId);
 
                 if (routeImageStatus != ResourceServiceStatus.Downloaded)
                 {
@@ -223,9 +223,9 @@ namespace AbobusMobile.BLL.Services.Routes
 
             if (!routeDetails.Downloaded)
             {
-                var routeImageStatus = await _resourceService.DownloadeResourceIfNeededAsync(routeDetails.RouteResourceId);
+                var routeResourceStatus = await _resourceService.DownloadResourceIfNeededAsync(routeDetails.RouteResourceId);
 
-                if (routeImageStatus != ResourceServiceStatus.Downloaded)
+                if (routeResourceStatus != ResourceServiceStatus.Downloaded)
                 {
                     throw new InvalidOperationException("Could not load route resource");
                 }
@@ -257,7 +257,7 @@ namespace AbobusMobile.BLL.Services.Routes
 
                 foreach (var route in routesDetails)
                 {
-                    var routeImageStatus = await _resourceService.DownloadeResourceIfNeededAsync(route.RouteImageId);
+                    var routeImageStatus = await _resourceService.DownloadResourceIfNeededAsync(route.RouteImageId);
 
                     if (routeImageStatus == ResourceServiceStatus.Downloaded)
                     {
@@ -293,6 +293,7 @@ namespace AbobusMobile.BLL.Services.Routes
                 Name = detailsModel.Name,
                 RouteImageId = detailsModel.RouteImageId,
                 RouteResourceId = detailsModel.RouteResourceId,
+                CityId = detailsModel.CityId,
             };
 
         private RouteDetailsServiceModel GetRouteServiceModel(RouteDataModel dataModel)
@@ -306,6 +307,7 @@ namespace AbobusMobile.BLL.Services.Routes
                 Name = dataModel.Name,
                 RouteImageId = dataModel.RouteImageId,
                 RouteResourceId = dataModel.RouteResourceId,
+                CityId = dataModel.CityId,
             };
     }
 }

@@ -147,17 +147,23 @@ namespace AbobusMobile.BLL.Services.Utitlities
                 LocationFound = location.LocationFound
             };
 
-        private Task<Location> GetLocationAsync()
+        private async Task<Location> GetLocationAsync()
         {
+            return new Location()
+            {
+                Latitude = 41.5f,
+                Longitude = 45.7f
+            };
+
             try
             {
-                var deviceLocation = Geolocation.GetLastKnownLocationAsync();
+                var deviceLocation = await Geolocation.GetLastKnownLocationAsync();
 
                 if (deviceLocation == null)
                 {
                     using (CancellationTokenSource source = new CancellationTokenSource(TimeSpan.FromSeconds(30)))
                     {
-                        deviceLocation = Geolocation.GetLocationAsync(new GeolocationRequest()
+                        deviceLocation = await Geolocation.GetLocationAsync(new GeolocationRequest()
                         {
                             DesiredAccuracy = GeolocationAccuracy.Medium,
                             Timeout = new TimeSpan(0, 0, 30)

@@ -8,6 +8,11 @@ namespace AbobusMobile.AndroidRoot.Models
     {
         public static TwoColumnsList<T> FromList(List<T> sourceList)
         {
+            if (sourceList == null)
+            {
+                return null;
+            }
+
             TwoColumnsList<T> result = new TwoColumnsList<T>();
 
             TwoColumnsElement<T> currentElement = null;

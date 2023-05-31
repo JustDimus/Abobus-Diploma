@@ -1,4 +1,5 @@
-﻿using AbobusMobile.AndroidRoot.Views;
+﻿using AbobusMobile.AndroidRoot.Helpers;
+using AbobusMobile.AndroidRoot.Views;
 using AbobusMobile.BLL.Services.Abstractions.Account;
 using AbobusMobile.BLL.Services.Abstractions.Authorization;
 using System;
@@ -140,17 +141,7 @@ namespace AbobusMobile.AndroidRoot.ViewModels
         {
             var profileImageStream = await _accountService.LoadAccountImageAsync();
 
-            var profileImageSource = ImageSource.FromStream(() =>
-            {
-                var newMemoryStream = new MemoryStream();
-
-                profileImageStream.Seek(0, SeekOrigin.Begin);
-                profileImageStream.CopyTo(newMemoryStream);
-
-                newMemoryStream.Seek(0, SeekOrigin.Begin);
-
-                return newMemoryStream;
-            });
+            var profileImageSource = ImageHelper.Create(profileImageStream);
 
             ProfilePhoto = profileImageSource;
         }

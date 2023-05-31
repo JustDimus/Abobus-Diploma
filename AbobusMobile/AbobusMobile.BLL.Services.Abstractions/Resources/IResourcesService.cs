@@ -11,7 +11,7 @@ namespace AbobusMobile.BLL.Services.Abstractions.Resources
 
         Task<ResourceServiceStatus> DownloadResourceAsync(Guid resourceId);
 
-        Task<ResourceServiceStatus> DownloadeResourceIfNeededAsync(Guid resourceId);
+        Task<ResourceServiceStatus> DownloadResourceIfNeededAsync(Guid resourceId);
 
         Task<ResourceServiceModel> GetResourceAsync(Guid resourceId);
 

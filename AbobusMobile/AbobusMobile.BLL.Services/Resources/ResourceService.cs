@@ -72,7 +72,7 @@ namespace AbobusMobile.BLL.Services.Resources
             return ResourceServiceStatus.DownloadFailed;
         }
 
-        public async Task<ResourceServiceStatus> DownloadeResourceIfNeededAsync(Guid resourceId)
+        public async Task<ResourceServiceStatus> DownloadResourceIfNeededAsync(Guid resourceId)
         {
             var resourceDownloadStatus = await GetResourceStatusAsync(resourceId);
 
@@ -86,28 +86,17 @@ namespace AbobusMobile.BLL.Services.Resources
 
         public async Task<ResourceServiceModel> GetResourceAsync(Guid resourceId)
         {
-            var resourceStatus = await GetResourceStatusAsync(resourceId);
+            var resourceStatus = await DownloadResourceIfNeededAsync(resourceId);
 
             ResourceServiceModel result = null;
 
-            switch (resourceStatus)
+            if (resourceStatus == ResourceServiceStatus.Downloaded)
             {
-                case ResourceServiceStatus.Downloaded:
-                    result = await LoadResourceAsync(resourceId);
-                    break;
-                case ResourceServiceStatus.Available:
-                    var downloadResult = await DownloadResourceAsync(resourceId);
-                    
-                    if (downloadResult == ResourceServiceStatus.Downloaded)
-                    {
-                        result = await LoadResourceAsync(resourceId);
-                    }
-
-                    ThrowInvalidResourceException(resourceId);
-                    break;
-                default:
-                    ThrowInvalidResourceException(resourceId);
-                    break;
+                result = await LoadResourceAsync(resourceId);
+            }
+            else
+            {
+                ThrowInvalidResourceException(resourceId);
             }
 
             return result;

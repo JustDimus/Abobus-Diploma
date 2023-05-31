@@ -1,4 +1,7 @@
-﻿using AbobusMobile.AndroidRoot.Models;
+﻿using AbobusMobile.AndroidRoot.DataExchangeService;
+using AbobusMobile.AndroidRoot.Helpers;
+using AbobusMobile.AndroidRoot.Models;
+using AbobusMobile.AndroidRoot.Views;
 using AbobusMobile.BLL.Services.Abstractions.Account;
 using AbobusMobile.BLL.Services.Abstractions.Resources;
 using AbobusMobile.BLL.Services.Abstractions.Routes;
@@ -18,7 +21,10 @@ namespace AbobusMobile.AndroidRoot.ViewModels
         {
             private ImageSource routeImage;
 
+            public Guid Id { get; set; }
+
             public string Name { get; set; }
+            
             public bool Downloaded { get; set; }
 
             public int Distance { get; set; }
@@ -27,42 +33,37 @@ namespace AbobusMobile.AndroidRoot.ViewModels
 
             public MemoryStream RouteImageSource { get; set; }
 
-            public ImageSource RouteImage => routeImage ?? (routeImage = ImageSource.FromStream(() =>
-            {
-                var resultStream = new MemoryStream();
-
-                RouteImageSource.Seek(0, SeekOrigin.Begin);
-                RouteImageSource.CopyTo(resultStream);
-
-                resultStream.Seek(0, SeekOrigin.Begin);
-
-                return resultStream;
-            }));
+            public ImageSource RouteImage => routeImage ?? (routeImage = ImageHelper.Create(RouteImageSource));
         }
 
         private readonly ILocationService _locationService;
         private readonly IRouteService _routeService;
         private readonly IAccountService _accountService;
         private readonly IResourcesService _resourcesService;
+        private readonly RouteExchangeService _routeExchangeService;
 
         public RoutesViewModel(
             ILocationService locationService,
             IRouteService routeService,
             IAccountService accountService,
-            IResourcesService resourcesService)
+            IResourcesService resourcesService,
+            RouteExchangeService routeExchangeService)
         {
             _locationService = locationService ?? throw new ArgumentNullException(nameof(locationService));
             _routeService = routeService ?? throw new ArgumentNullException(nameof(routeService));
             _accountService = accountService ?? throw new ArgumentNullException(nameof(accountService));
             _resourcesService = resourcesService ?? throw new ArgumentNullException(nameof(resourcesService));
+            _routeExchangeService = routeExchangeService ?? throw new ArgumentNullException(nameof(routeExchangeService));
 
             ChangeCityCommand = new Command(async () => await OnChangeCityClicked(), () => PageUpdateAvailable());
             UpdatePageCommand = new Command(async () => await UpdatePageAsync(), () => PageUpdateAvailable());
+            OpenRouteDetailsCommand = new Command<Guid>(async (routeId) => await OpenRouteDetailsAsync(routeId), (_) => PageUpdateAvailable());
 
             PropertyChanged += (_, __) =>
             {
                 ChangeCityCommand.ChangeCanExecute();
                 UpdatePageCommand.ChangeCanExecute();
+                OpenRouteDetailsCommand.ChangeCanExecute();
             };
         }
 
@@ -91,12 +92,13 @@ namespace AbobusMobile.AndroidRoot.ViewModels
 
         public Command UpdatePageCommand { get; }
         public Command ChangeCityCommand { get; }
+        public Command<Guid> OpenRouteDetailsCommand { get; }
 
         private List<RouteModel> downloadedRoutes;
         public TwoColumnsList<RouteModel> DownloadedRoutes
             => TwoColumnsList<RouteModel>.FromList(downloadedRoutes);
 
-        private bool showDownloadedRoutes = true;
+        private bool showDownloadedRoutes = false;
         public bool ShowDownloadedRoutes
         {
             get => showDownloadedRoutes;
@@ -116,7 +118,7 @@ namespace AbobusMobile.AndroidRoot.ViewModels
         private List<RouteModel> availableRoutes;
         public TwoColumnsList<RouteModel> AvailableRoutes
             => TwoColumnsList<RouteModel>.FromList(availableRoutes);
-        private bool showAvailableRoutes = true;
+        private bool showAvailableRoutes = false;
         public bool ShowAvailableRoutes
         {
             get => showAvailableRoutes;
@@ -135,6 +137,12 @@ namespace AbobusMobile.AndroidRoot.ViewModels
             {
                 await UpdatePageAsync();
             }
+        }
+
+        private async Task OpenRouteDetailsAsync(Guid routeId)
+        {
+            _routeExchangeService.RequestRoute(routeId);
+            await Shell.Current.GoToAsync(PathConstants.ROUTE_DETAILS_ABSOLUTE);
         }
 
         private async Task LoadCurrentCityAsync()
@@ -156,6 +164,8 @@ namespace AbobusMobile.AndroidRoot.ViewModels
 
         private async Task UpdatePageAsync()
         {
+            UpdateRequired = true;
+
             var routes = await _routeService.GetRoutesDetailsByCityId(currentLocation.CityId);
 
             var currentAccountId = await _accountService.GetCurrentAccountIdAsync();
@@ -164,7 +174,7 @@ namespace AbobusMobile.AndroidRoot.ViewModels
             showDownloadedRoutes = downloadedRoutes.Count() > 0;
 
             userRoutes = await ConvertRoutesAsync(routes.Where(i => i.CreatorId == currentAccountId));
-            showUserRoutes = DownloadedRoutes.Count() > 0;
+            showUserRoutes = userRoutes.Count() > 0;
 
             availableRoutes = await ConvertRoutesAsync(routes.Where(i => i.CreatorId != currentAccountId && !i.Downloaded));
             showAvailableRoutes = availableRoutes.Count() > 0;
@@ -196,6 +206,7 @@ namespace AbobusMobile.AndroidRoot.ViewModels
 
             return new RouteModel()
             {
+                Id = route.Id,
                 Downloaded = route.Downloaded,
                 Distance = route.Distance,
                 DistanceUnit = route.DistanceUnit,

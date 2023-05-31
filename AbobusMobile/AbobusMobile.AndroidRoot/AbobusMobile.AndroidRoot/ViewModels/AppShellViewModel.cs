@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AbobusMobile.AndroidRoot.DataExchangeService;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,8 +7,24 @@ namespace AbobusMobile.AndroidRoot.ViewModels
 {
     public class AppShellViewModel : BaseViewModel
     {
-        public AppShellViewModel()
+        private readonly RouteExchangeService _routeExchangeService;
+
+        private IDisposable routeExchangeDisposable;
+
+        public AppShellViewModel(
+            RouteExchangeService routeExchangeService)
         {
+            _routeExchangeService = routeExchangeService ?? throw new ArgumentNullException(nameof(routeExchangeService));
+
+            routeExchangeDisposable = _routeExchangeService.OnRouteRequested
+                .Subscribe((_) => ShowRouteDetailsTab = true);
+        }
+
+        private bool showRouteDetailsTab = false;
+        public bool ShowRouteDetailsTab
+        {
+            get => showRouteDetailsTab;
+            set => SetProperty(ref showRouteDetailsTab, value);
         }
     }
 }
