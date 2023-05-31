@@ -9,6 +9,6 @@ namespace AbobusMobile.BLL.Services.Abstractions.Comments
     {
         Task<List<MonumentCommentServiceModel>> GetMonumentCommentsAsync(Guid monumentId);
 
-        Task<List<MonumentCommentServiceModel>> GetRouteCommentsAsync(Guid routeId);
+        Task<List<RouteCommentServiceModel>> GetRouteCommentsAsync(Guid routeId);
     }
 }

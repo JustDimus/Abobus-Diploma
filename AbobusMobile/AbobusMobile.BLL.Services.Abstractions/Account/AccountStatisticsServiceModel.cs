@@ -1,4 +1,4 @@
-﻿namespace AbobusMobile.BLL.Services.Abstractions.Account
+﻿namespace AbobusMobile.BLL.Services.Abstractions.Accounts
 {
     public class AccountStatisticsServiceModel
     {

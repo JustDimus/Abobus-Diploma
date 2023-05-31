@@ -1,6 +1,6 @@
 ﻿using AbobusMobile.AndroidRoot.Helpers;
 using AbobusMobile.AndroidRoot.Views;
-using AbobusMobile.BLL.Services.Abstractions.Account;
+using AbobusMobile.BLL.Services.Abstractions.Accounts;
 using AbobusMobile.BLL.Services.Abstractions.Authorization;
 using System;
 using System.Collections.Generic;
@@ -14,23 +14,27 @@ namespace AbobusMobile.AndroidRoot.ViewModels
     public class ProfileViewModel : BaseViewModel
     {
         private IAuthorizationService _authorizationService;
-        private IAccountService _accountService;
+        private IAccountsService _accountService;
 
         public ProfileViewModel(
             IAuthorizationService authorizationService,
-            IAccountService accountService)
+            IAccountsService accountService)
         {
             _authorizationService = authorizationService ?? throw new ArgumentNullException(nameof(authorizationService));
             _accountService = accountService ?? throw new ArgumentNullException(nameof(accountService));
 
-            LogoutCommand = new Command(async (forceExit) =>
+            LogoutCommand = new Command<bool>(async (forceExit) =>
             {
-                await OnLogoutClicked(Convert.ToBoolean(forceExit));
+                await OnLogoutClicked(forceExit);
             });
         }
 
-        #region Properties
+        #region Comments
+        public Command SettingsCommand { get; }
+        public Command<bool> LogoutCommand { get; }
+        #endregion
 
+        #region Properties
         private ImageSource profilePhoto;
         public ImageSource ProfilePhoto
         {
@@ -101,10 +105,6 @@ namespace AbobusMobile.AndroidRoot.ViewModels
             get => profileUpdateRequired;
             set => SetProperty(ref profileUpdateRequired, value);
         }
-
-        public Command SettingsCommand { get; }
-        public Command LogoutCommand { get; }
-
         #endregion
 
         protected override async void OnPageAppeared()

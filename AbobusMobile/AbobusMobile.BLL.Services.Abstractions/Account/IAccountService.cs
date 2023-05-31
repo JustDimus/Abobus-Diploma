@@ -4,9 +4,9 @@ using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AbobusMobile.BLL.Services.Abstractions.Account
+namespace AbobusMobile.BLL.Services.Abstractions.Accounts
 {
-    public interface IAccountService
+    public interface IAccountsService
     {
         Task<Guid> GetCurrentAccountIdAsync();
 

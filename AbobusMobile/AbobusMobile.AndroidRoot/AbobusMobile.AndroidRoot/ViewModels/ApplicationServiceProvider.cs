@@ -1,13 +1,13 @@
 ﻿using AbobusMobile.AndroidRoot.Configurations;
 using AbobusMobile.AndroidRoot.DataExchangeService;
 using AbobusMobile.AndroidRoot.Extensions;
-using AbobusMobile.BLL.Services.Abstractions.Account;
+using AbobusMobile.BLL.Services.Abstractions.Accounts;
 using AbobusMobile.BLL.Services.Abstractions.Authorization;
 using AbobusMobile.BLL.Services.Abstractions.Error;
 using AbobusMobile.BLL.Services.Abstractions.Resources;
 using AbobusMobile.BLL.Services.Abstractions.Routes;
 using AbobusMobile.BLL.Services.Abstractions.Utilities;
-using AbobusMobile.BLL.Services.Account;
+using AbobusMobile.BLL.Services.Accounts;
 using AbobusMobile.BLL.Services.Authorization;
 using AbobusMobile.BLL.Services.Error;
 using AbobusMobile.BLL.Services.Resources;
@@ -92,7 +92,7 @@ namespace AbobusMobile.AndroidRoot.ViewModels
 
             // BLL
             serviceCollection.AddSingleton<IAuthorizationService, AuthorizationService>();
-            serviceCollection.AddSingleton<IAccountService, AccountService>();
+            serviceCollection.AddSingleton<IAccountsService, AccountsService>();
             serviceCollection.AddSingleton<IResourcesService, ResourcesService>();
             serviceCollection.AddSingleton<IErrorHandlingService, ErrorHandlingService>();
             serviceCollection.AddSingleton<ILocationService, LocationService>();

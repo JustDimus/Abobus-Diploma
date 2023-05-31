@@ -1,6 +1,6 @@
 ﻿using AbobusCore.Models.Accounts;
 using AbobusCore.Models.Session;
-using AbobusMobile.BLL.Services.Abstractions.Account;
+using AbobusMobile.BLL.Services.Abstractions.Accounts;
 using AbobusMobile.BLL.Services.Abstractions.Error;
 using AbobusMobile.BLL.Services.Abstractions.Resources;
 using AbobusMobile.Communication.Requests.Accounts;
@@ -12,9 +12,9 @@ using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AbobusMobile.BLL.Services.Account
+namespace AbobusMobile.BLL.Services.Accounts
 {
-    public class AccountService : IAccountService
+    public class AccountsService : IAccountsService
     {
         private IRequestFactory _requestFactory;
         private IAccountDataManager _accountDataManager;
@@ -26,7 +26,7 @@ namespace AbobusMobile.BLL.Services.Account
         private GetCurrentAccountDetailsRequest detailsRequest;
         private GetAccountStatisticsRequest statisticsRequest;
 
-        public AccountService(
+        public AccountsService(
             IAccountDataManager accountDataManager,
             IRequestFactory requestFactory,
             IResourcesService resourceService,

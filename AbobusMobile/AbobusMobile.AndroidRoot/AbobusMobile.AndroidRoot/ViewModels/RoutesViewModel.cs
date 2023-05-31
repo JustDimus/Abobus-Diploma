@@ -2,7 +2,7 @@
 using AbobusMobile.AndroidRoot.Helpers;
 using AbobusMobile.AndroidRoot.Models;
 using AbobusMobile.AndroidRoot.Views;
-using AbobusMobile.BLL.Services.Abstractions.Account;
+using AbobusMobile.BLL.Services.Abstractions.Accounts;
 using AbobusMobile.BLL.Services.Abstractions.Resources;
 using AbobusMobile.BLL.Services.Abstractions.Routes;
 using AbobusMobile.BLL.Services.Abstractions.Utilities;
@@ -38,14 +38,14 @@ namespace AbobusMobile.AndroidRoot.ViewModels
 
         private readonly ILocationService _locationService;
         private readonly IRouteService _routeService;
-        private readonly IAccountService _accountService;
+        private readonly IAccountsService _accountService;
         private readonly IResourcesService _resourcesService;
         private readonly RouteExchangeService _routeExchangeService;
 
         public RoutesViewModel(
             ILocationService locationService,
             IRouteService routeService,
-            IAccountService accountService,
+            IAccountsService accountService,
             IResourcesService resourcesService,
             RouteExchangeService routeExchangeService)
         {
@@ -66,6 +66,12 @@ namespace AbobusMobile.AndroidRoot.ViewModels
                 OpenRouteDetailsCommand.ChangeCanExecute();
             };
         }
+
+        #region Commands
+        public Command UpdatePageCommand { get; }
+        public Command ChangeCityCommand { get; }
+        public Command<Guid> OpenRouteDetailsCommand { get; }
+        #endregion
 
         #region Properties
         private bool cityFound = false;
@@ -89,10 +95,6 @@ namespace AbobusMobile.AndroidRoot.ViewModels
             get => updateRequired;
             set => SetProperty(ref updateRequired, value);
         }
-
-        public Command UpdatePageCommand { get; }
-        public Command ChangeCityCommand { get; }
-        public Command<Guid> OpenRouteDetailsCommand { get; }
 
         private List<RouteModel> downloadedRoutes;
         public TwoColumnsList<RouteModel> DownloadedRoutes
