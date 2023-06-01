@@ -81,7 +81,7 @@
     {
       "uuid": "f21facdf-86e3-4f84-ab13-e583c8d63ed2",
       "name": "Locations",
-      "collapsed": false,
+      "collapsed": true,
       "children": [
         {
           "type": "route",
@@ -125,6 +125,33 @@
         {
           "type": "route",
           "uuid": "56dc4d4d-fbf3-42b5-82cc-18f028dca044"
+        },
+        {
+          "type": "route",
+          "uuid": "976c28fc-e8ef-43d5-bd55-37d3fc6ca64b"
+        }
+      ]
+    },
+    {
+      "uuid": "d7b218a3-08c7-4a18-9dfe-496b9672ef96",
+      "name": "Monuments",
+      "collapsed": false,
+      "children": [
+        {
+          "type": "route",
+          "uuid": "e5c083cd-6203-41f6-a4fa-e2168ae553e6"
+        },
+        {
+          "type": "route",
+          "uuid": "3f24a858-47f2-4b8a-ae84-83c177bc2bbe"
+        },
+        {
+          "type": "route",
+          "uuid": "fc254e1d-f2ae-4c6d-a893-6583d50a8d3e"
+        },
+        {
+          "type": "route",
+          "uuid": "1b982306-6b29-4f23-9215-7c41041710c3"
         }
       ]
     }
@@ -1050,6 +1077,146 @@
       ],
       "enabled": true,
       "responseMode": null
+    },
+    {
+      "uuid": "e5c083cd-6203-41f6-a4fa-e2168ae553e6",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/monuments/:id/details",
+      "responses": [
+        {
+          "uuid": "4c56ebe7-5ce3-4e7d-b3bd-1b788265a2ec",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "3f24a858-47f2-4b8a-ae84-83c177bc2bbe",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/monuments",
+      "responses": [
+        {
+          "uuid": "5cb3b4ba-29fe-4208-9c42-4092b21248a2",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "fc254e1d-f2ae-4c6d-a893-6583d50a8d3e",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/monuments/:id/images",
+      "responses": [
+        {
+          "uuid": "33c32d00-071b-4b73-9849-0577616ba94c",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "976c28fc-e8ef-43d5-bd55-37d3fc6ca64b",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/routes/90E71CB9-9656-414D-BFAA-F15CA702E36A/comments",
+      "responses": [
+        {
+          "uuid": "072d241a-20f6-4e78-af9b-df92ff0d6c85",
+          "body": "{\n  \"id\": \"90E71CB9-9656-414D-BFAA-F15CA702E36A\",\n  \"city\": \"1C2D004F-E47C-4713-AE2D-AC569794ECE5\",\n  \"creator_id\": \"E8DA8A12-37C3-41F8-852B-CF7C1213678B\",\n  \"name\": \"TurboFlex\",\n  \"distance\": 5,\n  \"distance_unit\": \"km\",\n  \"route_resource\": \"4737F29E-47B2-486E-AE11-34ED9C52914B\",\n  \"route_image\": \"DC1EBF3B-E302-469C-998F-DECE7805B3B4\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "1b982306-6b29-4f23-9215-7c41041710c3",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/monuments/:id/comments",
+      "responses": [
+        {
+          "uuid": "ccbe29fe-5b1f-4068-9d60-077e47235c8c",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
     }
   ],
   "rootChildren": [
@@ -1092,6 +1259,10 @@
     {
       "type": "folder",
       "uuid": "49ae49eb-88ce-4304-8d00-b9644c0ad5b8"
+    },
+    {
+      "type": "folder",
+      "uuid": "d7b218a3-08c7-4a18-9dfe-496b9672ef96"
     }
   ],
   "proxyMode": false,

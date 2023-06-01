@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace AbobusMobile.BLL.Services.Abstractions.Monuments
+namespace AbobusMobile.DAL.Services.Abstractions.Monuments
 {
-    public class MonumentServiceModel
+    public class MonumentDataModel
     {
         public Guid Id { get; set; }
 

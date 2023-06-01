@@ -19,13 +19,17 @@ using AbobusMobile.BLL.Services.Routes;
 using AbobusMobile.BLL.Services.Utitlities;
 using AbobusMobile.DAL.Services.Abstractions.Accounts;
 using AbobusMobile.DAL.Services.Abstractions.Authorization;
+using AbobusMobile.DAL.Services.Abstractions.Comments;
 using AbobusMobile.DAL.Services.Abstractions.Configurations;
+using AbobusMobile.DAL.Services.Abstractions.Monuments;
 using AbobusMobile.DAL.Services.Abstractions.Resources;
 using AbobusMobile.DAL.Services.Abstractions.Routes;
 using AbobusMobile.DAL.Services.Abstractions.Utilities;
 using AbobusMobile.DAL.Services.Accounts;
 using AbobusMobile.DAL.Services.Authorization;
+using AbobusMobile.DAL.Services.Comments;
 using AbobusMobile.DAL.Services.Configurations;
+using AbobusMobile.DAL.Services.Monuments;
 using AbobusMobile.DAL.Services.Resources;
 using AbobusMobile.DAL.Services.Routes;
 using AbobusMobile.DAL.Services.Utilities;
@@ -93,6 +97,8 @@ namespace AbobusMobile.AndroidRoot.ViewModels
             serviceCollection.AddSingleton<IResourcesDataManager, ResourcesDataManager>();
             serviceCollection.AddSingleton<ILocationsDataManager, LocationsDataManager>();
             serviceCollection.AddSingleton<IRoutesDataManager, RoutesDataManager>();
+            serviceCollection.AddSingleton<ICommentsDataManager, CommentsDataManager>();
+            serviceCollection.AddSingleton<IMonumentsDataManager, MonumentsDataManager>();
 
             // BLL
             serviceCollection.AddSingleton<IAuthorizationService, AuthorizationService>();

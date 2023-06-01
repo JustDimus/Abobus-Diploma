@@ -14,6 +14,6 @@ namespace AbobusMobile.BLL.Services.Abstractions.Monuments
 
         Task<List<MonumentServiceModel>> GetMonumentsByCityIdAsync(Guid cityId);
 
-        Task<List<MonumentImageServiceModel>> GetMonumentImagesAsync(Guid monuments);
+        Task<List<MonumentImageServiceModel>> GetMonumentImagesAsync(Guid monumentId);
     }
 }
