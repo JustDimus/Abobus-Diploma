@@ -10,7 +10,7 @@
     {
       "uuid": "5e9ffe6c-dbc7-4a43-8507-bc5629bf39ee",
       "name": "Resources",
-      "collapsed": true,
+      "collapsed": false,
       "children": [
         {
           "type": "route",

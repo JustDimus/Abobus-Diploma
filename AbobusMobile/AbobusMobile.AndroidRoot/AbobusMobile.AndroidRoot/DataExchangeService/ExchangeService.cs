@@ -6,7 +6,7 @@ using System.Text;
 
 namespace AbobusMobile.AndroidRoot.DataExchangeService
 {
-    public class RouteExchangeService
+    public class ExchangeService
     {
         private ReplaySubject<Guid> routeRequestedSubject = new ReplaySubject<Guid>();
         private ReplaySubject<Guid> routeCancelledSubject = new ReplaySubject<Guid>();

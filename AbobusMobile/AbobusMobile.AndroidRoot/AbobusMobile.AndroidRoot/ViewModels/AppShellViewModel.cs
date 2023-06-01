@@ -7,12 +7,12 @@ namespace AbobusMobile.AndroidRoot.ViewModels
 {
     public class AppShellViewModel : BaseViewModel
     {
-        private readonly RouteExchangeService _routeExchangeService;
+        private readonly ExchangeService _routeExchangeService;
 
         private IDisposable routeExchangeDisposable;
 
         public AppShellViewModel(
-            RouteExchangeService routeExchangeService)
+            ExchangeService routeExchangeService)
         {
             _routeExchangeService = routeExchangeService ?? throw new ArgumentNullException(nameof(routeExchangeService));
 

@@ -40,14 +40,14 @@ namespace AbobusMobile.AndroidRoot.ViewModels
         private readonly IRouteService _routeService;
         private readonly IAccountsService _accountService;
         private readonly IResourcesService _resourcesService;
-        private readonly RouteExchangeService _routeExchangeService;
+        private readonly DataExchangeService.ExchangeService _routeExchangeService;
 
         public RoutesViewModel(
             ILocationService locationService,
             IRouteService routeService,
             IAccountsService accountService,
             IResourcesService resourcesService,
-            RouteExchangeService routeExchangeService)
+            DataExchangeService.ExchangeService routeExchangeService)
         {
             _locationService = locationService ?? throw new ArgumentNullException(nameof(locationService));
             _routeService = routeService ?? throw new ArgumentNullException(nameof(routeService));

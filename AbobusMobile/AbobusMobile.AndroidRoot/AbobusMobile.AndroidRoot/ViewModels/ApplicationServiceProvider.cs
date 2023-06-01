@@ -120,7 +120,7 @@ namespace AbobusMobile.AndroidRoot.ViewModels
             serviceCollection.AddSingleton<ICommentsService, CommentsService>();
 
             // PL
-            serviceCollection.AddSingleton<RouteExchangeService>();
+            serviceCollection.AddSingleton<ExchangeService>();
 
             _provider = serviceCollection.BuildServiceProvider();
 

@@ -23,15 +23,15 @@ namespace AbobusMobile.AndroidRoot.ViewModels
             _authorizationService = authorizationService ?? throw new ArgumentNullException(nameof(authorizationService));
             _accountService = accountService ?? throw new ArgumentNullException(nameof(accountService));
 
-            LogoutCommand = new Command<bool>(async (forceExit) =>
+            LogoutCommand = new Command(async (forceExit) =>
             {
-                await OnLogoutClicked(forceExit);
+                await OnLogoutClicked(Convert.ToBoolean(forceExit));
             });
         }
 
         #region Comments
         public Command SettingsCommand { get; }
-        public Command<bool> LogoutCommand { get; }
+        public Command LogoutCommand { get; }
         #endregion
 
         #region Properties

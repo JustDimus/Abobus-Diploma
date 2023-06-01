@@ -106,8 +106,7 @@
                             HorizontalOptions="CenterAndExpand"
                             VerticalOptions="CenterAndExpand"
                             Grid.Column="0"
-                            Grid.RowSpan="2"
-                            IsEnabled="{Binding CommentSwitchAvailable}" />
+                            Grid.RowSpan="2" />
                     <Label Text="{Binding CurrentComment.Username}"
                            FontSize="15"
                            Grid.Column="1"
@@ -125,17 +124,18 @@
                             HorizontalOptions="CenterAndExpand"
                             VerticalOptions="CenterAndExpand"
                             Grid.Column="2"
-                            Grid.RowSpan="2"
-                            IsEnabled="{Binding CommentSwitchAvailable}" />
+                            Grid.RowSpan="2" />
                 </Grid>
                 <Button Text="{x:Static resources:ApplicationTexts.RouteDetailsPage_DownloadButtonText}"
                         IsVisible="{Binding Downloaded, Converter={StaticResource BoolInverse}}"
+                        Command="{Binding ChangeResourceStatusCommand}"
                         Grid.Row="5"
                         BackgroundColor="Green"
                         WidthRequest="200"
                         FontSize="20" />
                 <Button Text="{x:Static resources:ApplicationTexts.RouteDetailsPage_DeleteButtonText}"
                         IsVisible="{Binding Downloaded}"
+                        Command="{Binding ChangeResourceStatusCommand}"
                         Grid.Row="5"
                         BackgroundColor="Red"
                         WidthRequest="200"

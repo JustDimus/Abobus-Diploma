@@ -41,11 +41,11 @@ namespace AbobusMobile.AndroidRoot.ViewModels
         private readonly ICommentsService _commentsService;
         private readonly IAccountsService _accountService;
 
-        private readonly RouteExchangeService _routeExchangeService;
+        private readonly ExchangeService _ExchangeService;
         private IDisposable routeExchangeServiceDisposable;
 
         public RouteDetailsViewModel(
-            RouteExchangeService routeExchangeService,
+            ExchangeService routeExchangeService,
             IRouteService routeService,
             ILocationService locationService,
             IResourcesService resourcesService,
@@ -60,15 +60,23 @@ namespace AbobusMobile.AndroidRoot.ViewModels
             _commentsService = commentsService ?? throw new ArgumentNullException(nameof(commentsService));
             _accountService = accountsService ?? throw new ArgumentNullException(nameof(accountsService));
 
-            _routeExchangeService = routeExchangeService ?? throw new ArgumentNullException(nameof(routeExchangeService));
+            _ExchangeService = routeExchangeService ?? throw new ArgumentNullException(nameof(routeExchangeService));
 
-            routeExchangeServiceDisposable = _routeExchangeService.OnRouteRequested
+            routeExchangeServiceDisposable = _ExchangeService.OnRouteRequested
                 .Subscribe(OnRouteRequested);
 
-            MonumentSwitchCommand = new Command(direction => SwitchMonument(Convert.ToInt32(direction)));
-            CommentSwitchCommand = new Command(direction => SwitchComment(Convert.ToInt32(direction)));
-            OpenCurrentMonumentDetailsCommand = new Command(async () => await OpenCurrentMonumentDetailsAsync());
-            ChangeResourceStatusCommand = new Command(async () => await ChangeResourceStatusAsync());
+            MonumentSwitchCommand = new Command(direction => SwitchMonument(Convert.ToInt32(direction)), (_) => MonumentSwitchAvailable());
+            CommentSwitchCommand = new Command(direction => SwitchComment(Convert.ToInt32(direction)), (_) => CommentSwitchAvailable());
+            OpenCurrentMonumentDetailsCommand = new Command(async () => await OpenCurrentMonumentDetailsAsync(), () => OpenCurrentMonumentAvailable());
+            ChangeResourceStatusCommand = new Command(async () => await ChangeResourceStatusAsync(), () => BaseActionAvailability());
+
+            PropertyChanged += (_, __) =>
+            {
+                MonumentSwitchCommand.ChangeCanExecute();
+                OpenCurrentMonumentDetailsCommand.ChangeCanExecute();
+                CommentSwitchCommand.ChangeCanExecute();
+                ChangeResourceStatusCommand.ChangeCanExecute();
+            };
         }
 
         #region Commands
@@ -84,18 +92,6 @@ namespace AbobusMobile.AndroidRoot.ViewModels
         private List<CommentModel> routeComments = new List<CommentModel>();
 
         #region Properties
-        public bool OpenCurrentMonumentAvailable
-            => BaseActionAvailability && CurrentMonument != null;
-
-        public bool CommentSwitchAvailable
-            => BaseActionAvailability && routeComments.Count > 1;
-
-        public bool MonumentSwitchAvailable
-            => BaseActionAvailability && routeMonuments.Count > 1;
-
-        public bool BaseActionAvailability
-            => !UpdateRequired && !DownloadingInProgress;
-
         private bool updateRequired = true;
         public bool UpdateRequired
         {
@@ -176,6 +172,18 @@ namespace AbobusMobile.AndroidRoot.ViewModels
             }
         }
 
+        public bool OpenCurrentMonumentAvailable()
+            => BaseActionAvailability() && CurrentMonument != null;
+
+        public bool CommentSwitchAvailable()
+            => BaseActionAvailability() && routeComments.Count > 1;
+
+        public bool MonumentSwitchAvailable()
+            => BaseActionAvailability() && routeMonuments.Count > 1;
+
+        public bool BaseActionAvailability()
+            => !UpdateRequired && !DownloadingInProgress;
+
         private async Task OpenCurrentMonumentDetailsAsync()
         {
             // TODO
@@ -242,22 +250,22 @@ namespace AbobusMobile.AndroidRoot.ViewModels
             RouteCity = routeLocation.CityName;
             RouteDistance = routeDetails.Distance;
             DistanceUnit = routeDetails.DistanceUnit;
+            Downloaded = routeDetails.Downloaded;
             RouteImage = routeImageSource;
 
             await UpdateRouteMonuments(routeMonuments);
             await UpdateRouteComments(routeComments);
 
             UpdateRequired = false;
-
-            OnPropertyChanged(nameof(MonumentSwitchAvailable));
-            OnPropertyChanged(nameof(CommentSwitchAvailable));
-            OnPropertyChanged(nameof(OpenCurrentMonumentAvailable));
-            OnPropertyChanged(nameof(BaseActionAvailability));
         }
 
         private async Task ChangeResourceStatusAsync()
         {
+            UpdateRequired = true;
 
+            Downloaded = !Downloaded;
+
+            UpdateRequired = false;
         }
 
         private async Task UpdateRouteComments(List<RouteCommentServiceModel> routeCommentsServiceModels)
