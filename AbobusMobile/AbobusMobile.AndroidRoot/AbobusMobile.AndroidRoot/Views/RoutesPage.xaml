@@ -149,7 +149,7 @@
                                                                IsVisible="{Binding SecondExist}"
                                                                BorderColor="{Binding Second.Downloaded, Converter={StaticResource BorderColorConverter}}"
                                                                Margin="2,2,2,2"
-                                                               Grid.Column="0"
+                                                               Grid.Column="1"
                                                                HeightRequest="200">
                                                             <Frame.GestureRecognizers>
                                                                 <TapGestureRecognizer

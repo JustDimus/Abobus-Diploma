@@ -41,11 +41,11 @@ namespace AbobusMobile.AndroidRoot.ViewModels
         private readonly ICommentsService _commentsService;
         private readonly IAccountsService _accountService;
 
-        private readonly ExchangeService _ExchangeService;
+        private readonly ExchangeService _exchangeService;
         private IDisposable routeExchangeServiceDisposable;
 
         public RouteDetailsViewModel(
-            ExchangeService routeExchangeService,
+            ExchangeService exchangeService,
             IRouteService routeService,
             ILocationService locationService,
             IResourcesService resourcesService,
@@ -60,15 +60,16 @@ namespace AbobusMobile.AndroidRoot.ViewModels
             _commentsService = commentsService ?? throw new ArgumentNullException(nameof(commentsService));
             _accountService = accountsService ?? throw new ArgumentNullException(nameof(accountsService));
 
-            _ExchangeService = routeExchangeService ?? throw new ArgumentNullException(nameof(routeExchangeService));
+            _exchangeService = exchangeService ?? throw new ArgumentNullException(nameof(exchangeService));
 
-            routeExchangeServiceDisposable = _ExchangeService.OnRouteRequested
+            routeExchangeServiceDisposable = _exchangeService.OnRouteRequested
                 .Subscribe(OnRouteRequested);
 
             MonumentSwitchCommand = new Command(direction => SwitchMonument(Convert.ToInt32(direction)), (_) => MonumentSwitchAvailable());
             CommentSwitchCommand = new Command(direction => SwitchComment(Convert.ToInt32(direction)), (_) => CommentSwitchAvailable());
             OpenCurrentMonumentDetailsCommand = new Command(async () => await OpenCurrentMonumentDetailsAsync(), () => OpenCurrentMonumentAvailable());
             ChangeResourceStatusCommand = new Command(async () => await ChangeResourceStatusAsync(), () => BaseActionAvailability());
+            StartRouteCommand = new Command(async () => await StartRouteAsync(), () => StartRouteAvailable());
 
             PropertyChanged += (_, __) =>
             {
@@ -76,10 +77,12 @@ namespace AbobusMobile.AndroidRoot.ViewModels
                 OpenCurrentMonumentDetailsCommand.ChangeCanExecute();
                 CommentSwitchCommand.ChangeCanExecute();
                 ChangeResourceStatusCommand.ChangeCanExecute();
+                StartRouteCommand.ChangeCanExecute();
             };
         }
 
         #region Commands
+        public Command StartRouteCommand { get; }
         public Command MonumentSwitchCommand { get; }
         public Command CommentSwitchCommand { get; }
         public Command OpenCurrentMonumentDetailsCommand { get; }
@@ -172,6 +175,9 @@ namespace AbobusMobile.AndroidRoot.ViewModels
             }
         }
 
+        public bool StartRouteAvailable()
+            => BaseActionAvailability() && Downloaded;
+
         public bool OpenCurrentMonumentAvailable()
             => BaseActionAvailability() && CurrentMonument != null;
 
@@ -184,9 +190,15 @@ namespace AbobusMobile.AndroidRoot.ViewModels
         public bool BaseActionAvailability()
             => !UpdateRequired && !DownloadingInProgress;
 
+        private async Task StartRouteAsync()
+        {
+
+        }
+
         private async Task OpenCurrentMonumentDetailsAsync()
         {
-            // TODO
+            _exchangeService.RequestMonument(CurrentMonument.Id);
+            await Shell.Current.GoToAsync(PathConstants.MONUMENT_DETAILS_ABSOLUTE);
         }
 
         private void SwitchMonument(int direction)
@@ -261,11 +273,28 @@ namespace AbobusMobile.AndroidRoot.ViewModels
 
         private async Task ChangeResourceStatusAsync()
         {
-            UpdateRequired = true;
+            DownloadingInProgress = true;
 
-            Downloaded = !Downloaded;
+            if (Downloaded)
+            {
+                var resourceStatus = await _routeService.DeleteRouteAsync(RequestedRouteId.Value);
 
-            UpdateRequired = false;
+                if (resourceStatus == ResourceServiceStatus.Deleted)
+                {
+                    Downloaded = false;
+                }
+            }
+            else
+            {
+                var resourceStatus = await _routeService.DownloadRouteAsync(RequestedRouteId.Value);
+
+                if (resourceStatus == ResourceServiceStatus.Downloaded)
+                {
+                    Downloaded = true;
+                }
+            }
+
+            DownloadingInProgress = false;
         }
 
         private async Task UpdateRouteComments(List<RouteCommentServiceModel> routeCommentsServiceModels)

@@ -97,16 +97,13 @@ namespace AbobusMobile.BLL.Services.Monuments
 
             var result = new List<MonumentImageServiceModel>();
 
-            if (result != null)
+            foreach (var monumentImage in monumentImages.MonumentImagesId)
             {
-                foreach (var monumentImage in monumentImages.MonumentImagesId)
+                result.Add(new MonumentImageServiceModel()
                 {
-                    result.Add(new MonumentImageServiceModel()
-                    {
-                        MonumentId = monumentId,
-                        ImageId = monumentImage,
-                    });
-                }
+                    MonumentId = monumentId,
+                    ImageId = monumentImage,
+                });
             }
 
             return result;

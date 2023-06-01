@@ -157,5 +157,8 @@ namespace AbobusMobile.AndroidRoot.ViewModels
 
         private RouteDetailsViewModel routeDetailsViewModel = null;
         public RouteDetailsViewModel RouteDetailsViewModel => routeDetailsViewModel ?? (routeDetailsViewModel = _provider.GetRequiredService<RouteDetailsViewModel>());
+
+        private MonumentDetailsViewModel monumentDetailsViewModel = null;
+        public MonumentDetailsViewModel MonumentDetailsViewModel => monumentDetailsViewModel ?? (monumentDetailsViewModel = _provider.GetRequiredService<MonumentDetailsViewModel>());
     }
 }

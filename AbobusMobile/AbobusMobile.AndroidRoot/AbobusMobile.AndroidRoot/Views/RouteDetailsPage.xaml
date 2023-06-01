@@ -78,7 +78,11 @@
                            HorizontalOptions="FillAndExpand"
                            VerticalOptions="FillAndExpand"
                            Aspect="AspectFit"
-                           Grid.Column="1" />
+                           Grid.Column="1">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding OpenCurrentMonumentDetailsCommand}" />
+                        </Image.GestureRecognizers>
+                    </Image>
                     <Button Text=">"
                             FontSize="20"
                             Command="{Binding MonumentSwitchCommand}"
@@ -108,7 +112,7 @@
                             Grid.Column="0"
                             Grid.RowSpan="2" />
                     <Label Text="{Binding CurrentComment.Username}"
-                           FontSize="15"
+                           FontSize="20"
                            Grid.Column="1"
                            Grid.Row="0" />
                     <Label Text="{Binding CurrentComment.CommentText}"
@@ -116,7 +120,7 @@
                            HorizontalTextAlignment="Start"
                            Grid.Column="1"
                            Grid.Row="1"
-                           FontSize="10" />
+                           FontSize="15" />
                     <Button Text=">"
                             FontSize="20"
                             Command="{Binding CommentSwitchCommand}"
@@ -126,20 +130,33 @@
                             Grid.Column="2"
                             Grid.RowSpan="2" />
                 </Grid>
-                <Button Text="{x:Static resources:ApplicationTexts.RouteDetailsPage_DownloadButtonText}"
+                <StackLayout Orientation="Horizontal"
+                             VerticalOptions="EndAndExpand"
+                             Margin="5,0,5,10"
+                             Grid.Row="5">
+                    <Button Text="{x:Static resources:ApplicationTexts.RouteDetailsPage_StartRoute}"
+                        Command="{Binding StartRouteCommand}"
+                        HorizontalOptions="StartAndExpand"
+                        WidthRequest="175"
+                        Margin="5"
+                        FontSize="20" />
+                    <Button Text="{x:Static resources:ApplicationTexts.RouteDetailsPage_DownloadButtonText}"
                         IsVisible="{Binding Downloaded, Converter={StaticResource BoolInverse}}"
                         Command="{Binding ChangeResourceStatusCommand}"
-                        Grid.Row="5"
                         BackgroundColor="Green"
-                        WidthRequest="200"
-                        FontSize="20" />
-                <Button Text="{x:Static resources:ApplicationTexts.RouteDetailsPage_DeleteButtonText}"
+                        WidthRequest="175"
+                        HorizontalOptions="EndAndExpand"
+                        FontSize="20"
+                        Margin="5" />
+                    <Button Text="{x:Static resources:ApplicationTexts.RouteDetailsPage_DeleteButtonText}"
                         IsVisible="{Binding Downloaded}"
                         Command="{Binding ChangeResourceStatusCommand}"
-                        Grid.Row="5"
                         BackgroundColor="Red"
-                        WidthRequest="200"
-                        FontSize="20" />
+                        WidthRequest="175"
+                        FontSize="20"
+                        Margin="5"
+                        HorizontalOptions="EndAndExpand" />
+                </StackLayout>
             </Grid>
             <Frame
                 BackgroundColor="#CC000000"
@@ -151,6 +168,27 @@
                 AbsoluteLayout.LayoutFlags="All"
                 AbsoluteLayout.LayoutBounds="0,0,1,1">
                 <ActivityIndicator />
+            </Frame>
+            <Frame
+                BackgroundColor="#CC000000"
+                WidthRequest="1000"
+                HeightRequest="1000"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                IsVisible="{Binding DownloadingInProgress}"
+                AbsoluteLayout.LayoutFlags="All"
+                AbsoluteLayout.LayoutBounds="0,0,1,1">
+                <StackLayout>
+                    <Label Text="{x:Static resources:ApplicationTexts.RouteDetailsPage_Deleting}"
+                           IsVisible="{Binding Downloaded}"
+                           Style="{StaticResource HeaderLabel}"
+                           TextColor="White" />
+                    <Label Text="{x:Static resources:ApplicationTexts.RouteDetailsPage_Downloading}"
+                           IsVisible="{Binding Downloaded, Converter={StaticResource BoolInverse}}"
+                           Style="{StaticResource HeaderLabel}"
+                           TextColor="White" />
+                    <ActivityIndicator />
+                </StackLayout>
             </Frame>
         </AbsoluteLayout>
     </ContentPage.Content>

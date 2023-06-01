@@ -70,6 +70,7 @@ namespace AbobusMobile.DAL.Services.Routes
         private RouteDataModel ToDataModel(RouteModel route)
             => new RouteDataModel()
             {
+                Id = route.RouteId,
                 CityId = route.CityId,
                 CreatorId = route.CreatorId,
                 Distance = route.Distance,

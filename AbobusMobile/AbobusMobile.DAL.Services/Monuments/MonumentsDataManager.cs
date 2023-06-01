@@ -86,7 +86,7 @@ namespace AbobusMobile.DAL.Services.Monuments
 
             foreach (var monumentImage in monumentImages)
             {
-                result.MonumentImagesId.Add(monumentImage.MonumentId);
+                result.MonumentImagesId.Add(monumentImage.ImageId);
             }
 
             return result;

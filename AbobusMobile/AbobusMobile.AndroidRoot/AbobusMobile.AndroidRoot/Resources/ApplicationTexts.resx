@@ -141,6 +141,9 @@
   <data name="LoginPage_TitleText" xml:space="preserve">
     <value>Please Authorize</value>
   </data>
+  <data name="MonumentDetailsPage_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
   <data name="ProfilePage_Cities" xml:space="preserve">
     <value>Visited cities:</value>
   </data>
@@ -174,8 +177,17 @@
   <data name="RouteDetailsPage_DeleteButtonText" xml:space="preserve">
     <value>Delete</value>
   </data>
+  <data name="RouteDetailsPage_Deleting" xml:space="preserve">
+    <value>Deleting in Progress</value>
+  </data>
   <data name="RouteDetailsPage_DownloadButtonText" xml:space="preserve">
     <value>Download</value>
+  </data>
+  <data name="RouteDetailsPage_Downloading" xml:space="preserve">
+    <value>Downloading in Progress</value>
+  </data>
+  <data name="RouteDetailsPage_StartRoute" xml:space="preserve">
+    <value>Start</value>
   </data>
   <data name="RoutesPage_AdditionalRoutes" xml:space="preserve">
     <value>Additional Routes</value>

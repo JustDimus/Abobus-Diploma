@@ -7,17 +7,24 @@ namespace AbobusMobile.AndroidRoot.ViewModels
 {
     public class AppShellViewModel : BaseViewModel
     {
-        private readonly ExchangeService _routeExchangeService;
+        private readonly ExchangeService _exchangeService;
 
         private IDisposable routeExchangeDisposable;
+        private IDisposable monumentExchangeDisposable;
 
         public AppShellViewModel(
-            ExchangeService routeExchangeService)
+            ExchangeService exchangeService)
         {
-            _routeExchangeService = routeExchangeService ?? throw new ArgumentNullException(nameof(routeExchangeService));
+            _exchangeService = exchangeService ?? throw new ArgumentNullException(nameof(exchangeService));
 
-            routeExchangeDisposable = _routeExchangeService.OnRouteRequested
+            routeExchangeDisposable = _exchangeService.OnRouteRequested
                 .Subscribe((_) => ShowRouteDetailsTab = true);
+
+            monumentExchangeDisposable = _exchangeService.OnMonumentRequested
+                .Subscribe((_) =>
+                {
+                    ShowMonumentDetailsTab = true;
+                });
         }
 
         private bool showRouteDetailsTab = false;
@@ -25,6 +32,13 @@ namespace AbobusMobile.AndroidRoot.ViewModels
         {
             get => showRouteDetailsTab;
             set => SetProperty(ref showRouteDetailsTab, value);
+        }
+
+        private bool showMonumentDetailsTab = false;
+        public bool ShowMonumentDetailsTab
+        {
+            get => showMonumentDetailsTab;
+            set => SetProperty(ref showMonumentDetailsTab, value);
         }
     }
 }

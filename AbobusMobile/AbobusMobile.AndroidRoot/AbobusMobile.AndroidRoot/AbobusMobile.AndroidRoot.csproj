@@ -66,6 +66,9 @@
     <EmbeddedResource Update="Resources\ApplicationTexts.ua.resx">
       <Generator></Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Views\MonumentDetailsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\ProfilePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

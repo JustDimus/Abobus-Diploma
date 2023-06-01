@@ -133,6 +133,15 @@ namespace AbobusMobile.AndroidRoot.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Description.
+        /// </summary>
+        internal static string MonumentDetailsPage_Description {
+            get {
+                return ResourceManager.GetString("MonumentDetailsPage_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Visited cities:.
         /// </summary>
         internal static string ProfilePage_Cities {
@@ -232,11 +241,38 @@ namespace AbobusMobile.AndroidRoot.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Deleting in Progress.
+        /// </summary>
+        internal static string RouteDetailsPage_Deleting {
+            get {
+                return ResourceManager.GetString("RouteDetailsPage_Deleting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Download.
         /// </summary>
         internal static string RouteDetailsPage_DownloadButtonText {
             get {
                 return ResourceManager.GetString("RouteDetailsPage_DownloadButtonText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Downloading in Progress.
+        /// </summary>
+        internal static string RouteDetailsPage_Downloading {
+            get {
+                return ResourceManager.GetString("RouteDetailsPage_Downloading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start.
+        /// </summary>
+        internal static string RouteDetailsPage_StartRoute {
+            get {
+                return ResourceManager.GetString("RouteDetailsPage_StartRoute", resourceCulture);
             }
         }
         
