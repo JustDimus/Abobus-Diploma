@@ -65,23 +65,15 @@ namespace AbobusMobile.AndroidRoot.ViewModels
             routeExchangeServiceDisposable = _routeExchangeService.OnRouteRequested
                 .Subscribe(OnRouteRequested);
 
-            MonumentSwitchCommand = new Command<int>(direction => SwitchMonument(direction), (_) => MonumentSwitchAvailable());
-            CommentSwitchCommand = new Command<int>(direction => SwitchComment(direction), (_) => CommentSwitchAvailable());
-            OpenCurrentMonumentDetailsCommand = new Command(async () => await OpenCurrentMonumentDetailsAsync(), () => OpenCurrentMonumentAvailable());
-            ChangeResourceStatusCommand = new Command(async () => await ChangeResourceStatusAsync(), () => BaseActionAvailability());
-
-            PropertyChanged += (_, __) =>
-            {
-                MonumentSwitchCommand.ChangeCanExecute();
-                CommentSwitchCommand.ChangeCanExecute();
-                OpenCurrentMonumentDetailsCommand.ChangeCanExecute();
-                ChangeResourceStatusCommand.ChangeCanExecute();
-            };
+            MonumentSwitchCommand = new Command(direction => SwitchMonument(Convert.ToInt32(direction)));
+            CommentSwitchCommand = new Command(direction => SwitchComment(Convert.ToInt32(direction)));
+            OpenCurrentMonumentDetailsCommand = new Command(async () => await OpenCurrentMonumentDetailsAsync());
+            ChangeResourceStatusCommand = new Command(async () => await ChangeResourceStatusAsync());
         }
 
         #region Commands
-        public Command<int> MonumentSwitchCommand { get; }
-        public Command<int> CommentSwitchCommand { get; }
+        public Command MonumentSwitchCommand { get; }
+        public Command CommentSwitchCommand { get; }
         public Command OpenCurrentMonumentDetailsCommand { get; }
         public Command ChangeResourceStatusCommand { get; }
         #endregion
@@ -92,6 +84,18 @@ namespace AbobusMobile.AndroidRoot.ViewModels
         private List<CommentModel> routeComments = new List<CommentModel>();
 
         #region Properties
+        public bool OpenCurrentMonumentAvailable
+            => BaseActionAvailability && CurrentMonument != null;
+
+        public bool CommentSwitchAvailable
+            => BaseActionAvailability && routeComments.Count > 1;
+
+        public bool MonumentSwitchAvailable
+            => BaseActionAvailability && routeMonuments.Count > 1;
+
+        public bool BaseActionAvailability
+            => !UpdateRequired && !DownloadingInProgress;
+
         private bool updateRequired = true;
         public bool UpdateRequired
         {
@@ -213,18 +217,6 @@ namespace AbobusMobile.AndroidRoot.ViewModels
             CurrentComment = routeComments[currentIndex];
         }
 
-        private bool OpenCurrentMonumentAvailable()
-            => BaseActionAvailability() && CurrentMonument != null;
-
-        private bool CommentSwitchAvailable()
-            => BaseActionAvailability() && routeComments.Count > 1;
-
-        private bool MonumentSwitchAvailable()
-            => BaseActionAvailability() && routeMonuments.Count > 1;
-
-        private bool BaseActionAvailability()
-            => !UpdateRequired && !DownloadingInProgress;
-
         private async Task UpdatePageAsync()
         {
             UpdateRequired = true;
@@ -256,6 +248,11 @@ namespace AbobusMobile.AndroidRoot.ViewModels
             await UpdateRouteComments(routeComments);
 
             UpdateRequired = false;
+
+            OnPropertyChanged(nameof(MonumentSwitchAvailable));
+            OnPropertyChanged(nameof(CommentSwitchAvailable));
+            OnPropertyChanged(nameof(OpenCurrentMonumentAvailable));
+            OnPropertyChanged(nameof(BaseActionAvailability));
         }
 
         private async Task ChangeResourceStatusAsync()

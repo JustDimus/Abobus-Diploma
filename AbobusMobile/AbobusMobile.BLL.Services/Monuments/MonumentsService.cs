@@ -45,9 +45,12 @@ namespace AbobusMobile.BLL.Services.Monuments
 
             MonumentServiceModel result = null;
 
-            var monumentDataModel = await _monumentsManager.GetMonumentAsync(monumentId);
+            if (monumentDownloaded)
+            {
+                var monumentDataModel = await _monumentsManager.GetMonumentAsync(monumentId);
 
-            result = GetMonumentServiceModel(monumentDataModel);
+                result = GetMonumentServiceModel(monumentDataModel);
+            }
 
             MonumentRequest.Initialize(monumentId);
 

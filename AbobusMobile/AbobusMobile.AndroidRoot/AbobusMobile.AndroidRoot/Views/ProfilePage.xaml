@@ -32,7 +32,7 @@
                          Margin="0,0,0,10">
                     <Frame HasShadow="True">
                         <Image Source="{Binding ProfilePhoto}"
-                       WidthRequest="130" HeightRequest="130" />
+                               Aspect="AspectFit" />
                     </Frame>
                     <StackLayout Orientation="Vertical"
                              WidthRequest="250">

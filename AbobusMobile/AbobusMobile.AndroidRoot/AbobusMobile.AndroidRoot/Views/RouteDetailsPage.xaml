@@ -72,7 +72,8 @@
                             CommandParameter="-1"
                             HorizontalOptions="CenterAndExpand"
                             VerticalOptions="CenterAndExpand"
-                            Grid.Column="0" />
+                            Grid.Column="0"
+                            IsEnabled="{Binding MonumentSwitchAvailable}" />
                     <Image Source="{Binding CurrentMonument.MonumentImage}"
                            HorizontalOptions="FillAndExpand"
                            VerticalOptions="FillAndExpand"
@@ -84,7 +85,8 @@
                             CommandParameter="1"
                             HorizontalOptions="CenterAndExpand"
                             VerticalOptions="CenterAndExpand"
-                            Grid.Column="2" />
+                            Grid.Column="2"
+                            IsEnabled="{Binding MonumentSwitchAvailable}" />
                 </Grid>
                 <Grid Grid.Row="4"
                       Margin="5,10,5,10">
@@ -104,13 +106,15 @@
                             HorizontalOptions="CenterAndExpand"
                             VerticalOptions="CenterAndExpand"
                             Grid.Column="0"
-                            Grid.RowSpan="2" />
+                            Grid.RowSpan="2"
+                            IsEnabled="{Binding CommentSwitchAvailable}" />
                     <Label Text="{Binding CurrentComment.Username}"
                            FontSize="15"
                            Grid.Column="1"
                            Grid.Row="0" />
                     <Label Text="{Binding CurrentComment.CommentText}"
                            LineBreakMode="WordWrap"
+                           HorizontalTextAlignment="Start"
                            Grid.Column="1"
                            Grid.Row="1"
                            FontSize="10" />
@@ -121,7 +125,8 @@
                             HorizontalOptions="CenterAndExpand"
                             VerticalOptions="CenterAndExpand"
                             Grid.Column="2"
-                            Grid.RowSpan="2" />
+                            Grid.RowSpan="2"
+                            IsEnabled="{Binding CommentSwitchAvailable}" />
                 </Grid>
                 <Button Text="{x:Static resources:ApplicationTexts.RouteDetailsPage_DownloadButtonText}"
                         IsVisible="{Binding Downloaded, Converter={StaticResource BoolInverse}}"
