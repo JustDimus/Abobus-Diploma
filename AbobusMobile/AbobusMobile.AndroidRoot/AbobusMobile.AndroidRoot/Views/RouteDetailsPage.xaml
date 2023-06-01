@@ -5,15 +5,148 @@
              xmlns:local="clr-namespace:AbobusMobile.AndroidRoot.Views"
              xmlns:resources="clr-namespace:AbobusMobile.AndroidRoot.Resources"
              BindingContext="{Binding RouteDetailsViewModel, Source={StaticResource AppProvider}}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label" BasedOn="{StaticResource BaseLabel}">
+                <Setter Property="FontSize" Value="30" />
+            </Style>
+            <Style TargetType="ActivityIndicator">
+                <Setter Property="Color" Value="{StaticResource Primary}" />
+                <Setter Property="IsRunning" Value="True" />
+                <Setter Property="Margin" Value="10" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <Shell.TitleView>
-        <Label Text="{x:Static resources:ApplicationTexts.ProfilePage_TitleText}"
+        <Label Text="{Binding RouteName}"
                Style="{StaticResource PageTitleLabel}" />
     </Shell.TitleView>
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="{Binding RouteId}"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <AbsoluteLayout>
+            <Grid HorizontalOptions="CenterAndExpand"
+              VerticalOptions="CenterAndExpand"
+              AbsoluteLayout.LayoutFlags="All"
+              AbsoluteLayout.LayoutBounds="0,0,1,1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="3*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="3*" />
+                    <RowDefinition Height="3*" />
+                    <RowDefinition Height="2*" />
+                </Grid.RowDefinitions>
+                <Frame HasShadow="True"
+                   HorizontalOptions="FillAndExpand"
+                   VerticalOptions="FillAndExpand"
+                   Margin="5"
+                   Padding="1"
+                   Grid.Row="0">
+                    <Image Source="{Binding RouteImage}"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="FillAndExpand"
+                        Aspect="AspectFit" />
+                </Frame>
+                <Label Text="{Binding RouteCity}"
+                       Grid.Row="1"
+                       Margin="5" />
+                <Label Grid.Row="2"
+                       Margin="5">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="{Binding RouteDistance}" />
+                            <Span Text=" " />
+                            <Span Text="{Binding DistanceUnit}" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Grid Grid.Row="3"
+                      Margin="5,10,5,10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="5*" />
+                        <ColumnDefinition Width="1*" />
+                    </Grid.ColumnDefinitions>
+                    <Button Text="&lt;"
+                            FontSize="20"
+                            Command="{Binding MonumentSwitchCommand}"
+                            CommandParameter="-1"
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="CenterAndExpand"
+                            Grid.Column="0" />
+                    <Image Source="{Binding CurrentMonument.MonumentImage}"
+                           HorizontalOptions="FillAndExpand"
+                           VerticalOptions="FillAndExpand"
+                           Aspect="AspectFit"
+                           Grid.Column="1" />
+                    <Button Text=">"
+                            FontSize="20"
+                            Command="{Binding MonumentSwitchCommand}"
+                            CommandParameter="1"
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="CenterAndExpand"
+                            Grid.Column="2" />
+                </Grid>
+                <Grid Grid.Row="4"
+                      Margin="5,10,5,10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="5*" />
+                        <ColumnDefinition Width="1*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="3*" />
+                    </Grid.RowDefinitions>
+                    <Button Text="&lt;"
+                            FontSize="20"
+                            Command="{Binding MonumentSwitchCommand}"
+                            CommandParameter="-1"
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="CenterAndExpand"
+                            Grid.Column="0"
+                            Grid.RowSpan="2" />
+                    <Label Text="{Binding CurrentComment.Username}"
+                           FontSize="15"
+                           Grid.Column="1"
+                           Grid.Row="0" />
+                    <Label Text="{Binding CurrentComment.CommentText}"
+                           LineBreakMode="WordWrap"
+                           Grid.Column="1"
+                           Grid.Row="1"
+                           FontSize="10" />
+                    <Button Text=">"
+                            FontSize="20"
+                            Command="{Binding CommentSwitchCommand}"
+                            CommandParameter="1"
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="CenterAndExpand"
+                            Grid.Column="2"
+                            Grid.RowSpan="2" />
+                </Grid>
+                <Button Text="{x:Static resources:ApplicationTexts.RouteDetailsPage_DownloadButtonText}"
+                        IsVisible="{Binding Downloaded, Converter={StaticResource BoolInverse}}"
+                        Grid.Row="5"
+                        BackgroundColor="Green"
+                        WidthRequest="200"
+                        FontSize="20" />
+                <Button Text="{x:Static resources:ApplicationTexts.RouteDetailsPage_DeleteButtonText}"
+                        IsVisible="{Binding Downloaded}"
+                        Grid.Row="5"
+                        BackgroundColor="Red"
+                        WidthRequest="200"
+                        FontSize="20" />
+            </Grid>
+            <Frame
+                BackgroundColor="#CC000000"
+                WidthRequest="1000"
+                HeightRequest="1000"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                IsVisible="{Binding UpdateRequired}"
+                AbsoluteLayout.LayoutFlags="All"
+                AbsoluteLayout.LayoutBounds="0,0,1,1">
+                <ActivityIndicator />
+            </Frame>
+        </AbsoluteLayout>
     </ContentPage.Content>
 </local:BasePage>

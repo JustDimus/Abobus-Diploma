@@ -1,4 +1,4 @@
-﻿namespace AbobusMobile.DAL.Services.Abstractions.Account
+﻿namespace AbobusMobile.DAL.Services.Abstractions.Accounts
 {
     public class AccountStatisticsDataModel
     {

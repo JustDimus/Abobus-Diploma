@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace AbobusMobile.BLL.Services.Abstractions.Accounts
+namespace AbobusMobile.DAL.Services.Abstractions.Accounts
 {
-    public class AccountPublicInfoServiceModel
+    public class AccountDetailsDataModel
     {
         public Guid Id { get; set; }
 
         public string Username { get; set; }
+
+        public string Email { get; set; }
 
         public Guid ProfilePhotoId { get; set; }
     }

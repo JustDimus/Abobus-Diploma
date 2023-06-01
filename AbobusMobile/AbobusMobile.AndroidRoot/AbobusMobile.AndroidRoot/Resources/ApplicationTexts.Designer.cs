@@ -223,6 +223,24 @@ namespace AbobusMobile.AndroidRoot.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Delete.
+        /// </summary>
+        internal static string RouteDetailsPage_DeleteButtonText {
+            get {
+                return ResourceManager.GetString("RouteDetailsPage_DeleteButtonText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Download.
+        /// </summary>
+        internal static string RouteDetailsPage_DownloadButtonText {
+            get {
+                return ResourceManager.GetString("RouteDetailsPage_DownloadButtonText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Additional Routes.
         /// </summary>
         internal static string RoutesPage_AdditionalRoutes {

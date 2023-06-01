@@ -1,6 +1,7 @@
-﻿using AbobusMobile.DAL.Services.Abstractions.Account;
+﻿using AbobusMobile.DAL.Services.Abstractions.Accounts;
 using AbobusMobile.DAL.Services.Abstractions.Configurations;
 using AbobusMobile.Database.Models;
+using AbobusMobile.Database.Services.Abstractions;
 using AbobusMobile.Utilities.Exceptions;
 using AbobusMobile.Utilities.Extensions;
 using System;
@@ -9,23 +10,83 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AbobusMobile.DAL.Services.Account
+namespace AbobusMobile.DAL.Services.Accounts
 {
-    public class AccountDataManager : IAccountDataManager
+    public class AccountsDataManager : IAccountsDataManager
     {
         private readonly IConfigurationsDataManager _configurationManager;
+        private readonly IRepository<AccountPublicInfoModel> _accounts;
 
-        public AccountDataManager(IConfigurationsDataManager configurationManager)
+        public AccountsDataManager(
+            IConfigurationsDataManager configurationManager,
+            IRepository<AccountPublicInfoModel> accountsRepository)
         {
             _configurationManager = configurationManager ?? throw new ArgumentNullException(nameof(configurationManager));
+            _accounts = accountsRepository ?? throw new ArgumentNullException(nameof(accountsRepository));
         }
 
-        public async Task ClearAccountDataAsync()
+        public async Task<bool> CheckAccountPublicInfoAvailabilityAsync(Guid accountId)
+        {
+            return await _accounts.AnyAsync(i => i.AccountId == accountId);
+        }
+
+        public async Task CreateAccountPublicInfoAsync(AccountPublicInfoDataModel accountDataModel)
+        {
+            var accountModel = await _accounts.FirstOrDefaultAsync(i => i.AccountId == accountDataModel.Id);
+
+            if (accountModel != null)
+            {
+                accountModel.ProfilePhotoId = accountDataModel.ProfilePhotoId;
+                accountModel.Username = accountDataModel.Username;
+
+                await _accounts.UpdateAsync(accountModel);
+            }
+            else
+            {
+                await _accounts.InsertAsync(new AccountPublicInfoModel()
+                {
+                    AccountId = accountDataModel.Id,
+                    ProfilePhotoId = accountDataModel.ProfilePhotoId,
+                    Username = accountDataModel.Username,
+                });
+            }
+        }
+
+        public async Task<AccountPublicInfoDataModel> GetAccountPublicInfoAsync(Guid accountId)
+        {
+            var accountInfo = await _accounts.FirstOrDefaultAsync(i => i.AccountId == accountId);
+
+            AccountPublicInfoDataModel result = null;
+
+            if (accountInfo != null)
+            {
+                result = new AccountPublicInfoDataModel()
+                {
+                    Id = accountInfo.AccountId,
+                    ProfilePhotoId = accountInfo.ProfilePhotoId,
+                    Username = accountInfo.Username,
+                };
+            }
+
+            return result;
+        }
+
+        public async Task DeleteAccountPublicInfoAsync(Guid accountId)
+        {
+            var accountPublicInfo = await _accounts.FirstOrDefaultAsync(i => i.AccountId == accountId);
+
+            if (accountPublicInfo != null)
+            {
+                await _accounts.DeleteAsync(accountPublicInfo);
+            }
+        }
+
+        public async Task ClearCurrentAccountDataAsync()
         {
             await ClearAccountConfiguration();
         }
 
-        public async Task<AccountDetailsDataModel> GetAccountDetailsAsync()
+        public async Task<AccountDetailsDataModel> GetCurrentAccountDetailsAsync()
         {
             var configurations = await SelectAccountDetailsConfigurations();
 
@@ -45,7 +106,7 @@ namespace AbobusMobile.DAL.Services.Account
             return result;
         }
 
-        public async Task<AccountStatisticsDataModel> GetAccountStatisticsAsync()
+        public async Task<AccountStatisticsDataModel> GetCurrentAccountStatisticsAsync()
         {
             var configurations = await SelectAccountStatiscticsConfigurations();
 
@@ -66,7 +127,7 @@ namespace AbobusMobile.DAL.Services.Account
             return result;
         }
 
-        public async Task UpdateAccountDetailsAsync(AccountDetailsDataModel details)
+        public async Task UpdateCurrentAccountDetailsAsync(AccountDetailsDataModel details)
         {
             ValidateModel(details);
 
@@ -83,7 +144,7 @@ namespace AbobusMobile.DAL.Services.Account
                 AccountDataConstants.DETAILS_PROFILE_PHOTO_NAME, details.ProfilePhotoId.ToString());
         }
 
-        public async Task UpdateAccountStatisticsAsync(AccountStatisticsDataModel statistics)
+        public async Task UpdateCurrentAccountStatisticsAsync(AccountStatisticsDataModel statistics)
         {
             ValidateModel(statistics);
 
@@ -103,14 +164,14 @@ namespace AbobusMobile.DAL.Services.Account
                 AccountDataConstants.STATISTICS_ROUTES, statistics.RoutesCount.ToString());
         }
 
-        public async Task<bool> CheckAccountDetailsAvailabilityAsync()
+        public async Task<bool> CheckCurrentAccountDetailsAvailabilityAsync()
         {
             var configurations = await SelectAccountDetailsConfigurations();
 
             return configurations.Count == AccountDataConstants.DETAILS_CONFIG_COUNT;
         }
 
-        public async Task<bool> CheckAccountStatiscticsAvailabilityAsync()
+        public async Task<bool> CheckCurrentAccountStatiscticsAvailabilityAsync()
         {
             var configurations = await SelectAccountStatiscticsConfigurations();
 

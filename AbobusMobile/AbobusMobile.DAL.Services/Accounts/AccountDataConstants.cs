@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace AbobusMobile.DAL.Services.Account
+namespace AbobusMobile.DAL.Services.Accounts
 {
     public static class AccountDataConstants
     {

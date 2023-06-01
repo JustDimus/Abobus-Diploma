@@ -3,23 +3,27 @@ using AbobusMobile.AndroidRoot.DataExchangeService;
 using AbobusMobile.AndroidRoot.Extensions;
 using AbobusMobile.BLL.Services.Abstractions.Accounts;
 using AbobusMobile.BLL.Services.Abstractions.Authorization;
+using AbobusMobile.BLL.Services.Abstractions.Comments;
 using AbobusMobile.BLL.Services.Abstractions.Error;
+using AbobusMobile.BLL.Services.Abstractions.Monuments;
 using AbobusMobile.BLL.Services.Abstractions.Resources;
 using AbobusMobile.BLL.Services.Abstractions.Routes;
 using AbobusMobile.BLL.Services.Abstractions.Utilities;
 using AbobusMobile.BLL.Services.Accounts;
 using AbobusMobile.BLL.Services.Authorization;
+using AbobusMobile.BLL.Services.Comments;
 using AbobusMobile.BLL.Services.Error;
+using AbobusMobile.BLL.Services.Monuments;
 using AbobusMobile.BLL.Services.Resources;
 using AbobusMobile.BLL.Services.Routes;
 using AbobusMobile.BLL.Services.Utitlities;
-using AbobusMobile.DAL.Services.Abstractions.Account;
+using AbobusMobile.DAL.Services.Abstractions.Accounts;
 using AbobusMobile.DAL.Services.Abstractions.Authorization;
 using AbobusMobile.DAL.Services.Abstractions.Configurations;
 using AbobusMobile.DAL.Services.Abstractions.Resources;
 using AbobusMobile.DAL.Services.Abstractions.Routes;
 using AbobusMobile.DAL.Services.Abstractions.Utilities;
-using AbobusMobile.DAL.Services.Account;
+using AbobusMobile.DAL.Services.Accounts;
 using AbobusMobile.DAL.Services.Authorization;
 using AbobusMobile.DAL.Services.Configurations;
 using AbobusMobile.DAL.Services.Resources;
@@ -85,7 +89,7 @@ namespace AbobusMobile.AndroidRoot.ViewModels
 
             serviceCollection.AddSingleton<IAuthorizationDataManager, AuthorizationDataManager>();
             serviceCollection.AddSingleton<IConfigurationsDataManager, ConfigurationsDataManager>();
-            serviceCollection.AddSingleton<IAccountDataManager, AccountDataManager>();
+            serviceCollection.AddSingleton<IAccountsDataManager, AccountsDataManager>();
             serviceCollection.AddSingleton<IResourcesDataManager, ResourcesDataManager>();
             serviceCollection.AddSingleton<ILocationsDataManager, LocationsDataManager>();
             serviceCollection.AddSingleton<IRoutesDataManager, RoutesDataManager>();
@@ -97,6 +101,8 @@ namespace AbobusMobile.AndroidRoot.ViewModels
             serviceCollection.AddSingleton<IErrorHandlingService, ErrorHandlingService>();
             serviceCollection.AddSingleton<ILocationService, LocationService>();
             serviceCollection.AddSingleton<IRouteService, RouteService>();
+            serviceCollection.AddSingleton<IMonumentsService, MonumentsService>();
+            serviceCollection.AddSingleton<ICommentsService, CommentsService>();
 
             // PL
             serviceCollection.AddSingleton<RouteExchangeService>();
