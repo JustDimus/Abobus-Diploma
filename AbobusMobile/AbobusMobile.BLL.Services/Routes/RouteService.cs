@@ -186,13 +186,13 @@ namespace AbobusMobile.BLL.Services.Routes
                     }
                 }
 
-                if (updateStatus == ResourceServiceStatus.Downloaded)
+                if (downloadedRouteExist)
                 {
                     await _routesManager.UpdateAsync(GetRouteDataModel(routeDetails));
-
-                    result = GetRouteServiceModel(routeDetails);
-                    result.Downloaded = downloadedRouteExist;
                 }
+
+                result = GetRouteServiceModel(routeDetails);
+                result.Downloaded = downloadedRouteExist;
             }
 
             return result;

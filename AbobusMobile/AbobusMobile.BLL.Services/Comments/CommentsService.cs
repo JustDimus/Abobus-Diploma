@@ -61,9 +61,9 @@ namespace AbobusMobile.BLL.Services.Comments
         {
             var loadedComments = await _commentsManager.GetRouteComments(routeId);
 
-            MonumentCommentsRequest.Initialize(routeId);
+            RouteCommentsRequest.Initialize(routeId);
 
-            var commentsResponse = await MonumentCommentsRequest.SendRequestAsync();
+            var commentsResponse = await RouteCommentsRequest.SendRequestAsync();
 
             var result = new List<RouteCommentServiceModel>();
 

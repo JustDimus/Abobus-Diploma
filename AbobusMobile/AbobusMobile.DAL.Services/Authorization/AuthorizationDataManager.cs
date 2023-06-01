@@ -84,8 +84,8 @@ namespace AbobusMobile.DAL.Services.Authorization
         private void ValidateAuthorizationData(AuthorizationDataModel authorizationData)
         {
             if (authorizationData == null
-                || authorizationData.AuthorizationToken.IsNotNullOrWhiteSpace()
-                || authorizationData.RefreshToken.IsNotNullOrWhiteSpace())
+                || !authorizationData.AuthorizationToken.IsNotNullOrWhiteSpace()
+                || !authorizationData.RefreshToken.IsNotNullOrWhiteSpace())
             {
                 throw new ValidationException($"Model {nameof(authorizationData)} is not valid");
             }

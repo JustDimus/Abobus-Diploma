@@ -75,6 +75,38 @@
         {
           "type": "route",
           "uuid": "602daac3-2a15-4bc9-9e16-904a634bb023"
+        },
+        {
+          "type": "route",
+          "uuid": "55259d61-ab60-4c0e-8afa-12337c1bb146"
+        },
+        {
+          "type": "route",
+          "uuid": "9e146cb8-d879-496b-86e3-f53d8adf7ca5"
+        },
+        {
+          "type": "route",
+          "uuid": "9d7ee760-bde6-48a2-8c0e-42fe9fe2d6e2"
+        },
+        {
+          "type": "route",
+          "uuid": "89d1f943-7d2d-4f07-8ca4-45cc2ca5d1f3"
+        },
+        {
+          "type": "route",
+          "uuid": "039d52d3-4965-49bd-aa5c-e8007e84988e"
+        },
+        {
+          "type": "route",
+          "uuid": "609abad1-4fc2-426b-834c-339aa7d8cd99"
+        },
+        {
+          "type": "route",
+          "uuid": "57bc2e6e-975d-473a-9d99-996428f16d62"
+        },
+        {
+          "type": "route",
+          "uuid": "f0a7b912-f69a-4195-9d9b-23077068f2ab"
         }
       ]
     },
@@ -104,7 +136,7 @@
     {
       "uuid": "49ae49eb-88ce-4304-8d00-b9644c0ad5b8",
       "name": "Routes",
-      "collapsed": false,
+      "collapsed": true,
       "children": [
         {
           "type": "route",
@@ -147,11 +179,60 @@
         },
         {
           "type": "route",
-          "uuid": "fc254e1d-f2ae-4c6d-a893-6583d50a8d3e"
+          "uuid": "6ff53bb7-ff7f-4e47-8737-01b721e0262e"
         },
         {
           "type": "route",
-          "uuid": "1b982306-6b29-4f23-9215-7c41041710c3"
+          "uuid": "9d8b95a6-b2b4-4d8e-aa5b-d25bc72dadb0"
+        },
+        {
+          "type": "route",
+          "uuid": "5749f5b6-b3b4-4e7f-bb70-8328dfe4f077"
+        }
+      ]
+    },
+    {
+      "uuid": "3aad7360-59cc-4e9a-b25f-39b3690f991b",
+      "name": "Comments",
+      "collapsed": true,
+      "children": [
+        {
+          "type": "folder",
+          "uuid": "11465bd6-64b3-474c-a9e4-b37bb04a4507"
+        },
+        {
+          "type": "folder",
+          "uuid": "3180700e-42f8-46df-b5b5-8f9bff6bcdbc"
+        }
+      ]
+    },
+    {
+      "uuid": "11465bd6-64b3-474c-a9e4-b37bb04a4507",
+      "name": "Routes",
+      "collapsed": false,
+      "children": [
+        {
+          "type": "route",
+          "uuid": "2d9c6786-1a04-4fc6-b281-703d028af033"
+        },
+        {
+          "type": "route",
+          "uuid": "69a16c91-c419-4e56-8515-55aff3f1baa3"
+        }
+      ]
+    },
+    {
+      "uuid": "3180700e-42f8-46df-b5b5-8f9bff6bcdbc",
+      "name": "Monuments",
+      "collapsed": false,
+      "children": [
+        {
+          "type": "route",
+          "uuid": "e2935f28-046a-4030-811e-7a2637c3da20"
+        },
+        {
+          "type": "route",
+          "uuid": "8eea811e-d8d2-4da7-a2e7-61318c5e6bbd"
         }
       ]
     }
@@ -1083,11 +1164,11 @@
       "type": "http",
       "documentation": "",
       "method": "get",
-      "endpoint": "api/v1/monuments/:id/details",
+      "endpoint": "api/v1/monuments/96532D9E-1C57-4E8B-9CA4-BCE0BE57E2F4/details",
       "responses": [
         {
           "uuid": "4c56ebe7-5ce3-4e7d-b3bd-1b788265a2ec",
-          "body": "{}",
+          "body": "{\n  \"id\": \"96532D9E-1C57-4E8B-9CA4-BCE0BE57E2F4\",\n  \"name\": \"AbobUS\",\n  \"city\": \"1C2D004F-E47C-4713-AE2D-AC569794ECE5\",\n  \"description\": \"Monument 1 test description\",\n  \"monument_title\": \"30042EF6-3AB4-4814-90EA-61876A6AAE29\"\n}",
           "latency": 0,
           "statusCode": 200,
           "label": "",
@@ -1115,35 +1196,7 @@
       "responses": [
         {
           "uuid": "5cb3b4ba-29fe-4208-9c42-4092b21248a2",
-          "body": "{}",
-          "latency": 0,
-          "statusCode": 200,
-          "label": "",
-          "headers": [],
-          "bodyType": "INLINE",
-          "filePath": "",
-          "databucketID": "",
-          "sendFileAsBody": false,
-          "rules": [],
-          "rulesOperator": "OR",
-          "disableTemplating": false,
-          "fallbackTo404": false,
-          "default": true
-        }
-      ],
-      "enabled": true,
-      "responseMode": null
-    },
-    {
-      "uuid": "fc254e1d-f2ae-4c6d-a893-6583d50a8d3e",
-      "type": "http",
-      "documentation": "",
-      "method": "get",
-      "endpoint": "api/v1/monuments/:id/images",
-      "responses": [
-        {
-          "uuid": "33c32d00-071b-4b73-9849-0577616ba94c",
-          "body": "{}",
+          "body": "[\n  {\n    \"monument\": \"96532D9E-1C57-4E8B-9CA4-BCE0BE57E2F4\"\n  },\n  {\n    \"monument\": \"79BCF08F-BEE7-4A18-A865-214BE71F6D8B\"\n  }\n]",
           "latency": 0,
           "statusCode": 200,
           "label": "",
@@ -1191,15 +1244,407 @@
       "responseMode": null
     },
     {
-      "uuid": "1b982306-6b29-4f23-9215-7c41041710c3",
+      "uuid": "55259d61-ab60-4c0e-8afa-12337c1bb146",
       "type": "http",
       "documentation": "",
       "method": "get",
-      "endpoint": "api/v1/monuments/:id/comments",
+      "endpoint": "api/v1/resources/30042EF6-3AB4-4814-90EA-61876A6AAE29/details",
       "responses": [
         {
-          "uuid": "ccbe29fe-5b1f-4068-9d60-077e47235c8c",
+          "uuid": "7da3c24d-6841-478b-8f1a-d2c09c9a133b",
+          "body": "{\n  \"id\": \"30042EF6-3AB4-4814-90EA-61876A6AAE29\",\n  \"name\": \"Monument11Image.png\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "9e146cb8-d879-496b-86e3-f53d8adf7ca5",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/resources/30042EF6-3AB4-4814-90EA-61876A6AAE29",
+      "responses": [
+        {
+          "uuid": "b2584454-44b0-4fb3-9903-96f37af8e43a",
           "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "FILE",
+          "filePath": "D:\\Projects\\Abobus-Diploma\\Tools\\Monument11Image.png",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "9d7ee760-bde6-48a2-8c0e-42fe9fe2d6e2",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/resources/C24BEA1C-306C-4D28-BA20-CFADD9049781/details",
+      "responses": [
+        {
+          "uuid": "6b28f836-ddec-4331-8c1d-caa240a2a46d",
+          "body": "{\n  \"id\": \"C24BEA1C-306C-4D28-BA20-CFADD9049781\",\n  \"name\": \"Monument12Image.png\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "89d1f943-7d2d-4f07-8ca4-45cc2ca5d1f3",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/resources/C24BEA1C-306C-4D28-BA20-CFADD9049781",
+      "responses": [
+        {
+          "uuid": "d55df1d0-51f9-400a-b557-fea5db2e0395",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "FILE",
+          "filePath": "D:\\Projects\\Abobus-Diploma\\Tools\\Monument12Image.png",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "039d52d3-4965-49bd-aa5c-e8007e84988e",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/resources/BCB744B2-ECD0-4837-9A6B-DD7A0607631D/details",
+      "responses": [
+        {
+          "uuid": "0a6434fc-b4ef-4b1f-a1e0-984f822a4c66",
+          "body": "{\n  \"id\": \"BCB744B2-ECD0-4837-9A6B-DD7A0607631D\",\n  \"name\": \"Monument21Image.png\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "609abad1-4fc2-426b-834c-339aa7d8cd99",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/resources/BCB744B2-ECD0-4837-9A6B-DD7A0607631D",
+      "responses": [
+        {
+          "uuid": "1f84c828-aaa0-4957-9c32-396a543c16b0",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "FILE",
+          "filePath": "D:\\Projects\\Abobus-Diploma\\Tools\\Monument21.png",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "57bc2e6e-975d-473a-9d99-996428f16d62",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/resources/7B32452C-3FD5-4CFE-BB32-B948F712116A/details",
+      "responses": [
+        {
+          "uuid": "8a796b90-77f4-43de-938a-489f35d69296",
+          "body": "{\n  \"id\": \"7B32452C-3FD5-4CFE-BB32-B948F712116A\",\n  \"name\": \"Monument22Image.png\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "f0a7b912-f69a-4195-9d9b-23077068f2ab",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/resources/7B32452C-3FD5-4CFE-BB32-B948F712116A",
+      "responses": [
+        {
+          "uuid": "3e77bb16-b06b-4413-a36c-30ab362b4616",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "FILE",
+          "filePath": "D:\\Projects\\Abobus-Diploma\\Tools\\Monument22.png",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "6ff53bb7-ff7f-4e47-8737-01b721e0262e",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/monuments/79BCF08F-BEE7-4A18-A865-214BE71F6D8B/details",
+      "responses": [
+        {
+          "uuid": "8290f95d-827c-40fe-af9c-2f421182746e",
+          "body": "{\n  \"id\": \"79BCF08F-BEE7-4A18-A865-214BE71F6D8B\",\n  \"name\": \"Chunga\",\n  \"city\": \"1C2D004F-E47C-4713-AE2D-AC569794ECE5\",\n  \"description\": \"Monument 2 test description\",\n  \"monument_title\": \"7B32452C-3FD5-4CFE-BB32-B948F712116A\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "9d8b95a6-b2b4-4d8e-aa5b-d25bc72dadb0",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/monuments/96532D9E-1C57-4E8B-9CA4-BCE0BE57E2F4/images",
+      "responses": [
+        {
+          "uuid": "9fd7bcd0-8086-4c3b-9c95-0d0deb1ea8aa",
+          "body": "[\n  {\n    \"image\": \"30042EF6-3AB4-4814-90EA-61876A6AAE29\"\n  },\n  {\n    \"image\": \"C24BEA1C-306C-4D28-BA20-CFADD9049781\"\n  }\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "5749f5b6-b3b4-4e7f-bb70-8328dfe4f077",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/monuments/79BCF08F-BEE7-4A18-A865-214BE71F6D8B/images",
+      "responses": [
+        {
+          "uuid": "07702d4c-b29f-4c76-9e1d-debb5636912c",
+          "body": "[\n  {\n    \"image\": \"7B32452C-3FD5-4CFE-BB32-B948F712116A\"\n  },\n  {\n    \"image\": \"BCB744B2-ECD0-4837-9A6B-DD7A0607631D\"\n  }\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "e2935f28-046a-4030-811e-7a2637c3da20",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/monuments/96532D9E-1C57-4E8B-9CA4-BCE0BE57E2F4/comments",
+      "responses": [
+        {
+          "uuid": "ec9070e5-826e-4762-9a98-060b427e81fc",
+          "body": "[\n  {\n    \"id\": \"E310F00A-53B7-4D07-9194-B5A9D3FA0C37\",\n    \"monument\": \"96532D9E-1C57-4E8B-9CA4-BCE0BE57E2F4\",\n    \"owner\": \"E8DA8A12-37C3-41F8-852B-CF7C1213678B\",\n    \"comment\": \"Very cool. I liked it.\"\n  },\n  {\n    \"id\": \"C7DD3BE9-DFF6-46F7-97D4-00D35E3F8A81\",\n    \"monument\": \"96532D9E-1C57-4E8B-9CA4-BCE0BE57E2F4\",\n    \"owner\": \"B20E59E6-D3C3-40E8-BC58-C8F8AD0AA319\",\n    \"comment\": \"It reminds me that is not so bad\"\n  }\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "8eea811e-d8d2-4da7-a2e7-61318c5e6bbd",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/monuments/79BCF08F-BEE7-4A18-A865-214BE71F6D8B/comments",
+      "responses": [
+        {
+          "uuid": "a5a7abf0-3aab-47ce-aca0-b006a0014f28",
+          "body": "[\n  {\n    \"id\": \"1FA0681F-E11A-4CE4-8F6C-244AA3CE7AD8\",\n    \"monument\": \"79BCF08F-BEE7-4A18-A865-214BE71F6D8B\",\n    \"owner\": \"B20E59E6-D3C3-40E8-BC58-C8F8AD0AA319\",\n    \"comment\": \"Not that good as I expected\"\n  }\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "2d9c6786-1a04-4fc6-b281-703d028af033",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/routes/90E71CB9-9656-414D-BFAA-F15CA702E36A/comments",
+      "responses": [
+        {
+          "uuid": "807f4cb6-dd99-4bc8-b7e9-f8c6542516af",
+          "body": "[\n  {\n    \"id\": \"08E2FA1D-350B-4107-B0B6-2CC3744A1649\",\n    \"route\": \"90E71CB9-9656-414D-BFAA-F15CA702E36A\",\n    \"owner\": \"E8DA8A12-37C3-41F8-852B-CF7C1213678B\",\n    \"comment\": \"Very cool. I liked it.\"\n  },\n  {\n    \"id\": \"8EA41CE2-2E3D-43B4-8ADC-3953CE1EFC80\",\n    \"route\": \"90E71CB9-9656-414D-BFAA-F15CA702E36A\",\n    \"owner\": \"B20E59E6-D3C3-40E8-BC58-C8F8AD0AA319\",\n    \"comment\": \"It reminds me that is not so bad\"\n  }\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "69a16c91-c419-4e56-8515-55aff3f1baa3",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/routes/88764339-85C4-4631-90DB-9CD62452D31E/comments",
+      "responses": [
+        {
+          "uuid": "b07400fe-47a7-4ee1-a832-674d73d7186a",
+          "body": "[\n  {\n    \"id\": \"FA30D24C-FD97-4A34-BEE9-6A37C5E5C0B7\",\n    \"route\": \"88764339-85C4-4631-90DB-9CD62452D31E\",\n    \"owner\": \"E8DA8A12-37C3-41F8-852B-CF7C1213678B\",\n    \"comment\": \"Very cool. I liked it. It's materpiece\"\n  }\n]",
           "latency": 0,
           "statusCode": 200,
           "label": "",
@@ -1263,6 +1708,10 @@
     {
       "type": "folder",
       "uuid": "d7b218a3-08c7-4a18-9dfe-496b9672ef96"
+    },
+    {
+      "type": "folder",
+      "uuid": "3aad7360-59cc-4e9a-b25f-39b3690f991b"
     }
   ],
   "proxyMode": false,

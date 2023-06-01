@@ -57,6 +57,15 @@ namespace AbobusMobile.AndroidRoot.ViewModels
                 .AddJsonStream(configurationStream)
                 .Build();
 
+            //File.Delete(Path.Combine(
+            //        Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
+            //        configuration.GetConnectionString("DatabasePath")));
+
+            //Directory.Delete(Path.Combine(
+            //        Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
+            //        configuration.GetConnectionString("ResourcesPath")),
+            //        true);
+
             IServiceCollection serviceCollection = new ServiceCollection();
 
             serviceCollection
