@@ -7,6 +7,15 @@
              Shell.NavBarIsVisible="False"
              xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
              BindingContext="{Binding NavigationViewModel, Source={StaticResource AppProvider}}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="ActivityIndicator">
+                <Setter Property="Color" Value="{StaticResource Primary}" />
+                <Setter Property="IsRunning" Value="True" />
+                <Setter Property="Margin" Value="10" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
@@ -19,9 +28,8 @@
             <AbsoluteLayout
                 Grid.Row="1">
                 <Frame
-                    BackgroundColor="#CC000000"
-                    HorizontalOptions="Center"
-                    VerticalOptions="Center"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand"
                     IsVisible="{Binding ShowRoute}"
                     AbsoluteLayout.LayoutFlags="All"
                     AbsoluteLayout.LayoutBounds="0,0,1,1">
@@ -32,10 +40,14 @@
                             <RowDefinition Height="1*" />
                         </Grid.RowDefinitions>
                         <Label Text="{x:Static resources:ApplicationTexts.NavigationPage_KeepMoving}"
-                               IsVisible="{Binding MonumentArrived,Converter={StaticResource BoolInverse}}"
+                               IsVisible="{Binding MonumentArrived,Converter={StaticResource BoolInverse}}" 
+                               HorizontalTextAlignment="Center"
+                               FontSize="25"
                                Grid.Row="0" />
                         <Label Text="{Binding NextMonument.Name}"
                                IsVisible="{Binding MonumentArrived}"
+                               HorizontalTextAlignment="Center"
+                               FontSize="25"
                                Grid.Row="0" />
                         <Image Source="{Binding NextMonument.MonumentImage}"
                                WidthRequest="150" HeightRequest="150"
@@ -96,8 +108,8 @@
                 </Frame>
                 <Frame
                     BackgroundColor="#CC000000"
-                    HorizontalOptions="Center"
-                    VerticalOptions="Center"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand"
                     IsVisible="{Binding ShowUpdateRequired}"
                     AbsoluteLayout.LayoutFlags="All"
                     AbsoluteLayout.LayoutBounds="0,0,1,1">

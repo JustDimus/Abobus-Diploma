@@ -61,6 +61,7 @@ namespace AbobusMobile.AndroidRoot.ViewModels
             {
                 OpenMonumentDetailsCommand.ChangeCanExecute();
                 MoveNextCommand.ChangeCanExecute();
+                InterruptRouteCommand.ChangeCanExecute();
             };
         }
 
@@ -148,13 +149,10 @@ namespace AbobusMobile.AndroidRoot.ViewModels
 
         protected override async void OnPageAppeared()
         {
-            if ((UpdateRequired
+            if (UpdateRequired
                 && RouteStarted
                 && MapService != null)
-                || true)
             {
-
-
                 await UpdatePageAsync();
             }
         }
@@ -184,8 +182,9 @@ namespace AbobusMobile.AndroidRoot.ViewModels
             await MoveNextAsync();
 
             NextPointIsLast = false;
-            UpdateRequired = false;
             RouteCompleted = false;
+            UpdateRequired = false;
+            OnShowParametersChanged();
         }
 
         private async Task InterruptRouteAsync()
@@ -215,12 +214,12 @@ namespace AbobusMobile.AndroidRoot.ViewModels
             if (MonumentArrived)
             {
                 currentRoutePosition--;
-                MonumentArrived = false;
             }
 
             var currentPoint = currentRoute.RoutePoints[currentRoutePosition];
 
-            if (currentPoint.IsDestination)
+            if (currentPoint.IsDestination
+                && !MonumentArrived)
             {
                 MonumentArrived = true;
 
@@ -232,6 +231,8 @@ namespace AbobusMobile.AndroidRoot.ViewModels
             }
             else
             {
+                MonumentArrived = false;
+
                 if (nextPointPinId != -1)
                 {
                     MapService.RemovePin(nextPointPinId);
@@ -252,6 +253,17 @@ namespace AbobusMobile.AndroidRoot.ViewModels
                 {
                     NextPointIsLast = true;
                 }
+
+                var nextMonumentId = currentRoute.RoutePoints.Where(i => i.IsDestination && i.Order > currentRoutePosition)
+                    .Select(i => i.MonumentId).FirstOrDefault();
+
+                if (nextMonumentId != null
+                    && NextMonument.Id != nextMonumentId)
+                {
+                    SetNextMonument(nextMonumentId.Value);
+                }
+
+                UpdateRoute();
             }
         }
 
@@ -264,6 +276,19 @@ namespace AbobusMobile.AndroidRoot.ViewModels
         private void SetNextMonument(Guid monumentId)
         {
             NextMonument = routeMonuments.First(i => i.Id == monumentId);
+        }
+
+        private void UpdateRoute()
+        {
+            MapService.UpdatePolyline(new MapPolylineModel()
+            {
+                Coordinates = currentRoute.RoutePoints.Where(i => i.Order >= currentRoutePosition)
+                    .Select(i => new MapCoordinateModel()
+                    {
+                        Latitude = i.Coordinate.Latitude,
+                        Longitude = i.Coordinate.Longitude,
+                    }).ToList()
+            });
         }
 
         private void UpdateMap()

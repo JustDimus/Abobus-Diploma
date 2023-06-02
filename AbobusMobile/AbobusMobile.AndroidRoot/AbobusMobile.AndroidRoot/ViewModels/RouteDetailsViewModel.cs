@@ -192,7 +192,7 @@ namespace AbobusMobile.AndroidRoot.ViewModels
 
         private async Task StartRouteAsync()
         {
-            _exchangeService.RequestMonument(RequestedRouteId.Value);
+            _exchangeService.RequestRouteStart(RequestedRouteId.Value);
             await Shell.Current.GoToAsync(PathConstants.NAVIGATION_ABSOLUTE);
         }
 
