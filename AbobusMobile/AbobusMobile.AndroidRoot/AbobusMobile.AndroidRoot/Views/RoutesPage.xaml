@@ -1,0 +1,396 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<local:BasePage xmlns="http://xamarin.com/schemas/2014/forms"
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                x:Class="AbobusMobile.AndroidRoot.Views.RoutesPage"
+                xmlns:local="clr-namespace:AbobusMobile.AndroidRoot.Views"
+                xmlns:resources="clr-namespace:AbobusMobile.AndroidRoot.Resources"
+                xmlns:converters="clr-namespace:AbobusMobile.AndroidRoot.Converters"
+                x:Name="RoutesPageName"
+                BindingContext="{Binding RoutesViewModel, Source={StaticResource AppProvider}}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:BoolColorConverter x:Key="BorderColorConverter" />
+            <Style TargetType="Label" BasedOn="{StaticResource CommonLabel}">
+                <Setter Property="FontSize" Value="24" />
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="VerticalTextAlignment" Value="Center" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+            </Style>
+            <Style TargetType="ActivityIndicator">
+                <Setter Property="Color" Value="{StaticResource Primary}" />
+                <Setter Property="IsRunning" Value="True" />
+                <Setter Property="Margin" Value="10" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <Shell.TitleView>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+            <Label Text="{x:Static resources:ApplicationTexts.RoutesPage_TitleText}"
+                   Grid.Column="0"
+                   FontAttributes="Bold"
+                   TextColor="White"
+                   HorizontalTextAlignment="Start" />
+            <Label Text="{Binding CurrentCity}"
+                   Grid.Column="1"
+                   TextColor="White"
+                   Grid.ColumnSpan="2"
+                   HorizontalTextAlignment="Start"
+                   FontAttributes="Bold"
+                   IsVisible="{Binding CityFound}">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding ChangeCityCommand}" />
+                </Label.GestureRecognizers>
+            </Label>
+            <Label Text="{x:Static resources:ApplicationTexts.RoutesPage_CityNotFound}"
+                   Grid.Column="1"
+                   TextColor="White"
+                   Grid.ColumnSpan="2"
+                   HorizontalTextAlignment="Start"
+                   FontAttributes="Bold"
+                   IsVisible="{Binding CityFound, Converter={StaticResource BoolInverse}}">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding ChangeCityCommand}" />
+                </Label.GestureRecognizers>
+            </Label>
+        </Grid>
+    </Shell.TitleView>
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <Grid Padding="10,10,10,5"
+                    AbsoluteLayout.LayoutFlags="All"
+                    AbsoluteLayout.LayoutBounds="0,0,1,1"
+                    VerticalOptions="Start">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="80" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Frame HasShadow="True"
+                       Margin="5,5,5,0"
+                       Padding="5,5,5,5"
+                       Grid.Row="0"
+                       HeightRequest="80">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="5*" />
+                            <ColumnDefinition Width="1*" />
+                        </Grid.ColumnDefinitions>
+                        <Label Text="{x:Static resources:ApplicationTexts.RoutesPage_AvailableRoutes}"
+                               Grid.Column="1"
+                               FontSize="25"/>
+                        <Button Command="{Binding UpdatePageCommand}"
+                                Text="U"
+                                CornerRadius="25"
+                                Grid.Column="2"/>
+                    </Grid>
+                </Frame>
+                <ScrollView VerticalOptions="StartAndExpand"
+                            VerticalScrollBarVisibility="Never"
+                            Grid.Row="1">
+                    <StackLayout
+                        Orientation="Vertical">
+                        <Frame HasShadow="True"
+                           Margin="5,5,5,5"
+                           Padding="5,5,5,5"
+                           IsVisible="{Binding ShowDownloadedRoutes}">
+                            <StackLayout>
+                                <Label Text="{x:Static resources:ApplicationTexts.RoutesPage_DownloadedRoutes}"
+                                   Style="{StaticResource CommonLabel}"
+                                   FontSize="30" />
+                                <ListView ItemsSource="{Binding DownloadedRoutes}"
+                                          RowHeight="200"
+                                          SelectionMode="None">
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <ViewCell>
+                                                <ViewCell.View>
+                                                    <Grid Margin="0,0,0,5">
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="1*" />
+                                                            <ColumnDefinition Width="1*" />
+                                                        </Grid.ColumnDefinitions>
+                                                        <Frame HasShadow="True"
+                                                               IsVisible="{Binding FirstExist}"
+                                                               BorderColor="{Binding First.Downloaded, Converter={StaticResource BorderColorConverter}}"
+                                                               Margin="2,2,2,2"
+                                                               Grid.Column="0"
+                                                               HeightRequest="200">
+                                                            <Frame.GestureRecognizers>
+                                                                <TapGestureRecognizer
+                                                                    Command="{Binding BindingContext.OpenRouteDetailsCommand, Source={x:Reference Name=RoutesPageName}}"
+                                                                    CommandParameter="{Binding First.Id}" />
+                                                            </Frame.GestureRecognizers>
+                                                            <StackLayout Orientation="Vertical"
+                                                                         VerticalOptions="Start">
+                                                                <Image Source="{Binding First.RouteImage}"
+                                                                    WidthRequest="100" HeightRequest="100" />
+                                                                <Label FontSize="15"
+                                                                       Text="{Binding First.Name}"
+                                                                       HorizontalTextAlignment="Center" />
+                                                                <Label FontSize="15"
+                                                                       HorizontalTextAlignment="Center"
+                                                                       LineBreakMode="WordWrap">
+                                                                    <Label.FormattedText>
+                                                                        <FormattedString>
+                                                                            <Span Text="{Binding First.Distance}" />
+                                                                            <Span Text=" " />
+                                                                            <Span Text="{Binding First.DistanceUnit}" />
+                                                                        </FormattedString>
+                                                                    </Label.FormattedText>
+                                                                </Label>
+                                                            </StackLayout>
+                                                        </Frame>
+                                                        <Frame HasShadow="True"
+                                                               IsVisible="{Binding SecondExist}"
+                                                               BorderColor="{Binding Second.Downloaded, Converter={StaticResource BorderColorConverter}}"
+                                                               Margin="2,2,2,2"
+                                                               Grid.Column="1"
+                                                               HeightRequest="200">
+                                                            <Frame.GestureRecognizers>
+                                                                <TapGestureRecognizer
+                                                                    Command="{Binding BindingContext.OpenRouteDetailsCommand, Source={x:Reference Name=RoutesPageName}}"
+                                                                    CommandParameter="{Binding Second.Id}" />
+                                                            </Frame.GestureRecognizers>
+                                                            <StackLayout Orientation="Vertical"
+                                                                         VerticalOptions="Start">
+                                                                <Image Source="{Binding Second.RouteImage}"
+                                                                    WidthRequest="100" HeightRequest="100" />
+                                                                <Label FontSize="15"
+                                                                       Text="{Binding Second.Name}"
+                                                                       HorizontalTextAlignment="Center" />
+                                                                <Label FontSize="15"
+                                                                       HorizontalTextAlignment="Center"
+                                                                       LineBreakMode="WordWrap">
+                                                                    <Label.FormattedText>
+                                                                        <FormattedString>
+                                                                            <Span Text="{Binding Second.Distance}" />
+                                                                            <Span Text=" " />
+                                                                            <Span Text="{Binding Second.DistanceUnit}" />
+                                                                        </FormattedString>
+                                                                    </Label.FormattedText>
+                                                                </Label>
+                                                            </StackLayout>
+                                                        </Frame>
+                                                    </Grid>
+                                                </ViewCell.View>
+                                            </ViewCell>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                            </StackLayout>
+                        </Frame>
+                        <Frame HasShadow="True"
+                           Margin="5,5,5,5"
+                           Padding="5,5,5,5"
+                           IsVisible="{Binding ShowUserRoutes}"
+                           HorizontalOptions="FillAndExpand">
+                            <StackLayout>
+                                <Label Text="{x:Static resources:ApplicationTexts.RoutesPage_YourRoutes}"
+                                   Style="{StaticResource CommonLabel}"
+                                   FontSize="30" />
+                                <ListView ItemsSource="{Binding UserRoutes}"
+                                          RowHeight="200"
+                                          SelectionMode="None">
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <ViewCell>
+                                                <ViewCell.View>
+                                                    <Grid Margin="0,0,0,5">
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="1*" />
+                                                            <ColumnDefinition Width="1*" />
+                                                        </Grid.ColumnDefinitions>
+                                                        <Frame HasShadow="True"
+                                                               IsVisible="{Binding FirstExist}"
+                                                               BorderColor="{Binding First.Downloaded, Converter={StaticResource BorderColorConverter}}"
+                                                               Margin="2,2,2,2"
+                                                               Grid.Column="0"
+                                                               HeightRequest="200">
+                                                            <Frame.GestureRecognizers>
+                                                                <TapGestureRecognizer
+                                                                    Command="{Binding BindingContext.OpenRouteDetailsCommand, Source={x:Reference Name=RoutesPageName}}"
+                                                                    CommandParameter="{Binding First.Id}" />
+                                                            </Frame.GestureRecognizers>
+                                                            <StackLayout Orientation="Vertical"
+                                                                         VerticalOptions="Start">
+                                                                <Image Source="{Binding First.RouteImage}"
+                                                                    WidthRequest="100" HeightRequest="100" />
+                                                                <Label FontSize="15"
+                                                                       Text="{Binding First.Name}"
+                                                                       HorizontalTextAlignment="Center" />
+                                                                <Label FontSize="15"
+                                                                       HorizontalTextAlignment="Center"
+                                                                       LineBreakMode="WordWrap">
+                                                                    <Label.FormattedText>
+                                                                        <FormattedString>
+                                                                            <Span Text="{Binding First.Distance}" />
+                                                                            <Span Text=" " />
+                                                                            <Span Text="{Binding First.DistanceUnit}" />
+                                                                        </FormattedString>
+                                                                    </Label.FormattedText>
+                                                                </Label>
+                                                            </StackLayout>
+                                                        </Frame>
+                                                        <Frame HasShadow="True"
+                                                               IsVisible="{Binding SecondExist}"
+                                                               BorderColor="{Binding Second.Downloaded, Converter={StaticResource BorderColorConverter}}"
+                                                               Margin="2,2,2,2"
+                                                               Grid.Column="0"
+                                                               HeightRequest="200">
+                                                            <Frame.GestureRecognizers>
+                                                                <TapGestureRecognizer
+                                                                    Command="{Binding BindingContext.OpenRouteDetailsCommand, Source={x:Reference Name=RoutesPageName}}"
+                                                                    CommandParameter="{Binding First.Id}" />
+                                                            </Frame.GestureRecognizers>
+                                                            <StackLayout Orientation="Vertical"
+                                                                         VerticalOptions="Start">
+                                                                <Image Source="{Binding Second.RouteImage}"
+                                                                    WidthRequest="100" HeightRequest="100" />
+                                                                <Label FontSize="15"
+                                                                       Text="{Binding Second.Name}"
+                                                                       HorizontalTextAlignment="Center" />
+                                                                <Label FontSize="15"
+                                                                       HorizontalTextAlignment="Center"
+                                                                       LineBreakMode="WordWrap">
+                                                                    <Label.FormattedText>
+                                                                        <FormattedString>
+                                                                            <Span Text="{Binding Second.Distance}" />
+                                                                            <Span Text=" " />
+                                                                            <Span Text="{Binding Second.DistanceUnit}" />
+                                                                        </FormattedString>
+                                                                    </Label.FormattedText>
+                                                                </Label>
+                                                            </StackLayout>
+                                                        </Frame>
+                                                    </Grid>
+                                                </ViewCell.View>
+                                            </ViewCell>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                            </StackLayout>
+                        </Frame>
+                        <Frame HasShadow="True"
+                           Margin="5,5,5,5"
+                           Padding="5,5,5,5"
+                           IsVisible="{Binding ShowAvailableRoutes}"
+                           HorizontalOptions="FillAndExpand">
+                            <StackLayout>
+                                <Label Text="{x:Static resources:ApplicationTexts.RoutesPage_AvailableRoutes}"
+                                   Style="{StaticResource CommonLabel}"
+                                   FontSize="30" />
+                                <ListView ItemsSource="{Binding AvailableRoutes}"
+                                          RowHeight="200"
+                                          SelectionMode="None">
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <ViewCell>
+                                                <ViewCell.View>
+                                                    <Grid Margin="0,0,0,5">
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="1*" />
+                                                            <ColumnDefinition Width="1*" />
+                                                        </Grid.ColumnDefinitions>
+                                                        <Frame HasShadow="True"
+                                                               IsVisible="{Binding FirstExist}"
+                                                               BorderColor="{Binding First.Downloaded, Converter={StaticResource BorderColorConverter}}"
+                                                               Margin="2,2,2,2"
+                                                               Grid.Column="0"
+                                                               HeightRequest="200">
+                                                            <Frame.GestureRecognizers>
+                                                                <TapGestureRecognizer
+                                                                    Command="{Binding BindingContext.OpenRouteDetailsCommand, Source={x:Reference Name=RoutesPageName}}"
+                                                                    CommandParameter="{Binding First.Id}" />
+                                                            </Frame.GestureRecognizers>
+                                                            <StackLayout Orientation="Vertical"
+                                                                         VerticalOptions="Start">
+                                                                <Image Source="{Binding First.RouteImage}"
+                                                                    WidthRequest="100" HeightRequest="100" />
+                                                                <Label FontSize="15"
+                                                                       Text="{Binding First.Name}"
+                                                                       HorizontalTextAlignment="Center" />
+                                                                <Label FontSize="15"
+                                                                       HorizontalTextAlignment="Center"
+                                                                       LineBreakMode="WordWrap">
+                                                                    <Label.FormattedText>
+                                                                        <FormattedString>
+                                                                            <Span Text="{Binding First.Distance}" />
+                                                                            <Span Text=" " />
+                                                                            <Span Text="{Binding First.DistanceUnit}" />
+                                                                        </FormattedString>
+                                                                    </Label.FormattedText>
+                                                                </Label>
+                                                            </StackLayout>
+                                                        </Frame>
+                                                        <Frame HasShadow="True"
+                                                               IsVisible="{Binding SecondExist}"
+                                                               BorderColor="{Binding Second.Downloaded, Converter={StaticResource BorderColorConverter}}"
+                                                               Margin="2,2,2,2"
+                                                               Grid.Column="0"
+                                                               HeightRequest="200">
+                                                            <Frame.GestureRecognizers>
+                                                                <TapGestureRecognizer
+                                                                    Command="{Binding BindingContext.OpenRouteDetailsCommand, Source={x:Reference Name=RoutesPageName}}"
+                                                                    CommandParameter="{Binding Second.Id}" />
+                                                            </Frame.GestureRecognizers>
+                                                            <StackLayout Orientation="Vertical"
+                                                                         VerticalOptions="Start">
+                                                                <Image Source="{Binding Second.RouteImage}"
+                                                                    WidthRequest="100" HeightRequest="100" />
+                                                                <Label FontSize="15"
+                                                                       Text="{Binding Second.Name}"
+                                                                       HorizontalTextAlignment="Center" />
+                                                                <Label FontSize="15"
+                                                                       HorizontalTextAlignment="Center"
+                                                                       LineBreakMode="WordWrap">
+                                                                    <Label.FormattedText>
+                                                                        <FormattedString>
+                                                                            <Span Text="{Binding Second.Distance}" />
+                                                                            <Span Text=" " />
+                                                                            <Span Text="{Binding Second.DistanceUnit}" />
+                                                                        </FormattedString>
+                                                                    </Label.FormattedText>
+                                                                </Label>
+                                                            </StackLayout>
+                                                        </Frame>
+                                                    </Grid>
+                                                </ViewCell.View>
+                                            </ViewCell>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+                </ScrollView>
+            </Grid>
+            <Frame
+                BackgroundColor="#CC000000"
+                WidthRequest="1000"
+                HeightRequest="1000"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                IsVisible="False"
+                AbsoluteLayout.LayoutFlags="All"
+                AbsoluteLayout.LayoutBounds="0,0,1,1">
+                <ActivityIndicator />
+            </Frame>
+            <Frame
+                BackgroundColor="#CC000000"
+                WidthRequest="1000"
+                HeightRequest="1000"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                IsVisible="{Binding UpdateRequired}"
+                AbsoluteLayout.LayoutFlags="All"
+                AbsoluteLayout.LayoutBounds="0,0,1,1">
+                <ActivityIndicator />
+            </Frame>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</local:BasePage>

@@ -1,0 +1,120 @@
+new RoutePointModel()
+    {
+        Order = 1,
+        IsDestination = false,
+        Coordinate = new RouteCoordinateModel()
+        {
+            Latitude = 49.4437759,
+            Longitude = 26.9879344,
+        }
+    },
+new RoutePointModel()
+    {
+        Order = 2,
+        IsDestination = false,
+        Coordinate = new RouteCoordinateModel()
+        {
+            Latitude = 49.4349082,
+            Longitude = 26.9820159,
+        }
+    },
+new RoutePointModel()
+    {
+        Order = 3,
+        IsDestination = false,
+        Coordinate = new RouteCoordinateModel()
+        {
+            Latitude = 49.4335301,
+            Longitude = 26.9812418,
+        }
+    },
+new RoutePointModel()
+    {
+        Order = 4,
+        IsDestination = false,
+        Coordinate = new RouteCoordinateModel()
+        {
+            Latitude = 49.4275709,
+            Longitude = 26.9794627,
+        }
+    },
+new RoutePointModel()
+    {
+        Order = 5,
+        IsDestination = false,
+        Coordinate = new RouteCoordinateModel()
+        {
+            Latitude = 49.4275536,
+            Longitude = 26.9796658,
+        }
+    },
+new RoutePointModel()
+    {
+        Order = 6,
+        IsDestination = false,
+        Coordinate = new RouteCoordinateModel()
+        {
+            Latitude = 49.4267919,
+            Longitude = 26.9797611,
+        }
+    },
+new RoutePointModel()
+    {
+        Order = 7,
+        IsDestination = false,
+        Coordinate = new RouteCoordinateModel()
+        {
+            Latitude = 49.426771,
+            Longitude = 26.9799596,
+        }
+    },
+new RoutePointModel()
+    {
+        Order = 8,
+        IsDestination = false,
+        Coordinate = new RouteCoordinateModel()
+        {
+            Latitude = 49.4268144,
+            Longitude = 26.9803794,
+        }
+    },
+new RoutePointModel()
+    {
+        Order = 9,
+        IsDestination = false,
+        Coordinate = new RouteCoordinateModel()
+        {
+            Latitude = 49.4267215,
+            Longitude = 26.9815378,
+        }
+    },
+new RoutePointModel()
+    {
+        Order = 10,
+        IsDestination = false,
+        Coordinate = new RouteCoordinateModel()
+        {
+            Latitude = 49.4261655,
+            Longitude = 26.981382,
+        }
+    },
+new RoutePointModel()
+    {
+        Order = 11,
+        IsDestination = false,
+        Coordinate = new RouteCoordinateModel()
+        {
+            Latitude = 49.4173147,
+            Longitude = 27.0092328,
+        }
+    },
+new RoutePointModel()
+    {
+        Order = 12,
+        IsDestination = false,
+        Coordinate = new RouteCoordinateModel()
+        {
+            Latitude = 49.4168853,
+            Longitude = 27.010109,
+        }
+    },

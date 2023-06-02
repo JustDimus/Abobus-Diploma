@@ -1,0 +1,1946 @@
+{
+  "uuid": "2b897466-6ff4-4bf2-90bd-8dab17f7046c",
+  "lastMigration": 27,
+  "name": "MockoonEndpoints",
+  "endpointPrefix": "",
+  "latency": 0,
+  "port": 3001,
+  "hostname": "",
+  "folders": [
+    {
+      "uuid": "5e9ffe6c-dbc7-4a43-8507-bc5629bf39ee",
+      "name": "Resources",
+      "collapsed": false,
+      "children": [
+        {
+          "type": "route",
+          "uuid": "d0e42f3c-6204-4d9e-ac2f-acbd071c5564"
+        },
+        {
+          "type": "route",
+          "uuid": "5c1a53e7-bc9d-491d-9caf-9e85a874bf32"
+        },
+        {
+          "type": "route",
+          "uuid": "ca872f41-d45d-44f9-ba49-84003d00c3e5"
+        },
+        {
+          "type": "route",
+          "uuid": "7a016a1c-2e61-4b1a-8227-2bed271eb343"
+        },
+        {
+          "type": "route",
+          "uuid": "387416a8-e4ee-4695-b254-a3f882563c88"
+        },
+        {
+          "type": "route",
+          "uuid": "8d53cde4-31d2-4ddb-b791-9903ad57063d"
+        },
+        {
+          "type": "route",
+          "uuid": "949b8289-e193-4435-98e9-a8a6caf0dd6a"
+        },
+        {
+          "type": "route",
+          "uuid": "af49486c-0c71-4fc6-8a05-a5ffb5492ffd"
+        },
+        {
+          "type": "route",
+          "uuid": "66d11096-6eec-4037-9ec5-9f02e490b76a"
+        },
+        {
+          "type": "route",
+          "uuid": "2b81c750-ddde-4c89-bf40-8b033e786212"
+        },
+        {
+          "type": "route",
+          "uuid": "15a563d6-1b70-42f4-bdc1-9e7773d70171"
+        },
+        {
+          "type": "route",
+          "uuid": "c15575b4-e98e-49c8-bf8d-4c5a455d23ef"
+        },
+        {
+          "type": "route",
+          "uuid": "ac979d3c-0adb-4aff-aa5e-82c5b980a040"
+        },
+        {
+          "type": "route",
+          "uuid": "11fac0e9-8b56-491f-a1dc-2820e30cc8b9"
+        },
+        {
+          "type": "route",
+          "uuid": "22bc80ca-3346-41d7-8064-b7b8149035e0"
+        },
+        {
+          "type": "route",
+          "uuid": "602daac3-2a15-4bc9-9e16-904a634bb023"
+        },
+        {
+          "type": "route",
+          "uuid": "55259d61-ab60-4c0e-8afa-12337c1bb146"
+        },
+        {
+          "type": "route",
+          "uuid": "9e146cb8-d879-496b-86e3-f53d8adf7ca5"
+        },
+        {
+          "type": "route",
+          "uuid": "9d7ee760-bde6-48a2-8c0e-42fe9fe2d6e2"
+        },
+        {
+          "type": "route",
+          "uuid": "89d1f943-7d2d-4f07-8ca4-45cc2ca5d1f3"
+        },
+        {
+          "type": "route",
+          "uuid": "039d52d3-4965-49bd-aa5c-e8007e84988e"
+        },
+        {
+          "type": "route",
+          "uuid": "609abad1-4fc2-426b-834c-339aa7d8cd99"
+        },
+        {
+          "type": "route",
+          "uuid": "57bc2e6e-975d-473a-9d99-996428f16d62"
+        },
+        {
+          "type": "route",
+          "uuid": "f0a7b912-f69a-4195-9d9b-23077068f2ab"
+        },
+        {
+          "type": "route",
+          "uuid": "e85ef401-0ff6-47d5-80c2-b2f274fdc6ff"
+        },
+        {
+          "type": "route",
+          "uuid": "b4579363-1df5-4ccb-b8f7-c705314905fa"
+        },
+        {
+          "type": "route",
+          "uuid": "d458673a-cb9b-47f5-ae09-e9336471352c"
+        },
+        {
+          "type": "route",
+          "uuid": "44b48535-43c3-4176-9471-61eea260f0cd"
+        }
+      ]
+    },
+    {
+      "uuid": "f21facdf-86e3-4f84-ab13-e583c8d63ed2",
+      "name": "Locations",
+      "collapsed": false,
+      "children": [
+        {
+          "type": "route",
+          "uuid": "ff670acb-8949-4f48-914d-c0712437c2fa"
+        },
+        {
+          "type": "route",
+          "uuid": "963fef5b-cf2e-4075-b220-1e63e90965c0"
+        },
+        {
+          "type": "route",
+          "uuid": "9e7ccb1f-58db-4145-ac39-6337984e9703"
+        },
+        {
+          "type": "route",
+          "uuid": "738a6971-bf35-4652-9424-4cdef22f888f"
+        }
+      ]
+    },
+    {
+      "uuid": "49ae49eb-88ce-4304-8d00-b9644c0ad5b8",
+      "name": "Routes",
+      "collapsed": false,
+      "children": [
+        {
+          "type": "route",
+          "uuid": "45cfb26a-a4f8-4151-a973-4cca49f1bbd8"
+        },
+        {
+          "type": "route",
+          "uuid": "d39a3c38-1ad5-4a53-8908-bb105fdcb819"
+        },
+        {
+          "type": "route",
+          "uuid": "1a11b8c8-952a-403e-bc25-68fad779aba3"
+        },
+        {
+          "type": "route",
+          "uuid": "9e044725-ec7e-45e4-9de7-79618639847e"
+        },
+        {
+          "type": "route",
+          "uuid": "56dc4d4d-fbf3-42b5-82cc-18f028dca044"
+        }
+      ]
+    },
+    {
+      "uuid": "d7b218a3-08c7-4a18-9dfe-496b9672ef96",
+      "name": "Monuments",
+      "collapsed": false,
+      "children": [
+        {
+          "type": "route",
+          "uuid": "e5c083cd-6203-41f6-a4fa-e2168ae553e6"
+        },
+        {
+          "type": "route",
+          "uuid": "3f24a858-47f2-4b8a-ae84-83c177bc2bbe"
+        },
+        {
+          "type": "route",
+          "uuid": "6ff53bb7-ff7f-4e47-8737-01b721e0262e"
+        },
+        {
+          "type": "route",
+          "uuid": "9d8b95a6-b2b4-4d8e-aa5b-d25bc72dadb0"
+        },
+        {
+          "type": "route",
+          "uuid": "5749f5b6-b3b4-4e7f-bb70-8328dfe4f077"
+        },
+        {
+          "type": "route",
+          "uuid": "63db5972-bf10-4123-bac2-a05bde8e781e"
+        },
+        {
+          "type": "route",
+          "uuid": "e701ce37-00ab-4cc5-87c8-5cbd004e0515"
+        }
+      ]
+    },
+    {
+      "uuid": "3aad7360-59cc-4e9a-b25f-39b3690f991b",
+      "name": "Comments",
+      "collapsed": false,
+      "children": [
+        {
+          "type": "folder",
+          "uuid": "11465bd6-64b3-474c-a9e4-b37bb04a4507"
+        },
+        {
+          "type": "folder",
+          "uuid": "3180700e-42f8-46df-b5b5-8f9bff6bcdbc"
+        }
+      ]
+    },
+    {
+      "uuid": "11465bd6-64b3-474c-a9e4-b37bb04a4507",
+      "name": "Routes",
+      "collapsed": false,
+      "children": [
+        {
+          "type": "route",
+          "uuid": "69a16c91-c419-4e56-8515-55aff3f1baa3"
+        },
+        {
+          "type": "route",
+          "uuid": "2d9c6786-1a04-4fc6-b281-703d028af033"
+        }
+      ]
+    },
+    {
+      "uuid": "3180700e-42f8-46df-b5b5-8f9bff6bcdbc",
+      "name": "Monuments",
+      "collapsed": false,
+      "children": [
+        {
+          "type": "route",
+          "uuid": "e2935f28-046a-4030-811e-7a2637c3da20"
+        },
+        {
+          "type": "route",
+          "uuid": "8eea811e-d8d2-4da7-a2e7-61318c5e6bbd"
+        }
+      ]
+    }
+  ],
+  "routes": [
+    {
+      "uuid": "ca35048c-970f-4512-8256-48c1edb01821",
+      "type": "http",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "api/v1/session/login",
+      "responses": [
+        {
+          "uuid": "fa204e2d-4099-44cc-824e-d14e1ea25202",
+          "body": "{\n  \"authorization_token\" : \"mocked-authorization-token\",\n  \"refresh_token\" : \"mocked-refresh-token\",\n  \"expiration_time\" : \"2023-06-06T18:57Z\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "45103ace-f99e-4496-a00f-20626c05a644",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "register",
+      "responses": [
+        {
+          "uuid": "2bd71dd1-f9ec-4e9a-a793-29b1858c9a60",
+          "body": "<!DOCTYPE html>\r\n<html>\r\n<head>\r\n    <title>Registration Page</title>\r\n</head>\r\n<body>\r\n    <h1>Registration Page</h1>\r\n    <p>Welcome to the registration page!</p>\r\n    <!-- Здесь можно добавить другие элементы HTML для формы регистрации -->\r\n</body>\r\n</html>",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "text/html"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "a5165bdd-3e7e-4eb0-a747-d5fa020bf0e4",
+      "type": "http",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "api/v1/session/logout",
+      "responses": [
+        {
+          "uuid": "3c4e4238-abe8-4401-b7c3-8d22aeaa8cfc",
+          "body": "",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "e4aeddee-e2f0-4d64-85c6-02835107b387",
+      "type": "http",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "api/v1/session/refresh",
+      "responses": [
+        {
+          "uuid": "27b0c812-82fe-417a-a5fd-fce6744bfe97",
+          "body": "{\n  \"authorization_token\" : \"mocked-authorization-token\",\n  \"refresh_token\" : \"mocked-refresh-token\",\n  \"expiration_time\" : \"2023-06-06T18:57Z\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "4e5af10f-42b8-42f1-9b93-480a446ba5f4",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/accounts/current",
+      "responses": [
+        {
+          "uuid": "71e9b378-ca32-4095-b1cd-01b4d5e43a22",
+          "body": "{\n  \"id\": \"E8DA8A12-37C3-41F8-852B-CF7C1213678B\",\n  \"username\": \"TurboTheBoar\",\n  \"email\": \"turbo.the.boar02@gmail.com\",\n  \"profile_photo\": \"7FA9B32B-F09F-4832-9CE1-9CD58B56171A\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "38fcd930-cbbf-4ae6-8276-a9a45c981f37",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/accounts/B20E59E6-D3C3-40E8-BC58-C8F8AD0AA319",
+      "responses": [
+        {
+          "uuid": "2d9855d0-6d34-4f61-b606-65092806cf03",
+          "body": "{\n  \"id\": \"B20E59E6-D3C3-40E8-BC58-C8F8AD0AA319\",\n  \"username\": \"Adventurer\",\n  \"profile_photo\": \"7FA9B32B-F09F-4832-9CE1-9CD58B56171A\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "35216672-df15-48ef-9f47-a569948e56e8",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/accounts/:id/statistics",
+      "responses": [
+        {
+          "uuid": "9a8b73d3-86fa-462f-a055-fc70914a7757",
+          "body": "{\n  \"routes_count\": 2,\n  \"visited_cities_count\": 3,\n  \"friends_count\": 15,\n  \"passed_distance\": 30,\n  \"distance_unit\": \"km\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "5c1a53e7-bc9d-491d-9caf-9e85a874bf32",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/resources/34EA47AE-B5EF-4EF4-97FA-98367F8C0D0F",
+      "responses": [
+        {
+          "uuid": "cf9f87d5-7620-4594-bc89-2336d424eb87",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "FILE",
+          "filePath": "D:\\Projects\\Abobus-Diploma\\Tools\\Profile1Image.png",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "d0e42f3c-6204-4d9e-ac2f-acbd071c5564",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/resources/34EA47AE-B5EF-4EF4-97FA-98367F8C0D0F/details",
+      "responses": [
+        {
+          "uuid": "47b30da8-86e7-4151-bda6-4346868e180a",
+          "body": "{\n  \"id\": \"34EA47AE-B5EF-4EF4-97FA-98367F8C0D0F\",\n  \"name\": \"Profile1Image.png\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "d39a3c38-1ad5-4a53-8908-bb105fdcb819",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/routes/90E71CB9-9656-414D-BFAA-F15CA702E36A/details",
+      "responses": [
+        {
+          "uuid": "a2a8bdf2-bc73-4df7-a8e7-2919915df0e1",
+          "body": "{\n  \"id\": \"90E71CB9-9656-414D-BFAA-F15CA702E36A\",\n  \"city\": \"1C2D004F-E47C-4713-AE2D-AC569794ECE5\",\n  \"creator_id\": \"E8DA8A12-37C3-41F8-852B-CF7C1213678B\",\n  \"name\": \"TurboFlex\",\n  \"distance\": 5,\n  \"distance_unit\": \"km\",\n  \"route_resource\": \"4737F29E-47B2-486E-AE11-34ED9C52914B\",\n  \"route_image\": \"DC1EBF3B-E302-469C-998F-DECE7805B3B4\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "45cfb26a-a4f8-4151-a973-4cca49f1bbd8",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/routes",
+      "responses": [
+        {
+          "uuid": "ed279a7c-eb6e-44d1-b65f-48ddd29c10ec",
+          "body": "[\n  {\n    \"id\": \"90E71CB9-9656-414D-BFAA-F15CA702E36A\",\n    \"city\": \"1C2D004F-E47C-4713-AE2D-AC569794ECE5\",\n    \"creator_id\": \"E8DA8A12-37C3-41F8-852B-CF7C1213678B\",\n    \"name\": \"TurboFlex\",\n    \"distance\": 5,\n    \"distance_unit\": \"km\",\n    \"route_resource\": \"4737F29E-47B2-486E-AE11-34ED9C52914B\",\n    \"route_image\": \"DC1EBF3B-E302-469C-998F-DECE7805B3B4\"\n  },\n  {\n    \"id\": \"88764339-85C4-4631-90DB-9CD62452D31E\",\n    \"city\": \"1C2D004F-E47C-4713-AE2D-AC569794ECE5\",\n    \"creator_id\": \"B20E59E6-D3C3-40E8-BC58-C8F8AD0AA319\",\n    \"name\": \"Just Relax\",\n    \"distance\": 10,\n    \"distance_unit\": \"km\",\n    \"route_resource\": \"758F7224-58D9-413D-BB86-51F8C20C5598\",\n    \"route_image\": \"29D22A43-DEFC-42EC-9202-AD807752D9C2\"\n  },\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "ff670acb-8949-4f48-914d-c0712437c2fa",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/locations/current",
+      "responses": [
+        {
+          "uuid": "e72db515-97a0-4dff-9ed6-fc7861840a95",
+          "body": "{\n  \"location_found\": \"true\",\n  \"city_id\": \"1C2D004F-E47C-4713-AE2D-AC569794ECE5\",\n  \"city_name\": \"Khmelnytskyi\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "963fef5b-cf2e-4075-b220-1e63e90965c0",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/locations/1C2D004F-E47C-4713-AE2D-AC569794ECE5",
+      "responses": [
+        {
+          "uuid": "44a6e962-d560-42f6-a3b8-017d2bcf096b",
+          "body": "{\n  \"location_found\": \"true\",\n  \"city_id\": \"1C2D004F-E47C-4713-AE2D-AC569794ECE5\",\n  \"city_name\": \"Khmelnytskyi\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "9e7ccb1f-58db-4145-ac39-6337984e9703",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/locations/316CFBCF-3578-4B02-B141-32F5F60A0CA9",
+      "responses": [
+        {
+          "uuid": "2a0f7675-9e02-4aab-8764-d121325e4fc4",
+          "body": "{\n  \"location_found\": \"true\",\n  \"city_id\": \"316CFBCF-3578-4B02-B141-32F5F60A0CA9\",\n  \"city_name\": \"Kherson\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "738a6971-bf35-4652-9424-4cdef22f888f",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/locations",
+      "responses": [
+        {
+          "uuid": "1e7cddff-561b-461d-a8d5-7c4611f44ceb",
+          "body": "[\n{\n  \"location_found\": \"true\",\n  \"city_id\": \"1C2D004F-E47C-4713-AE2D-AC569794ECE5\",\n  \"city_name\": \"Khmelnytskyi\"\n},\n{\n  \"location_found\": \"true\",\n  \"city_id\": \"316CFBCF-3578-4B02-B141-32F5F60A0CA9\",\n  \"city_name\": \"Kherson\"\n}\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "ca872f41-d45d-44f9-ba49-84003d00c3e5",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/resources/DC1EBF3B-E302-469C-998F-DECE7805B3B4/details",
+      "responses": [
+        {
+          "uuid": "6bf165b0-9d79-4169-83f0-8248d4ca7517",
+          "body": "{\n  \"id\": \"DC1EBF3B-E302-469C-998F-DECE7805B3B4\",\n  \"name\": \"Route1Image.png\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "7a016a1c-2e61-4b1a-8227-2bed271eb343",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/resources/DC1EBF3B-E302-469C-998F-DECE7805B3B4",
+      "responses": [
+        {
+          "uuid": "2c370cd5-4db6-4a0f-9b6d-88b4a3cfc29f",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "FILE",
+          "filePath": "D:\\Projects\\Abobus-Diploma\\Tools\\Route1Image.png",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "387416a8-e4ee-4695-b254-a3f882563c88",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/resources/29D22A43-DEFC-42EC-9202-AD807752D9C2/details",
+      "responses": [
+        {
+          "uuid": "a64aad46-ad3c-42bc-956f-49756e3d6b5e",
+          "body": "{\n  \"id\": \"29D22A43-DEFC-42EC-9202-AD807752D9C2\",\n  \"name\": \"Route2Image.png\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "8d53cde4-31d2-4ddb-b791-9903ad57063d",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/resources/29D22A43-DEFC-42EC-9202-AD807752D9C2",
+      "responses": [
+        {
+          "uuid": "6eb14747-7fd0-4762-b04c-c07504dedc0c",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "FILE",
+          "filePath": "D:\\Projects\\Abobus-Diploma\\Tools\\Route2Image.png",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "949b8289-e193-4435-98e9-a8a6caf0dd6a",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/resources/9B3B0BF9-8086-45F7-8789-29D0A126011D/details",
+      "responses": [
+        {
+          "uuid": "417e956e-9d7c-4d06-8861-b22a3d43ed0d",
+          "body": "{\n  \"id\": \"9B3B0BF9-8086-45F7-8789-29D0A126011D\",\n  \"name\": \"Route3Image.png\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "af49486c-0c71-4fc6-8a05-a5ffb5492ffd",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/resources/9B3B0BF9-8086-45F7-8789-29D0A126011D",
+      "responses": [
+        {
+          "uuid": "c28b93d5-4e0b-4d47-9678-8e72d55b0c06",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "FILE",
+          "filePath": "D:\\Projects\\Abobus-Diploma\\Tools\\Route3Image.png",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "66d11096-6eec-4037-9ec5-9f02e490b76a",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/resources/4737F29E-47B2-486E-AE11-34ED9C52914B/details",
+      "responses": [
+        {
+          "uuid": "a9ac9030-0903-41d2-a5aa-5fa0ea789757",
+          "body": "{\n  \"id\": \"4737F29E-47B2-486E-AE11-34ED9C52914B\",\n  \"name\": \"Route1Data.json\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "2b81c750-ddde-4c89-bf40-8b033e786212",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/resources/4737F29E-47B2-486E-AE11-34ED9C52914B",
+      "responses": [
+        {
+          "uuid": "e15bc401-e654-49e5-a617-e9919988b3a1",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "FILE",
+          "filePath": "D:\\Projects\\Abobus-Diploma\\Tools\\Route1Data.json",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "15a563d6-1b70-42f4-bdc1-9e7773d70171",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/resources/758F7224-58D9-413D-BB86-51F8C20C5598/details",
+      "responses": [
+        {
+          "uuid": "4345c57e-6e31-42a4-ad8f-4fceb8772d07",
+          "body": "{\n  \"id\": \"758F7224-58D9-413D-BB86-51F8C20C5598\",\n  \"name\": \"TestData2Info.txt\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "c15575b4-e98e-49c8-bf8d-4c5a455d23ef",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/resources/758F7224-58D9-413D-BB86-51F8C20C5598",
+      "responses": [
+        {
+          "uuid": "4fffa0d7-2795-402a-9052-a7804fd4310d",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "FILE",
+          "filePath": "D:\\Projects\\Abobus-Diploma\\Tools\\TestDataInfo.txt",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "ac979d3c-0adb-4aff-aa5e-82c5b980a040",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/resources/212105C0-B543-4273-A581-88793475256E/details",
+      "responses": [
+        {
+          "uuid": "1933c323-598c-4371-bbb5-4d28e82564ee",
+          "body": "{\n  \"id\": \"212105C0-B543-4273-A581-88793475256E\",\n  \"name\": \"TestData3Info.txt\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "11fac0e9-8b56-491f-a1dc-2820e30cc8b9",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/resources/212105C0-B543-4273-A581-88793475256E",
+      "responses": [
+        {
+          "uuid": "b6e4476b-e460-459a-b3b2-cc38253da514",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "FILE",
+          "filePath": "D:\\Projects\\Abobus-Diploma\\Tools\\TestDataInfo.txt",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "1a11b8c8-952a-403e-bc25-68fad779aba3",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/routes1",
+      "responses": [
+        {
+          "uuid": "ea3e0c5f-df6b-4c12-a20b-421c51ea7add",
+          "body": "[\n  {\n    \"id\": \"20A2CFC4-7BC0-421B-AC86-40E7CA6531B8\",\n    \"city\": \"316CFBCF-3578-4B02-B141-32F5F60A0CA9\",\n    \"creator_id\": \"E8DA8A12-37C3-41F8-852B-CF7C1213678B\",\n    \"name\": \"Abobus Test\",\n    \"distance\": 17,\n    \"distance_unit\": \"km\",\n    \"route_resource\": \"212105C0-B543-4273-A581-88793475256E\",\n    \"route_image\": \"9B3B0BF9-8086-45F7-8789-29D0A126011D\"\n  }\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "9e044725-ec7e-45e4-9de7-79618639847e",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/routes/88764339-85C4-4631-90DB-9CD62452D31E/details",
+      "responses": [
+        {
+          "uuid": "b0f40edf-c567-4a72-8ad3-7168f73acea9",
+          "body": "{\n  \"id\": \"88764339-85C4-4631-90DB-9CD62452D31E\",\n  \"city\": \"1C2D004F-E47C-4713-AE2D-AC569794ECE5\",\n  \"creator_id\": \"B20E59E6-D3C3-40E8-BC58-C8F8AD0AA319\",\n  \"name\": \"Just Relax\",\n  \"distance\": 10,\n  \"distance_unit\": \"km\",\n  \"route_resource\": \"758F7224-58D9-413D-BB86-51F8C20C5598\",\n  \"route_image\": \"29D22A43-DEFC-42EC-9202-AD807752D9C2\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "56dc4d4d-fbf3-42b5-82cc-18f028dca044",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/routes/20A2CFC4-7BC0-421B-AC86-40E7CA6531B8/details",
+      "responses": [
+        {
+          "uuid": "ec038147-5b15-494a-bd92-0ec13f44a760",
+          "body": "{\n  \"id\": \"20A2CFC4-7BC0-421B-AC86-40E7CA6531B8\",\n  \"city\": \"316CFBCF-3578-4B02-B141-32F5F60A0CA9\",\n  \"creator_id\": \"E8DA8A12-37C3-41F8-852B-CF7C1213678B\",\n  \"name\": \"Abobus Test\",\n  \"distance\": 17,\n  \"distance_unit\": \"km\",\n  \"route_resource\": \"212105C0-B543-4273-A581-88793475256E\",\n  \"route_image\": \"9B3B0BF9-8086-45F7-8789-29D0A126011D\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "22bc80ca-3346-41d7-8064-b7b8149035e0",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/resources/7FA9B32B-F09F-4832-9CE1-9CD58B56171A/details",
+      "responses": [
+        {
+          "uuid": "9a32455b-b8f3-46bf-ad3a-a6c4e505a74b",
+          "body": "{\n  \"id\": \"7FA9B32B-F09F-4832-9CE1-9CD58B56171A\",\n  \"name\": \"Profile2Image.png\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "602daac3-2a15-4bc9-9e16-904a634bb023",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/resources/7FA9B32B-F09F-4832-9CE1-9CD58B56171A",
+      "responses": [
+        {
+          "uuid": "d08fb4c8-fdb3-43d5-b8de-3c22774edcbd",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "FILE",
+          "filePath": "D:\\Projects\\Abobus-Diploma\\Tools\\Profile2Image.png",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "e5c083cd-6203-41f6-a4fa-e2168ae553e6",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/monuments/96532D9E-1C57-4E8B-9CA4-BCE0BE57E2F4/details",
+      "responses": [
+        {
+          "uuid": "4c56ebe7-5ce3-4e7d-b3bd-1b788265a2ec",
+          "body": "{\n  \"id\": \"96532D9E-1C57-4E8B-9CA4-BCE0BE57E2F4\",\n  \"name\": \"Oasis\",\n  \"city\": \"1C2D004F-E47C-4713-AE2D-AC569794ECE5\",\n  \"description\": \"Monument 1 test description\",\n  \"monument_title\": \"30042EF6-3AB4-4814-90EA-61876A6AAE29\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "3f24a858-47f2-4b8a-ae84-83c177bc2bbe",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/monuments",
+      "responses": [
+        {
+          "uuid": "5cb3b4ba-29fe-4208-9c42-4092b21248a2",
+          "body": "[\n  {\n    \"monument\": \"96532D9E-1C57-4E8B-9CA4-BCE0BE57E2F4\"\n  },\n  {\n    \"monument\": \"79BCF08F-BEE7-4A18-A865-214BE71F6D8B\"\n  },\n  {\n    \"monument\": \"993B0275-B124-450A-A4CC-03D122D99D2F\"\n  }\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "55259d61-ab60-4c0e-8afa-12337c1bb146",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/resources/30042EF6-3AB4-4814-90EA-61876A6AAE29/details",
+      "responses": [
+        {
+          "uuid": "7da3c24d-6841-478b-8f1a-d2c09c9a133b",
+          "body": "{\n  \"id\": \"30042EF6-3AB4-4814-90EA-61876A6AAE29\",\n  \"name\": \"Oasis 1.png\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "9e146cb8-d879-496b-86e3-f53d8adf7ca5",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/resources/30042EF6-3AB4-4814-90EA-61876A6AAE29",
+      "responses": [
+        {
+          "uuid": "b2584454-44b0-4fb3-9903-96f37af8e43a",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "FILE",
+          "filePath": "D:\\Projects\\Abobus-Diploma\\Tools\\Oasis 1.png",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "9d7ee760-bde6-48a2-8c0e-42fe9fe2d6e2",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/resources/C24BEA1C-306C-4D28-BA20-CFADD9049781/details",
+      "responses": [
+        {
+          "uuid": "6b28f836-ddec-4331-8c1d-caa240a2a46d",
+          "body": "{\n  \"id\": \"C24BEA1C-306C-4D28-BA20-CFADD9049781\",\n  \"name\": \"Oasis 2.png\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "89d1f943-7d2d-4f07-8ca4-45cc2ca5d1f3",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/resources/C24BEA1C-306C-4D28-BA20-CFADD9049781",
+      "responses": [
+        {
+          "uuid": "d55df1d0-51f9-400a-b557-fea5db2e0395",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "FILE",
+          "filePath": "D:\\Projects\\Abobus-Diploma\\Tools\\Oasis 2.png",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "039d52d3-4965-49bd-aa5c-e8007e84988e",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/resources/BCB744B2-ECD0-4837-9A6B-DD7A0607631D/details",
+      "responses": [
+        {
+          "uuid": "0a6434fc-b4ef-4b1f-a1e0-984f822a4c66",
+          "body": "{\n  \"id\": \"BCB744B2-ECD0-4837-9A6B-DD7A0607631D\",\n  \"name\": \"Center 1.png\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "609abad1-4fc2-426b-834c-339aa7d8cd99",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/resources/BCB744B2-ECD0-4837-9A6B-DD7A0607631D",
+      "responses": [
+        {
+          "uuid": "1f84c828-aaa0-4957-9c32-396a543c16b0",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "FILE",
+          "filePath": "D:\\Projects\\Abobus-Diploma\\Tools\\Center 1.png",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "57bc2e6e-975d-473a-9d99-996428f16d62",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/resources/7B32452C-3FD5-4CFE-BB32-B948F712116A/details",
+      "responses": [
+        {
+          "uuid": "8a796b90-77f4-43de-938a-489f35d69296",
+          "body": "{\n  \"id\": \"7B32452C-3FD5-4CFE-BB32-B948F712116A\",\n  \"name\": \"Center 2.png\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "f0a7b912-f69a-4195-9d9b-23077068f2ab",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/resources/7B32452C-3FD5-4CFE-BB32-B948F712116A",
+      "responses": [
+        {
+          "uuid": "3e77bb16-b06b-4413-a36c-30ab362b4616",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "FILE",
+          "filePath": "D:\\Projects\\Abobus-Diploma\\Tools\\Center 2.png",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "6ff53bb7-ff7f-4e47-8737-01b721e0262e",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/monuments/79BCF08F-BEE7-4A18-A865-214BE71F6D8B/details",
+      "responses": [
+        {
+          "uuid": "8290f95d-827c-40fe-af9c-2f421182746e",
+          "body": "{\n  \"id\": \"79BCF08F-BEE7-4A18-A865-214BE71F6D8B\",\n  \"name\": \"Center\",\n  \"city\": \"1C2D004F-E47C-4713-AE2D-AC569794ECE5\",\n  \"description\": \"Monument 2 test description\",\n  \"monument_title\": \"7B32452C-3FD5-4CFE-BB32-B948F712116A\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "9d8b95a6-b2b4-4d8e-aa5b-d25bc72dadb0",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/monuments/96532D9E-1C57-4E8B-9CA4-BCE0BE57E2F4/images",
+      "responses": [
+        {
+          "uuid": "9fd7bcd0-8086-4c3b-9c95-0d0deb1ea8aa",
+          "body": "[\n  {\n    \"image\": \"30042EF6-3AB4-4814-90EA-61876A6AAE29\"\n  },\n  {\n    \"image\": \"C24BEA1C-306C-4D28-BA20-CFADD9049781\"\n  }\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "5749f5b6-b3b4-4e7f-bb70-8328dfe4f077",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/monuments/79BCF08F-BEE7-4A18-A865-214BE71F6D8B/images",
+      "responses": [
+        {
+          "uuid": "07702d4c-b29f-4c76-9e1d-debb5636912c",
+          "body": "[\n  {\n    \"image\": \"7B32452C-3FD5-4CFE-BB32-B948F712116A\"\n  },\n  {\n    \"image\": \"BCB744B2-ECD0-4837-9A6B-DD7A0607631D\"\n  }\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "e2935f28-046a-4030-811e-7a2637c3da20",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/monuments/96532D9E-1C57-4E8B-9CA4-BCE0BE57E2F4/comments",
+      "responses": [
+        {
+          "uuid": "ec9070e5-826e-4762-9a98-060b427e81fc",
+          "body": "[\n  {\n    \"id\": \"E310F00A-53B7-4D07-9194-B5A9D3FA0C37\",\n    \"monument\": \"96532D9E-1C57-4E8B-9CA4-BCE0BE57E2F4\",\n    \"owner\": \"E8DA8A12-37C3-41F8-852B-CF7C1213678B\",\n    \"comment\": \"Very cool. I liked it.\"\n  },\n  {\n    \"id\": \"C7DD3BE9-DFF6-46F7-97D4-00D35E3F8A81\",\n    \"monument\": \"96532D9E-1C57-4E8B-9CA4-BCE0BE57E2F4\",\n    \"owner\": \"B20E59E6-D3C3-40E8-BC58-C8F8AD0AA319\",\n    \"comment\": \"It reminds me that is not so bad\"\n  }\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "8eea811e-d8d2-4da7-a2e7-61318c5e6bbd",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/monuments/79BCF08F-BEE7-4A18-A865-214BE71F6D8B/comments",
+      "responses": [
+        {
+          "uuid": "a5a7abf0-3aab-47ce-aca0-b006a0014f28",
+          "body": "[\n  {\n    \"id\": \"1FA0681F-E11A-4CE4-8F6C-244AA3CE7AD8\",\n    \"monument\": \"79BCF08F-BEE7-4A18-A865-214BE71F6D8B\",\n    \"owner\": \"B20E59E6-D3C3-40E8-BC58-C8F8AD0AA319\",\n    \"comment\": \"Not that good as I expected\"\n  }\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "2d9c6786-1a04-4fc6-b281-703d028af033",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/routes/90E71CB9-9656-414D-BFAA-F15CA702E36A/comments",
+      "responses": [
+        {
+          "uuid": "807f4cb6-dd99-4bc8-b7e9-f8c6542516af",
+          "body": "[\n  {\n    \"id\": \"08E2FA1D-350B-4107-B0B6-2CC3744A1649\",\n    \"route\": \"90E71CB9-9656-414D-BFAA-F15CA702E36A\",\n    \"owner\": \"E8DA8A12-37C3-41F8-852B-CF7C1213678B\",\n    \"comment\": \"Very cool. I liked it.\"\n  },\n  {\n    \"id\": \"8EA41CE2-2E3D-43B4-8ADC-3953CE1EFC80\",\n    \"route\": \"90E71CB9-9656-414D-BFAA-F15CA702E36A\",\n    \"owner\": \"B20E59E6-D3C3-40E8-BC58-C8F8AD0AA319\",\n    \"comment\": \"It reminds me that is not so bad\"\n  }\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "69a16c91-c419-4e56-8515-55aff3f1baa3",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/routes/88764339-85C4-4631-90DB-9CD62452D31E/comments",
+      "responses": [
+        {
+          "uuid": "b07400fe-47a7-4ee1-a832-674d73d7186a",
+          "body": "[\n  {\n    \"id\": \"FA30D24C-FD97-4A34-BEE9-6A37C5E5C0B7\",\n    \"route\": \"88764339-85C4-4631-90DB-9CD62452D31E\",\n    \"owner\": \"E8DA8A12-37C3-41F8-852B-CF7C1213678B\",\n    \"comment\": \"Very cool. I liked it. It's materpiece\"\n  }\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "3c72e50c-2bfa-4839-ac28-ca27816d6d89",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/accounts/E8DA8A12-37C3-41F8-852B-CF7C1213678B",
+      "responses": [
+        {
+          "uuid": "f58d4d1e-c62b-4904-8800-9dea8154fe06",
+          "body": "{\n  \"id\": \"E8DA8A12-37C3-41F8-852B-CF7C1213678B\",\n  \"username\": \"Turbo The Boar\",\n  \"profile_photo\": \"34EA47AE-B5EF-4EF4-97FA-98367F8C0D0F\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "e85ef401-0ff6-47d5-80c2-b2f274fdc6ff",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/resources/B87387A6-F37D-4598-90D7-F1BB723E75F2/details",
+      "responses": [
+        {
+          "uuid": "9f2819b5-31cb-4928-862b-a395f6f58533",
+          "body": "{\n  \"id\": \"B87387A6-F37D-4598-90D7-F1BB723E75F2\",\n  \"name\": \"Railway 1.png\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "b4579363-1df5-4ccb-b8f7-c705314905fa",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/resources/B87387A6-F37D-4598-90D7-F1BB723E75F2",
+      "responses": [
+        {
+          "uuid": "e2bd5a54-87d4-455a-a641-54a3030c7762",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "FILE",
+          "filePath": "D:\\Projects\\Abobus-Diploma\\Tools\\Railway 1.png",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "d458673a-cb9b-47f5-ae09-e9336471352c",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/resources/86670A4D-2783-4ECD-AD29-80C78E6C0099/details",
+      "responses": [
+        {
+          "uuid": "f4c341e2-cb3a-4d01-8339-8628ff13855d",
+          "body": "{\n  \"id\": \"86670A4D-2783-4ECD-AD29-80C78E6C0099\",\n  \"name\": \"Railway 2.jpg\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "44b48535-43c3-4176-9471-61eea260f0cd",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/resources/86670A4D-2783-4ECD-AD29-80C78E6C0099",
+      "responses": [
+        {
+          "uuid": "fe659dbe-1d39-40d8-bc15-c39973238af8",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "FILE",
+          "filePath": "D:\\Projects\\Abobus-Diploma\\Tools\\Railway 2.jpg",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "63db5972-bf10-4123-bac2-a05bde8e781e",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/monuments/993B0275-B124-450A-A4CC-03D122D99D2F/images",
+      "responses": [
+        {
+          "uuid": "dc70648d-ab3a-4261-a56a-5eacbf93c279",
+          "body": "[\n  {\n    \"image\": \"B87387A6-F37D-4598-90D7-F1BB723E75F2\"\n  },\n  {\n    \"image\": \"86670A4D-2783-4ECD-AD29-80C78E6C0099\"\n  }\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "e701ce37-00ab-4cc5-87c8-5cbd004e0515",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/monuments/993B0275-B124-450A-A4CC-03D122D99D2F/details",
+      "responses": [
+        {
+          "uuid": "9ea2c32e-7a38-4d7c-8263-fbc53ea1cefe",
+          "body": "{\n  \"id\": \"993B0275-B124-450A-A4CC-03D122D99D2F\",\n  \"name\": \"Railway Station\",\n  \"city\": \"1C2D004F-E47C-4713-AE2D-AC569794ECE5\",\n  \"description\": \"Monument 2 test description\",\n  \"monument_title\": \"B87387A6-F37D-4598-90D7-F1BB723E75F2\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    }
+  ],
+  "rootChildren": [
+    {
+      "type": "route",
+      "uuid": "ca35048c-970f-4512-8256-48c1edb01821"
+    },
+    {
+      "type": "route",
+      "uuid": "45103ace-f99e-4496-a00f-20626c05a644"
+    },
+    {
+      "type": "route",
+      "uuid": "a5165bdd-3e7e-4eb0-a747-d5fa020bf0e4"
+    },
+    {
+      "type": "route",
+      "uuid": "e4aeddee-e2f0-4d64-85c6-02835107b387"
+    },
+    {
+      "type": "route",
+      "uuid": "4e5af10f-42b8-42f1-9b93-480a446ba5f4"
+    },
+    {
+      "type": "route",
+      "uuid": "38fcd930-cbbf-4ae6-8276-a9a45c981f37"
+    },
+    {
+      "type": "route",
+      "uuid": "3c72e50c-2bfa-4839-ac28-ca27816d6d89"
+    },
+    {
+      "type": "route",
+      "uuid": "35216672-df15-48ef-9f47-a569948e56e8"
+    },
+    {
+      "type": "folder",
+      "uuid": "5e9ffe6c-dbc7-4a43-8507-bc5629bf39ee"
+    },
+    {
+      "type": "folder",
+      "uuid": "f21facdf-86e3-4f84-ab13-e583c8d63ed2"
+    },
+    {
+      "type": "folder",
+      "uuid": "49ae49eb-88ce-4304-8d00-b9644c0ad5b8"
+    },
+    {
+      "type": "folder",
+      "uuid": "d7b218a3-08c7-4a18-9dfe-496b9672ef96"
+    },
+    {
+      "type": "folder",
+      "uuid": "3aad7360-59cc-4e9a-b25f-39b3690f991b"
+    }
+  ],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "",
+    "keyPath": "",
+    "caPath": "",
+    "passphrase": ""
+  },
+  "cors": true,
+  "headers": [
+    {
+      "key": "Content-Type",
+      "value": "application/json"
+    }
+  ],
+  "proxyReqHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "proxyResHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "data": []
+}

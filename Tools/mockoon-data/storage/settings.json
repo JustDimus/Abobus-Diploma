@@ -1,0 +1,23 @@
+{
+  "welcomeShown": true,
+  "bannerDismissed": [],
+  "logSizeLimit": 10000,
+  "maxLogsPerEnvironment": 50,
+  "truncateRouteName": true,
+  "mainMenuSize": 182,
+  "secondaryMenuSize": 237,
+  "fakerLocale": "en",
+  "fakerSeed": null,
+  "lastChangelog": "3.0.0",
+  "environments": [
+    {
+      "uuid": "2b897466-6ff4-4bf2-90bd-8dab17f7046c",
+      "path": "D:\\Projects\\Abobus-Diploma\\Tools\\MockoonEndpoints.json"
+    }
+  ],
+  "enableTelemetry": true,
+  "storagePrettyPrint": true,
+  "fileWatcherEnabled": "disabled",
+  "dialogWorkingDir": "D:\\Projects\\Abobus-Diploma\\Tools",
+  "startEnvironmentsOnLoad": false
+}

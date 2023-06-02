@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms" 
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:local="clr-namespace:AbobusMobile.AndroidRoot.Views"
+       Title="AbobusMobile.AndroidRoot"
+       x:Class="AbobusMobile.AndroidRoot.AppShell"
+       BindingContext="{Binding AppShellViewModel, Source={StaticResource AppProvider}}">
+
+    <!--
+        The overall app visual hierarchy is defined here, along with navigation.
+    
+        https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/shell/
+    -->
+
+    <Shell.Resources>
+        <ResourceDictionary>
+            <Style x:Key="BaseStyle" TargetType="Element">
+                <Setter Property="Shell.BackgroundColor" Value="{StaticResource Primary}" />
+                <Setter Property="Shell.ForegroundColor" Value="White" />
+                <Setter Property="Shell.TitleColor" Value="White" />
+                <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
+                <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
+                <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource Primary}" />
+                <Setter Property="Shell.TabBarForegroundColor" Value="White"/>
+                <Setter Property="Shell.TabBarUnselectedColor" Value="#95FFFFFF"/>
+                <Setter Property="Shell.TabBarTitleColor" Value="White"/>
+            </Style>
+            <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />
+            <Style TargetType="FlyoutItem" BasedOn="{StaticResource BaseStyle}" />
+        </ResourceDictionary>
+    </Shell.Resources>
+
+    <ShellItem Route="start"
+               Shell.FlyoutBehavior="Disabled">
+        <ShellContent Title="Start" ContentTemplate="{DataTemplate local:StartPage}" />
+    </ShellItem>
+
+    <ShellItem Route="login"
+               Shell.FlyoutBehavior="Disabled">
+        <ShellContent Title="Login" ContentTemplate="{DataTemplate local:LoginPage}" />
+    </ShellItem>
+
+    <TabBar Route="main">
+        <Tab Route="info"
+             Icon="icon_about.png"
+             Title="info">
+            <ShellContent Title="routes" Route="routes" ContentTemplate="{DataTemplate local:RoutesPage}" />
+            <ShellContent Title="selected route" Route="routedetails" ContentTemplate="{DataTemplate local:RouteDetailsPage}"
+                          IsVisible="{Binding ShowRouteDetailsTab}" />
+            <ShellContent Title="monument" Route="monumentdetails" ContentTemplate="{DataTemplate local:MonumentDetailsPage}"
+                          IsVisible="{Binding ShowMonumentDetailsTab}" />
+            <ShellContent Title="about" Route="about" ContentTemplate="{DataTemplate local:AboutPage}" />
+        </Tab>
+        <ShellContent Title="navigation" Icon="icon_feed.png" Route="navigation" ContentTemplate="{DataTemplate local:NavigationPage}" />
+        <ShellContent Title="profile" Icon="icon_feed.png" Route="profile" ContentTemplate="{DataTemplate local:ProfilePage}" />
+    </TabBar>
+</Shell>

@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<local:BasePage xmlns="http://xamarin.com/schemas/2014/forms"
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                x:Class="AbobusMobile.AndroidRoot.Views.StartPage"
+                xmlns:local="clr-namespace:AbobusMobile.AndroidRoot.Views"
+                xmlns:resources="clr-namespace:AbobusMobile.AndroidRoot.Resources"
+                BindingContext="{Binding StartViewModel, Source={StaticResource AppProvider}}"
+                Shell.NavBarIsVisible="False">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="ActivityIndicator">
+                <Setter Property="Color" Value="{StaticResource Primary}" />
+                <Setter Property="IsRunning" Value="True" />
+                <Setter Property="Margin" Value="10" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="Center" HorizontalOptions="Center"
+                     Spacing="20">
+            <Label Text="{x:Static resources:ApplicationTexts.StartPage_WelcomeMessage}" Style="{StaticResource HeaderLabel}" />
+            <Label Text="{x:Static resources:ApplicationTexts.StartPage_AppName}" Style="{StaticResource DescriptionLabel}"
+                   FontAttributes="Italic"/>
+            <ActivityIndicator />
+        </StackLayout>
+    </ContentPage.Content>
+</local:BasePage>

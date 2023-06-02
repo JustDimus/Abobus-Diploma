@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<local:BasePage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AbobusMobile.AndroidRoot.Views.NavigationPage"
+             xmlns:local="clr-namespace:AbobusMobile.AndroidRoot.Views"
+             xmlns:resources="clr-namespace:AbobusMobile.AndroidRoot.Resources"
+             Shell.NavBarIsVisible="False"
+             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+             BindingContext="{Binding NavigationViewModel, Source={StaticResource AppProvider}}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="ActivityIndicator">
+                <Setter Property="Color" Value="{StaticResource Primary}" />
+                <Setter Property="IsRunning" Value="True" />
+                <Setter Property="Margin" Value="10" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+            <maps:Map x:Name="MainMap"
+                      IsShowingUser="True"
+                      Grid.Row="0" />
+            <AbsoluteLayout
+                Grid.Row="1">
+                <Frame
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand"
+                    IsVisible="{Binding ShowRoute}"
+                    AbsoluteLayout.LayoutFlags="All"
+                    AbsoluteLayout.LayoutBounds="0,0,1,1">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1*" />
+                            <RowDefinition Height="4*" />
+                            <RowDefinition Height="1*" />
+                        </Grid.RowDefinitions>
+                        <Label Text="{x:Static resources:ApplicationTexts.NavigationPage_KeepMoving}"
+                               IsVisible="{Binding MonumentArrived,Converter={StaticResource BoolInverse}}" 
+                               HorizontalTextAlignment="Center"
+                               FontSize="25"
+                               Grid.Row="0" />
+                        <Label Text="{Binding NextMonument.Name}"
+                               IsVisible="{Binding MonumentArrived}"
+                               HorizontalTextAlignment="Center"
+                               FontSize="25"
+                               Grid.Row="0" />
+                        <Image Source="{Binding NextMonument.MonumentImage}"
+                               WidthRequest="150" HeightRequest="150"
+                               Grid.Row="1">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding OpenMonumentDetailsCommand}" />
+                            </Image.GestureRecognizers>
+                        </Image>
+                        <Grid Grid.Row="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="4*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Text="{x:Static resources:ApplicationTexts.NavigationPage_InterruptRoute}"
+                                    HorizontalOptions="FillAndExpand"
+                                    VerticalOptions="FillAndExpand"
+                                    Padding="5"
+                                    Grid.Column="0"
+                                    Command="{Binding InterruptRouteCommand}" />
+                            <Button Text="{x:Static resources:ApplicationTexts.NavigationPage_NextIsLast}"
+                                    HorizontalOptions="FillAndExpand"
+                                    VerticalOptions="FillAndExpand"
+                                    IsVisible="{Binding NextPointIsLast}"
+                                    Command="{Binding MoveNextCommand}"
+                                    Grid.Column="1" />
+                            <Button Text="{x:Static resources:ApplicationTexts.NavigationPage_Next}"
+                                    HorizontalOptions="FillAndExpand"
+                                    VerticalOptions="FillAndExpand"
+                                    IsVisible="{Binding NextPointIsLast,Converter={StaticResource BoolInverse}}"
+                                    Command="{Binding MoveNextCommand}"
+                                    Grid.Column="1" />
+                        </Grid>
+                    </Grid>
+                </Frame>
+                <Frame
+                    BackgroundColor="#CC000000"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand"
+                    IsVisible="{Binding ShowRouteRequired}"
+                    AbsoluteLayout.LayoutFlags="All"
+                    AbsoluteLayout.LayoutBounds="0,0,1,1">
+                    <Label Text="{x:Static resources:ApplicationTexts.NavigationPage_StartRoute}"
+                           Style="{StaticResource DescriptionLabel}"
+                           TextColor="White"
+                           VerticalOptions="Center"/>
+                </Frame>
+                <Frame
+                    BackgroundColor="#CC000000"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand"
+                    IsVisible="{Binding RouteCompleted}"
+                    AbsoluteLayout.LayoutFlags="All"
+                    AbsoluteLayout.LayoutBounds="0,0,1,1">
+                    <Label Text="{x:Static resources:ApplicationTexts.NavigationPage_RouteIsOver}"
+                           Style="{StaticResource DescriptionLabel}"
+                           TextColor="White"
+                           VerticalOptions="Center"/>
+                </Frame>
+                <Frame
+                    BackgroundColor="#CC000000"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand"
+                    IsVisible="{Binding ShowUpdateRequired}"
+                    AbsoluteLayout.LayoutFlags="All"
+                    AbsoluteLayout.LayoutBounds="0,0,1,1">
+                    <ActivityIndicator />
+                </Frame>
+            </AbsoluteLayout>
+        </Grid>
+    </ContentPage.Content>
+</local:BasePage>

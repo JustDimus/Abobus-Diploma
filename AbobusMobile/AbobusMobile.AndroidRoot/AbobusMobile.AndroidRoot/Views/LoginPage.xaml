@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<local:BasePage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:resources="clr-namespace:AbobusMobile.AndroidRoot.Resources"
+             xmlns:local="clr-namespace:AbobusMobile.AndroidRoot.Views"
+             mc:Ignorable="d"
+             x:Class="AbobusMobile.AndroidRoot.Views.LoginPage"
+             Shell.FlyoutItemIsVisible="False"
+             Shell.TabBarIsVisible="False"
+             BindingContext="{Binding LoginViewModel, Source={StaticResource AppProvider}}">
+
+    <Shell.TitleView>
+        <Label Text="{x:Static resources:ApplicationTexts.LoginPage_TitleText}"
+               Style="{StaticResource PageTitleLabel}" />
+    </Shell.TitleView>
+    <ContentPage.Content>
+        <StackLayout Padding="10,0,10,0" VerticalOptions="Center">
+            <Label Text="{x:Static resources:ApplicationTexts.LoginPage_EmailLabelText}"
+                   Style="{StaticResource CommonLabel}"
+                   HorizontalOptions="Start"
+                   Margin="0,0,0,3" />
+            <Entry Text="{Binding Email}"
+                   Placeholder="{x:Static resources:ApplicationTexts.LoginPage_EmailPlaceholder}"
+                   Style="{StaticResource PrimaryEntry}"
+                   Margin="0,0,10,0" />
+            <Label Text="{x:Static resources:ApplicationTexts.LoginPage_PasswordLabelText}"
+                   Style="{StaticResource CommonLabel}"
+                   HorizontalOptions="Start"
+                   Margin="10,0,0,3" />
+            <Entry Text="{Binding Password}"
+                   Placeholder="{x:Static resources:ApplicationTexts.LoginPage_PasswordPlaceholder}"
+                   IsPassword="True"
+                   Style="{StaticResource PrimaryEntry}" />
+            
+            <Button VerticalOptions="Center" Text="{x:Static resources:ApplicationTexts.LoginPage_LoginButtonText}"
+                    Command="{Binding LoginCommand}"
+                    Style="{StaticResource PrimaryButton}"/>
+            <Button VerticalOptions="Center" Text="{x:Static resources:ApplicationTexts.LoginPage_RegisterButtonText}"
+                    Command="{Binding RegisterCommand}"
+                    Style="{StaticResource SecondaryButton}"/>
+
+            <Label Text="{x:Static resources:ApplicationTexts.LoginPage_AuthorizationFailed}"
+                   IsVisible="{Binding LoginFailed}"
+                   Style="{StaticResource ErrorLabel}" />
+        </StackLayout>
+    </ContentPage.Content>
+</local:BasePage>
