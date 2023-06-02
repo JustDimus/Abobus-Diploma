@@ -1,5 +1,4 @@
-﻿using AbobusMobile.AndroidRoot.Services;
-using AbobusMobile.AndroidRoot.Views;
+﻿using AbobusMobile.AndroidRoot.Views;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;

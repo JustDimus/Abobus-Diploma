@@ -1,6 +1,6 @@
-﻿using AbobusMobile.AndroidRoot.DataExchangeService;
-using AbobusMobile.AndroidRoot.Helpers;
+﻿using AbobusMobile.AndroidRoot.Helpers;
 using AbobusMobile.AndroidRoot.Models;
+using AbobusMobile.AndroidRoot.Services;
 using AbobusMobile.AndroidRoot.Views;
 using AbobusMobile.BLL.Services.Abstractions.Accounts;
 using AbobusMobile.BLL.Services.Abstractions.Resources;
@@ -40,14 +40,14 @@ namespace AbobusMobile.AndroidRoot.ViewModels
         private readonly IRouteService _routeService;
         private readonly IAccountsService _accountService;
         private readonly IResourcesService _resourcesService;
-        private readonly DataExchangeService.ExchangeService _routeExchangeService;
+        private readonly ExchangeService _routeExchangeService;
 
         public RoutesViewModel(
             ILocationService locationService,
             IRouteService routeService,
             IAccountsService accountService,
             IResourcesService resourcesService,
-            DataExchangeService.ExchangeService routeExchangeService)
+            ExchangeService routeExchangeService)
         {
             _locationService = locationService ?? throw new ArgumentNullException(nameof(locationService));
             _routeService = routeService ?? throw new ArgumentNullException(nameof(routeService));

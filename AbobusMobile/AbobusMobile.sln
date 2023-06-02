@@ -41,7 +41,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AbobusMobile.DAL.Services",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AbobusMobile.Communication.Requests", "AbobusMobile.Communication.Requests\AbobusMobile.Communication.Requests.csproj", "{D2A42F64-AE37-488C-A095-BD6E9107E3DA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbobusMobile.ConsoleTester", "AbobusMobile.ConsoleTester\AbobusMobile.ConsoleTester.csproj", "{A7E08CC1-3070-4C59-8AF8-8FF8CC522A4A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AbobusMobile.ConsoleTester", "AbobusMobile.ConsoleTester\AbobusMobile.ConsoleTester.csproj", "{A7E08CC1-3070-4C59-8AF8-8FF8CC522A4A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

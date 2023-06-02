@@ -1,6 +1,6 @@
 ﻿using AbobusMobile.AndroidRoot.Configurations;
-using AbobusMobile.AndroidRoot.DataExchangeService;
 using AbobusMobile.AndroidRoot.Extensions;
+using AbobusMobile.AndroidRoot.Services;
 using AbobusMobile.BLL.Services.Abstractions.Accounts;
 using AbobusMobile.BLL.Services.Abstractions.Authorization;
 using AbobusMobile.BLL.Services.Abstractions.Comments;
@@ -57,15 +57,11 @@ namespace AbobusMobile.AndroidRoot.ViewModels
                 .AddJsonStream(configurationStream)
                 .Build();
 
-            //File.Delete(Path.Combine(
-            //        Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
-            //        configuration.GetConnectionString("DatabasePath")));
-
             //Directory.Delete(Path.Combine(
             //        Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
             //        configuration.GetConnectionString("ResourcesPath")),
             //        true);
-
+            
             IServiceCollection serviceCollection = new ServiceCollection();
 
             serviceCollection
@@ -160,5 +156,8 @@ namespace AbobusMobile.AndroidRoot.ViewModels
 
         private MonumentDetailsViewModel monumentDetailsViewModel = null;
         public MonumentDetailsViewModel MonumentDetailsViewModel => monumentDetailsViewModel ?? (monumentDetailsViewModel = _provider.GetRequiredService<MonumentDetailsViewModel>());
+
+        private NavigationViewModel navigationViewModel = null;
+        public NavigationViewModel NavigationViewModel => navigationViewModel ?? (navigationViewModel = _provider.GetRequiredService<NavigationViewModel>());
     }
 }

@@ -105,7 +105,7 @@
                     </Grid.RowDefinitions>
                     <Button Text="&lt;"
                             FontSize="20"
-                            Command="{Binding MonumentSwitchCommand}"
+                            Command="{Binding CommentSwitchCommand}"
                             CommandParameter="-1"
                             HorizontalOptions="CenterAndExpand"
                             VerticalOptions="CenterAndExpand"

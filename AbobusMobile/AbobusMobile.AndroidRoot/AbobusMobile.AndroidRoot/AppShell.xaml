@@ -51,7 +51,7 @@
                           IsVisible="{Binding ShowMonumentDetailsTab}" />
             <ShellContent Title="about" Route="about" ContentTemplate="{DataTemplate local:AboutPage}" />
         </Tab>
-        <ShellContent Title="browse" Icon="icon_feed.png" ContentTemplate="{DataTemplate local:ItemsPage}" />
+        <ShellContent Title="navigation" Icon="icon_feed.png" Route="navigation" ContentTemplate="{DataTemplate local:NavigationPage}" />
         <ShellContent Title="profile" Icon="icon_feed.png" Route="profile" ContentTemplate="{DataTemplate local:ProfilePage}" />
     </TabBar>
 </Shell>

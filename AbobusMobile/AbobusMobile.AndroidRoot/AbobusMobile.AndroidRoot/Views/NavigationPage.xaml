@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<local:BasePage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AbobusMobile.AndroidRoot.Views.NavigationPage"
+             xmlns:local="clr-namespace:AbobusMobile.AndroidRoot.Views"
+             xmlns:resources="clr-namespace:AbobusMobile.AndroidRoot.Resources"
+             Shell.NavBarIsVisible="False"
+             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+             BindingContext="{Binding NavigationViewModel, Source={StaticResource AppProvider}}">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+            <maps:Map x:Name="MainMap"
+                      IsShowingUser="True"
+                      Grid.Row="0" />
+            <AbsoluteLayout
+                Grid.Row="1">
+                <Frame
+                    BackgroundColor="#CC000000"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    IsVisible="{Binding ShowRoute}"
+                    AbsoluteLayout.LayoutFlags="All"
+                    AbsoluteLayout.LayoutBounds="0,0,1,1">
+                    <StackLayout Orientation="Vertical">
+
+                    </StackLayout>
+                </Frame>
+                <Frame
+                    BackgroundColor="#CC000000"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand"
+                    IsVisible="{Binding ShowRouteRequired}"
+                    AbsoluteLayout.LayoutFlags="All"
+                    AbsoluteLayout.LayoutBounds="0,0,1,1">
+                    <Label Text="{x:Static resources:ApplicationTexts.NavigationPage_StartRoute}"
+                           Style="{StaticResource DescriptionLabel}"
+                           TextColor="White"
+                           VerticalOptions="Center"/>
+                </Frame>
+                <Frame
+                    BackgroundColor="#CC000000"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    IsVisible="{Binding ShowUpdateRequired}"
+                    AbsoluteLayout.LayoutFlags="All"
+                    AbsoluteLayout.LayoutBounds="0,0,1,1">
+                    <ActivityIndicator />
+                </Frame>
+            </AbsoluteLayout>
+        </Grid>
+    </ContentPage.Content>
+</local:BasePage>

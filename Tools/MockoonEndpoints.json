@@ -856,7 +856,7 @@
       "responses": [
         {
           "uuid": "a9ac9030-0903-41d2-a5aa-5fa0ea789757",
-          "body": "{\n  \"id\": \"4737F29E-47B2-486E-AE11-34ED9C52914B\",\n  \"name\": \"TestData1Info.txt\"\n}",
+          "body": "{\n  \"id\": \"4737F29E-47B2-486E-AE11-34ED9C52914B\",\n  \"name\": \"Route1Data.json\"\n}",
           "latency": 0,
           "statusCode": 200,
           "label": "",
@@ -890,7 +890,7 @@
           "label": "",
           "headers": [],
           "bodyType": "FILE",
-          "filePath": "D:\\Projects\\Abobus-Diploma\\Tools\\TestDataInfo.txt",
+          "filePath": "D:\\Projects\\Abobus-Diploma\\Tools\\Route1Data.json",
           "databucketID": "",
           "sendFileAsBody": false,
           "rules": [],

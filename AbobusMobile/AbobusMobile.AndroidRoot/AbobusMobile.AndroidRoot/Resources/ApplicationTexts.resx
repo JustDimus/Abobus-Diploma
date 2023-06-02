@@ -144,6 +144,9 @@
   <data name="MonumentDetailsPage_Description" xml:space="preserve">
     <value>Description</value>
   </data>
+  <data name="NavigationPage_StartRoute" xml:space="preserve">
+    <value>Choose the Route</value>
+  </data>
   <data name="ProfilePage_Cities" xml:space="preserve">
     <value>Visited cities:</value>
   </data>

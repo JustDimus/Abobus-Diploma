@@ -1,5 +1,6 @@
 ﻿using AbobusCore.Models.Locations;
 using AbobusMobile.BLL.Services.Abstractions.Utilities;
+using AbobusMobile.BLL.Services.Abstractions.Utitlities;
 using AbobusMobile.Communication.Requests.Locations;
 using AbobusMobile.Communication.Services.Abstractions;
 using AbobusMobile.DAL.Services.Abstractions.Utilities;
@@ -94,6 +95,17 @@ namespace AbobusMobile.BLL.Services.Utitlities
             return result;
         }
 
+        public async Task<LocationCoordinatesServiceModel> GetCurrentLocationCoordinatesAsync()
+        {
+            var currentLocation = await GetLocationAsync();
+
+            return new LocationCoordinatesServiceModel()
+            {
+                Latitude = currentLocation.Latitude,
+                Longitude = currentLocation.Longitude,
+            };
+        }
+
         public async Task<LocationServiceModel> GetLocationAsync(Guid locationId)
         {
             LocationByIdRequest.Initialize(locationId);
@@ -151,8 +163,8 @@ namespace AbobusMobile.BLL.Services.Utitlities
         {
             return new Location()
             {
-                Latitude = 41.5f,
-                Longitude = 45.7f
+                Longitude = 26.984373f,
+                Latitude = 49.445339f
             };
 
             try

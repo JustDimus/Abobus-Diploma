@@ -67,7 +67,7 @@ namespace AbobusMobile.DAL.Services.Resources
 
         public async Task DeleteAsync(Guid resourceId)
         {
-            var resourceExist = await CheckAvailability(resourceId);
+            var resourceExist = await _resources.AnyAsync(i => i.GlobalId == resourceId);
 
             if (resourceExist)
             {

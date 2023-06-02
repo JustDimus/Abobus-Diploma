@@ -142,6 +142,15 @@ namespace AbobusMobile.AndroidRoot.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Choose the Route.
+        /// </summary>
+        internal static string NavigationPage_StartRoute {
+            get {
+                return ResourceManager.GetString("NavigationPage_StartRoute", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Visited cities:.
         /// </summary>
         internal static string ProfilePage_Cities {

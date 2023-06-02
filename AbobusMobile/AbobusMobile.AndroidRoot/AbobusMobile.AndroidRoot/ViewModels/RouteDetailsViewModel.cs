@@ -1,5 +1,5 @@
-﻿using AbobusMobile.AndroidRoot.DataExchangeService;
-using AbobusMobile.AndroidRoot.Helpers;
+﻿using AbobusMobile.AndroidRoot.Helpers;
+using AbobusMobile.AndroidRoot.Services;
 using AbobusMobile.AndroidRoot.Views;
 using AbobusMobile.BLL.Services.Abstractions.Accounts;
 using AbobusMobile.BLL.Services.Abstractions.Comments;
@@ -188,11 +188,12 @@ namespace AbobusMobile.AndroidRoot.ViewModels
             => BaseActionAvailability() && routeMonuments.Count > 1;
 
         public bool BaseActionAvailability()
-            => !UpdateRequired && !DownloadingInProgress;
+            => !UpdateRequired && !DownloadingInProgress && RequestedRouteId.HasValue;
 
         private async Task StartRouteAsync()
         {
-
+            _exchangeService.RequestMonument(RequestedRouteId.Value);
+            await Shell.Current.GoToAsync(PathConstants.NAVIGATION_ABSOLUTE);
         }
 
         private async Task OpenCurrentMonumentDetailsAsync()
