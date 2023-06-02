@@ -76,9 +76,9 @@ const CustomMenu = () => {
         }
     }, [dispatch]);
 
-    useEffect(() => {
+    /* useEffect(() => {
         <Navigate to={handle} />
-    }, [navigationClick])
+    }, [navigationClick]) */
 
     return (
         <>

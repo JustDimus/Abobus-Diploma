@@ -9,6 +9,10 @@ import HeaderContainer from "./features/common/header/HeaderContainer";
 import CustomMenu from "./features/menu/CustomMenu";
 import BackgroundImage from "./features/common/background/BackgroundImage";
 import NotFoundContainer from "./features/common/NotFoundContainer";
+import TabContainer from "./features/main/TabContainer";
+import MapContainer from "./features/main/MapContainer";
+import SidebarContainer from "./features/Sidebar/SidebarContainer";
+import AccountContainer from "./features/common/account/AccountContainer";
 /* import Account from "./features/Account"; */
 
 function App() {
@@ -21,11 +25,16 @@ function App() {
           </Header>
 
           <Layout style={{ minHeight: "100vh" }}>
+            <SidebarContainer />
             <Content className="main_styling">
               <Routes>
                 <Route path="/" element={<HomeContainer />} />
                 <Route path="Auth/Login" element={<Login />} />
                 <Route path="Auth/Registration" element={<Registration />} />
+                <Route path="Account/Map" element={<MapContainer />} />
+                <Route path="Account/User" element={<AccountContainer />} />
+                <Route path="Account/History" element={<TabContainer />} />
+
                 <Route
                   path="*"
                   element={<NotFoundContainer />}

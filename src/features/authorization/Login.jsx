@@ -61,7 +61,7 @@ const Login = () => {
 
     return (
         <>
-            <Row type="flex" justify="center" align="middle" style={{ paddingTop: "20px", paddingBottom: "20px" }}>
+            <Row type="flex" justify="center" align="middle" style={{ paddingTop: "40px", paddingBottom: "20px" }}>
                 <Form
                     className="authorization_form"
                     name="login"
