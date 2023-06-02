@@ -144,6 +144,24 @@
   <data name="MonumentDetailsPage_Description" xml:space="preserve">
     <value>Description</value>
   </data>
+  <data name="NavigationPage_InterruptRoute" xml:space="preserve">
+    <value>Interrupt</value>
+  </data>
+  <data name="NavigationPage_KeepMoving" xml:space="preserve">
+    <value>Keep moving</value>
+  </data>
+  <data name="NavigationPage_MonumentArrived" xml:space="preserve">
+    <value>Arrived to monument</value>
+  </data>
+  <data name="NavigationPage_Next" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="NavigationPage_NextIsLast" xml:space="preserve">
+    <value>Finish</value>
+  </data>
+  <data name="NavigationPage_RouteIsOver" xml:space="preserve">
+    <value>Route is Over</value>
+  </data>
   <data name="NavigationPage_StartRoute" xml:space="preserve">
     <value>Choose the Route</value>
   </data>

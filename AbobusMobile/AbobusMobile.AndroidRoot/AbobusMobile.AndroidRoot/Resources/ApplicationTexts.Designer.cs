@@ -142,6 +142,60 @@ namespace AbobusMobile.AndroidRoot.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Interrupt.
+        /// </summary>
+        internal static string NavigationPage_InterruptRoute {
+            get {
+                return ResourceManager.GetString("NavigationPage_InterruptRoute", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Keep moving.
+        /// </summary>
+        internal static string NavigationPage_KeepMoving {
+            get {
+                return ResourceManager.GetString("NavigationPage_KeepMoving", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Arrived to monument.
+        /// </summary>
+        internal static string NavigationPage_MonumentArrived {
+            get {
+                return ResourceManager.GetString("NavigationPage_MonumentArrived", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Next.
+        /// </summary>
+        internal static string NavigationPage_Next {
+            get {
+                return ResourceManager.GetString("NavigationPage_Next", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Finish.
+        /// </summary>
+        internal static string NavigationPage_NextIsLast {
+            get {
+                return ResourceManager.GetString("NavigationPage_NextIsLast", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Route is Over.
+        /// </summary>
+        internal static string NavigationPage_RouteIsOver {
+            get {
+                return ResourceManager.GetString("NavigationPage_RouteIsOver", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Choose the Route.
         /// </summary>
         internal static string NavigationPage_StartRoute {

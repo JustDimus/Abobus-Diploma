@@ -107,6 +107,22 @@
         {
           "type": "route",
           "uuid": "f0a7b912-f69a-4195-9d9b-23077068f2ab"
+        },
+        {
+          "type": "route",
+          "uuid": "e85ef401-0ff6-47d5-80c2-b2f274fdc6ff"
+        },
+        {
+          "type": "route",
+          "uuid": "b4579363-1df5-4ccb-b8f7-c705314905fa"
+        },
+        {
+          "type": "route",
+          "uuid": "d458673a-cb9b-47f5-ae09-e9336471352c"
+        },
+        {
+          "type": "route",
+          "uuid": "44b48535-43c3-4176-9471-61eea260f0cd"
         }
       ]
     },
@@ -184,6 +200,14 @@
         {
           "type": "route",
           "uuid": "5749f5b6-b3b4-4e7f-bb70-8328dfe4f077"
+        },
+        {
+          "type": "route",
+          "uuid": "63db5972-bf10-4123-bac2-a05bde8e781e"
+        },
+        {
+          "type": "route",
+          "uuid": "e701ce37-00ab-4cc5-87c8-5cbd004e0515"
         }
       ]
     },
@@ -1164,7 +1188,7 @@
       "responses": [
         {
           "uuid": "4c56ebe7-5ce3-4e7d-b3bd-1b788265a2ec",
-          "body": "{\n  \"id\": \"96532D9E-1C57-4E8B-9CA4-BCE0BE57E2F4\",\n  \"name\": \"AbobUS\",\n  \"city\": \"1C2D004F-E47C-4713-AE2D-AC569794ECE5\",\n  \"description\": \"Monument 1 test description\",\n  \"monument_title\": \"30042EF6-3AB4-4814-90EA-61876A6AAE29\"\n}",
+          "body": "{\n  \"id\": \"96532D9E-1C57-4E8B-9CA4-BCE0BE57E2F4\",\n  \"name\": \"Oasis\",\n  \"city\": \"1C2D004F-E47C-4713-AE2D-AC569794ECE5\",\n  \"description\": \"Monument 1 test description\",\n  \"monument_title\": \"30042EF6-3AB4-4814-90EA-61876A6AAE29\"\n}",
           "latency": 0,
           "statusCode": 200,
           "label": "",
@@ -1192,7 +1216,7 @@
       "responses": [
         {
           "uuid": "5cb3b4ba-29fe-4208-9c42-4092b21248a2",
-          "body": "[\n  {\n    \"monument\": \"96532D9E-1C57-4E8B-9CA4-BCE0BE57E2F4\"\n  },\n  {\n    \"monument\": \"79BCF08F-BEE7-4A18-A865-214BE71F6D8B\"\n  }\n]",
+          "body": "[\n  {\n    \"monument\": \"96532D9E-1C57-4E8B-9CA4-BCE0BE57E2F4\"\n  },\n  {\n    \"monument\": \"79BCF08F-BEE7-4A18-A865-214BE71F6D8B\"\n  },\n  {\n    \"monument\": \"993B0275-B124-450A-A4CC-03D122D99D2F\"\n  }\n]",
           "latency": 0,
           "statusCode": 200,
           "label": "",
@@ -1220,7 +1244,7 @@
       "responses": [
         {
           "uuid": "7da3c24d-6841-478b-8f1a-d2c09c9a133b",
-          "body": "{\n  \"id\": \"30042EF6-3AB4-4814-90EA-61876A6AAE29\",\n  \"name\": \"Monument11Image.png\"\n}",
+          "body": "{\n  \"id\": \"30042EF6-3AB4-4814-90EA-61876A6AAE29\",\n  \"name\": \"Oasis 1.png\"\n}",
           "latency": 0,
           "statusCode": 200,
           "label": "",
@@ -1254,7 +1278,7 @@
           "label": "",
           "headers": [],
           "bodyType": "FILE",
-          "filePath": "D:\\Projects\\Abobus-Diploma\\Tools\\Monument11Image.png",
+          "filePath": "D:\\Projects\\Abobus-Diploma\\Tools\\Oasis 1.png",
           "databucketID": "",
           "sendFileAsBody": false,
           "rules": [],
@@ -1276,7 +1300,7 @@
       "responses": [
         {
           "uuid": "6b28f836-ddec-4331-8c1d-caa240a2a46d",
-          "body": "{\n  \"id\": \"C24BEA1C-306C-4D28-BA20-CFADD9049781\",\n  \"name\": \"Monument12Image.png\"\n}",
+          "body": "{\n  \"id\": \"C24BEA1C-306C-4D28-BA20-CFADD9049781\",\n  \"name\": \"Oasis 2.png\"\n}",
           "latency": 0,
           "statusCode": 200,
           "label": "",
@@ -1310,7 +1334,7 @@
           "label": "",
           "headers": [],
           "bodyType": "FILE",
-          "filePath": "D:\\Projects\\Abobus-Diploma\\Tools\\Monument12Image.png",
+          "filePath": "D:\\Projects\\Abobus-Diploma\\Tools\\Oasis 2.png",
           "databucketID": "",
           "sendFileAsBody": false,
           "rules": [],
@@ -1332,7 +1356,7 @@
       "responses": [
         {
           "uuid": "0a6434fc-b4ef-4b1f-a1e0-984f822a4c66",
-          "body": "{\n  \"id\": \"BCB744B2-ECD0-4837-9A6B-DD7A0607631D\",\n  \"name\": \"Monument21Image.png\"\n}",
+          "body": "{\n  \"id\": \"BCB744B2-ECD0-4837-9A6B-DD7A0607631D\",\n  \"name\": \"Center 1.png\"\n}",
           "latency": 0,
           "statusCode": 200,
           "label": "",
@@ -1366,7 +1390,7 @@
           "label": "",
           "headers": [],
           "bodyType": "FILE",
-          "filePath": "D:\\Projects\\Abobus-Diploma\\Tools\\Monument21.png",
+          "filePath": "D:\\Projects\\Abobus-Diploma\\Tools\\Center 1.png",
           "databucketID": "",
           "sendFileAsBody": false,
           "rules": [],
@@ -1388,7 +1412,7 @@
       "responses": [
         {
           "uuid": "8a796b90-77f4-43de-938a-489f35d69296",
-          "body": "{\n  \"id\": \"7B32452C-3FD5-4CFE-BB32-B948F712116A\",\n  \"name\": \"Monument22Image.png\"\n}",
+          "body": "{\n  \"id\": \"7B32452C-3FD5-4CFE-BB32-B948F712116A\",\n  \"name\": \"Center 2.png\"\n}",
           "latency": 0,
           "statusCode": 200,
           "label": "",
@@ -1422,7 +1446,7 @@
           "label": "",
           "headers": [],
           "bodyType": "FILE",
-          "filePath": "D:\\Projects\\Abobus-Diploma\\Tools\\Monument22.png",
+          "filePath": "D:\\Projects\\Abobus-Diploma\\Tools\\Center 2.png",
           "databucketID": "",
           "sendFileAsBody": false,
           "rules": [],
@@ -1444,7 +1468,7 @@
       "responses": [
         {
           "uuid": "8290f95d-827c-40fe-af9c-2f421182746e",
-          "body": "{\n  \"id\": \"79BCF08F-BEE7-4A18-A865-214BE71F6D8B\",\n  \"name\": \"Chunga\",\n  \"city\": \"1C2D004F-E47C-4713-AE2D-AC569794ECE5\",\n  \"description\": \"Monument 2 test description\",\n  \"monument_title\": \"7B32452C-3FD5-4CFE-BB32-B948F712116A\"\n}",
+          "body": "{\n  \"id\": \"79BCF08F-BEE7-4A18-A865-214BE71F6D8B\",\n  \"name\": \"Center\",\n  \"city\": \"1C2D004F-E47C-4713-AE2D-AC569794ECE5\",\n  \"description\": \"Monument 2 test description\",\n  \"monument_title\": \"7B32452C-3FD5-4CFE-BB32-B948F712116A\"\n}",
           "latency": 0,
           "statusCode": 200,
           "label": "",
@@ -1650,6 +1674,174 @@
               "value": "application/json"
             }
           ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "e85ef401-0ff6-47d5-80c2-b2f274fdc6ff",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/resources/B87387A6-F37D-4598-90D7-F1BB723E75F2/details",
+      "responses": [
+        {
+          "uuid": "9f2819b5-31cb-4928-862b-a395f6f58533",
+          "body": "{\n  \"id\": \"B87387A6-F37D-4598-90D7-F1BB723E75F2\",\n  \"name\": \"Railway 1.png\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "b4579363-1df5-4ccb-b8f7-c705314905fa",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/resources/B87387A6-F37D-4598-90D7-F1BB723E75F2",
+      "responses": [
+        {
+          "uuid": "e2bd5a54-87d4-455a-a641-54a3030c7762",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "FILE",
+          "filePath": "D:\\Projects\\Abobus-Diploma\\Tools\\Railway 1.png",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "d458673a-cb9b-47f5-ae09-e9336471352c",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/resources/86670A4D-2783-4ECD-AD29-80C78E6C0099/details",
+      "responses": [
+        {
+          "uuid": "f4c341e2-cb3a-4d01-8339-8628ff13855d",
+          "body": "{\n  \"id\": \"86670A4D-2783-4ECD-AD29-80C78E6C0099\",\n  \"name\": \"Railway 2.jpg\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "44b48535-43c3-4176-9471-61eea260f0cd",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/resources/86670A4D-2783-4ECD-AD29-80C78E6C0099",
+      "responses": [
+        {
+          "uuid": "fe659dbe-1d39-40d8-bc15-c39973238af8",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "FILE",
+          "filePath": "D:\\Projects\\Abobus-Diploma\\Tools\\Railway 2.jpg",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "63db5972-bf10-4123-bac2-a05bde8e781e",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/monuments/993B0275-B124-450A-A4CC-03D122D99D2F/images",
+      "responses": [
+        {
+          "uuid": "dc70648d-ab3a-4261-a56a-5eacbf93c279",
+          "body": "[\n  {\n    \"image\": \"B87387A6-F37D-4598-90D7-F1BB723E75F2\"\n  },\n  {\n    \"image\": \"86670A4D-2783-4ECD-AD29-80C78E6C0099\"\n  }\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "e701ce37-00ab-4cc5-87c8-5cbd004e0515",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/v1/monuments/993B0275-B124-450A-A4CC-03D122D99D2F/details",
+      "responses": [
+        {
+          "uuid": "9ea2c32e-7a38-4d7c-8263-fbc53ea1cefe",
+          "body": "{\n  \"id\": \"993B0275-B124-450A-A4CC-03D122D99D2F\",\n  \"name\": \"Railway Station\",\n  \"city\": \"1C2D004F-E47C-4713-AE2D-AC569794ECE5\",\n  \"description\": \"Monument 2 test description\",\n  \"monument_title\": \"B87387A6-F37D-4598-90D7-F1BB723E75F2\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
           "bodyType": "INLINE",
           "filePath": "",
           "databucketID": "",

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AbobusMobile.ConsoleTester
+namespace AbobusMobile.AndroidRoot.Models
 {
 
     public class RouteCoordinateModel

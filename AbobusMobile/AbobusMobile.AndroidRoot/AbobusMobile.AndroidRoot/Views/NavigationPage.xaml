@@ -25,9 +25,50 @@
                     IsVisible="{Binding ShowRoute}"
                     AbsoluteLayout.LayoutFlags="All"
                     AbsoluteLayout.LayoutBounds="0,0,1,1">
-                    <StackLayout Orientation="Vertical">
-
-                    </StackLayout>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1*" />
+                            <RowDefinition Height="4*" />
+                            <RowDefinition Height="1*" />
+                        </Grid.RowDefinitions>
+                        <Label Text="{x:Static resources:ApplicationTexts.NavigationPage_KeepMoving}"
+                               IsVisible="{Binding MonumentArrived,Converter={StaticResource BoolInverse}}"
+                               Grid.Row="0" />
+                        <Label Text="{Binding NextMonument.Name}"
+                               IsVisible="{Binding MonumentArrived}"
+                               Grid.Row="0" />
+                        <Image Source="{Binding NextMonument.MonumentImage}"
+                               WidthRequest="150" HeightRequest="150"
+                               Grid.Row="1">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding OpenMonumentDetailsCommand}" />
+                            </Image.GestureRecognizers>
+                        </Image>
+                        <Grid Grid.Row="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="4*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Text="{x:Static resources:ApplicationTexts.NavigationPage_InterruptRoute}"
+                                    HorizontalOptions="FillAndExpand"
+                                    VerticalOptions="FillAndExpand"
+                                    Padding="5"
+                                    Grid.Column="0"
+                                    Command="{Binding InterruptRouteCommand}" />
+                            <Button Text="{x:Static resources:ApplicationTexts.NavigationPage_NextIsLast}"
+                                    HorizontalOptions="FillAndExpand"
+                                    VerticalOptions="FillAndExpand"
+                                    IsVisible="{Binding NextPointIsLast}"
+                                    Command="{Binding MoveNextCommand}"
+                                    Grid.Column="1" />
+                            <Button Text="{x:Static resources:ApplicationTexts.NavigationPage_Next}"
+                                    HorizontalOptions="FillAndExpand"
+                                    VerticalOptions="FillAndExpand"
+                                    IsVisible="{Binding NextPointIsLast,Converter={StaticResource BoolInverse}}"
+                                    Command="{Binding MoveNextCommand}"
+                                    Grid.Column="1" />
+                        </Grid>
+                    </Grid>
                 </Frame>
                 <Frame
                     BackgroundColor="#CC000000"
@@ -37,6 +78,18 @@
                     AbsoluteLayout.LayoutFlags="All"
                     AbsoluteLayout.LayoutBounds="0,0,1,1">
                     <Label Text="{x:Static resources:ApplicationTexts.NavigationPage_StartRoute}"
+                           Style="{StaticResource DescriptionLabel}"
+                           TextColor="White"
+                           VerticalOptions="Center"/>
+                </Frame>
+                <Frame
+                    BackgroundColor="#CC000000"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand"
+                    IsVisible="{Binding RouteCompleted}"
+                    AbsoluteLayout.LayoutFlags="All"
+                    AbsoluteLayout.LayoutBounds="0,0,1,1">
+                    <Label Text="{x:Static resources:ApplicationTexts.NavigationPage_RouteIsOver}"
                            Style="{StaticResource DescriptionLabel}"
                            TextColor="White"
                            VerticalOptions="Center"/>

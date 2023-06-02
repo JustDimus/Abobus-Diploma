@@ -61,7 +61,11 @@ namespace AbobusMobile.AndroidRoot.ViewModels
             //        Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
             //        configuration.GetConnectionString("ResourcesPath")),
             //        true);
-            
+
+            //File.Delete(Path.Combine(
+            //    Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
+            //    configuration.GetConnectionString("DatabasePath")));
+
             IServiceCollection serviceCollection = new ServiceCollection();
 
             serviceCollection
