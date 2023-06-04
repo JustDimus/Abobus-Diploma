@@ -58,5 +58,3 @@ Comments
 DbPath /data/user/0/com.companyname.abobusmobile.androidroot/files/.local/share/abobusdb.db3
 90e71cb9-9656-414d-bfaa-f15ca702e36a
 routes/90e71cb9-9656-414d-bfaa-f15ca702e36a/comments
-AIzaSyBCO3oS9KilHhNjnDj-d8khOWmYByoxXu4 - Key for MyFirstProject
-AIzaSyDcwzqpG2Ejl3VaxedLS2KLjvwYAVOS7cA - Key for abobus-1-diploma
