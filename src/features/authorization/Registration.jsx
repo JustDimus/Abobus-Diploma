@@ -4,7 +4,7 @@ import { Form, Input, Button, Row, Col } from "antd";
 import {
     setRegistrationName,
     setRegistrationSurname,
-    setRegistrationNickname,
+    setRegistrationUserName,
     setRegistrationEmail,
     setRegistrationPassword,
     setRegistrationConfirmPassword,
@@ -37,8 +37,8 @@ const Registration = () => {
         dispatch(setRegistrationSurname(e.target.value));
     }
 
-    const setNickname = (e) => {
-        dispatch(setRegistrationNickname(e.target.value));
+    const setUserName = (e) => {
+        dispatch(setRegistrationUserName(e.target.value));
     }
 
     const setRegEmail = (e) => {
@@ -113,10 +113,10 @@ const Registration = () => {
                     </div>
 
                     <Form.Item
-                        name="nickname"
+                        name="username"
                         rules={[{
                             required: true,
-                            message: "Enter valid nickname!",
+                            message: "Enter valid username!",
                             min: 4,
                             max: 15,
                             whitespace: false
@@ -125,9 +125,9 @@ const Registration = () => {
                     >
                         <Input
                             prefix={<UserOutlined style={{ color: 'rgba(0,0,0,.25)', paddingRight: "5px" }} />}
-                            value={state.nickname}
-                            placeholder="Enter your nickname"
-                            onChange={(e) => setNickname(e)}
+                            value={state.username}
+                            placeholder="Enter your username"
+                            onChange={(e) => setUserName(e)}
                         />
                     </Form.Item>
                     <Form.Item

@@ -9,16 +9,16 @@ export const errorSlice = createSlice({
     name: "errorSlice",
     initialState,
     reducers: {
-        setMessage: (state, { payload }) => {
+        setMessage: (state, action) => {
             return {
                 ...state,
-                message: payload,
+                message: action,
             };
         },
-        setErrorMessage: (state, { payload }) => {
+        setErrorMessage: (state, action) => {
             return {
                 ...state,
-                errorMessage: payload,
+                errorMessage: action,
             };
         },
     },

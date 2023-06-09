@@ -7,11 +7,14 @@ import {
     FooterLink,
 } from "./FooterStyle";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faFacebook, faInstagram, faYoutube, faTwitter } from "@fortawesome/free-brands-svg-icons"
+
 const FooterContainer = () => {
 
     return (
         <Box>
-            <h1 style={{ color: "white", textAlign: "center", marginTop: "-50px" }}>
+            <h1 style={{ color: "white", textAlign: "center", marginTop: "-50px", fontSize:"24px", paddingBottom:"20px" }}>
                 Find and get to new places that might be your favorite
             </h1>
             <Container>
@@ -23,37 +26,39 @@ const FooterContainer = () => {
                     </Column>
                     <Column>
                         <Heading>Services</Heading>
-                        <FooterLink href="#">Writing</FooterLink>
-                        <FooterLink href="#">Internships</FooterLink>
-                        <FooterLink href="#">Coding</FooterLink>
-                        <FooterLink href="#">Teaching</FooterLink>
+                        <FooterLink href="Account/Map">Map</FooterLink>
+                        <FooterLink href="Account/History">History</FooterLink>
                     </Column>
                     <Column>
                         <Heading>Contact Us</Heading>
-                        <FooterLink href="#">Uttar Pradesh</FooterLink>
-                        <FooterLink href="#">Ahemdabad</FooterLink>
-                        <FooterLink href="#">Indore</FooterLink>
-                        <FooterLink href="#">Mumbai</FooterLink>
+                        <FooterLink href="#">JustDimus</FooterLink>
+                        <FooterLink href="#">NoobBogdan</FooterLink>
+                        <FooterLink href="#">HatinAnton</FooterLink>
+                        <FooterLink href="#">Yaroslavl</FooterLink>
                     </Column>
                     <Column>
                         <Heading>Social Media</Heading>
                         <FooterLink href="#">
-                            <i className="fab fa-facebook-f">
+                            <i>
+                                <FontAwesomeIcon icon={faFacebook} />
                                 <span style={{ marginLeft: "10px" }}>Facebook</span>
                             </i>
                         </FooterLink>
                         <FooterLink href="#">
-                            <i className="fab fa-instagram">
+                            <i>
+                                <FontAwesomeIcon icon={faInstagram} />
                                 <span style={{ marginLeft: "10px" }}>Instagram</span>
                             </i>
                         </FooterLink>
                         <FooterLink href="#">
-                            <i className="fab fa-twitter">
+                            <i>
+                                <FontAwesomeIcon icon={faTwitter} />
                                 <span style={{ marginLeft: "10px" }}>Twitter</span>
                             </i>
                         </FooterLink>
                         <FooterLink href="#">
-                            <i className="fab fa-youtube">
+                            <i>
+                                <FontAwesomeIcon icon={faYoutube} />
                                 <span style={{ marginLeft: "10px" }}>Youtube</span>
                             </i>
                         </FooterLink>

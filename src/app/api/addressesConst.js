@@ -5,3 +5,4 @@ export const REGISTRATION_API = HOST_API + "Authorization/registration";
 export const LOGIN_GOOGLE_API = HOST_API + "Authorization/google";
 
 export const USER_API = HOST_API + "User";
+export const ROUTE_API = HOST_API + "Map/create";

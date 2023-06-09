@@ -79,14 +79,27 @@ const Login = () => {
                         name="login"
                         rules={[{
                             required: true,
-                            message: "Enter valid login!",
+                            message: "Login is too short!",
                             min: 2,
-                            whitespace: true
-                        }]}
+                            whitespace: false
+                        },
+                        {
+                            required: true,
+                            message: "Login is too long!",
+                            max: 20,
+                            whitespace: false
+                        },
+                        {
+                            required: false,
+                            message: "Please use latin characters!",
+                            max: 20,
+                            whitespace: false,
+                            pattern: new RegExp(/^[A-Za-z0-9]+$/i),
+                        },]}
                         hasFeedback
                     >
                         <Input
-                            
+
                             prefix={<UserOutlined style={{ color: 'rgba(0,0,0,.25)', paddingRight: "5px" }} />}
                             placeholder="Enter your login"
                             value={state.email}
@@ -96,7 +109,15 @@ const Login = () => {
 
                     <Form.Item
                         name="password"
-                        rules={[{ required: true, message: "Enter your password!" }]}
+                        rules={[
+                            {
+                                required: true, message: "Enter your password!"
+                            },
+                            {
+                                min: 4,
+                                message: "Password is too short!"
+                            }
+                        ]}
                     >
                         <Input.Password
                             prefix={<LockOutlined style={{ color: 'rgba(0,0,0,.25)', paddingRight: "5px" }} />}

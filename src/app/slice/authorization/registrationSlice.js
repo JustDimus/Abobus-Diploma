@@ -5,10 +5,11 @@ import { registration } from "../../api/functionsAPI/authorizationAPI";
 const initialState = {
     name: "",
     surname: "",
-    nickname: "",
+    username: "",
     email: "",
     password: "",
     confirmPassword: "",
+    image: ""
 };
 
 export const registrationAsync = createAsyncThunk(
@@ -35,10 +36,10 @@ export const registrationSlice = createSlice({
                 surname: action.payload
             };
         },
-        setRegistrationNickname: (state, action) => {
+        setRegistrationUserName: (state, action) => {
             return {
                 ...state,
-                nickname: action.payload
+                username: action.payload
             };
         },
         setRegistrationEmail: (state, action) => {
@@ -65,7 +66,7 @@ export const registrationSlice = createSlice({
 export const {
     setRegistrationName,
     setRegistrationSurname,
-    setRegistrationNickname,
+    setRegistrationUserName,
     setRegistrationEmail,
     setRegistrationPassword,
     setRegistrationConfirmPassword
